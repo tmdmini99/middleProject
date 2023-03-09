@@ -2,15 +2,6 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-	<!-- 
-		<property name=""></property> setter
-		<constructor-arg></constructor-arg> getter 
-	-->
-	<!-- mybatis 사용을 위해서 객체 생성 -->
-	
-	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="location" value="classpath:database/info/dbInfo.properties"></property>
-	</bean>
 	
 	
 	<!-- Connection -->
@@ -28,7 +19,6 @@
 	</bean>
 	
 	<bean class = "org.mybatis.spring.SqlSessionTemplate" id = "sqlSession">
-		<constructor-arg name = "sqlSessionFactory" ref = "sqlSessionFactoryBean"></constructor-arg>
-		
+		<constructor-arg name = "sqlSessionFactory" ref = "sqlSessionFactoryBean"></constructor-arg>	
 	</bean>
 </beans>
