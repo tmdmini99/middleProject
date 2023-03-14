@@ -19,14 +19,10 @@ public class ProductService {
 	@Autowired
 	private ServletContext servletContext;
 	
-	public List<ProductDTO> getProductList(Pager pager) throws Exception {
-		pager.makeRow();
-		
-		Long totalCount = productDAO.getProductCount(pager);
-		
-		pager.makeNum(totalCount);
-		
-		return  productDAO.getProductList(pager);
+	public List<ProductDTO> getProductList() throws Exception {
+		List<ProductDTO> ar =  productDAO.getProductList();
+
+		return ar;
 	}
 		
 	

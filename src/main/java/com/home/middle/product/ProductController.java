@@ -20,16 +20,20 @@ public class ProductController {
 	private ProductService productService;
 	
 	@RequestMapping(value="list" , method=RequestMethod.GET)
-	public ModelAndView getProductList(Pager pager) throws Exception{
+	public ModelAndView getProductList() throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
-		List<ProductDTO> ar = productService.getProductList(pager);
+		List<ProductDTO> ar = productService.getProductList();
 	  
 		mv.setViewName("product/productList");
 		mv.addObject("list",ar);
-		mv.addObject("pager", pager);
+		//mv.addObject("pager", pager);
 		return mv;
 	}
+	
+	
+	
+	
 	
 	
 	

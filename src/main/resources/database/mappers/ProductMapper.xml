@@ -10,8 +10,11 @@
   	</select>
   	
   	
+  	<select id="getProductList" resultType="ProductDTO" statementType="PREPARED">
+  	SELECT PRODUCTNUM , PRODUCTNAME , DISCOUNT , DISCOUNTPERCENT  FROM PRODUCT
   	
-  	
+  	</select>
+  		
  	
  
  	 

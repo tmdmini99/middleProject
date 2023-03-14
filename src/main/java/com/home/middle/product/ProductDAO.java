@@ -19,13 +19,13 @@ public class ProductDAO {
 		return sqlSession.selectOne(NAMESPACE+"getProductNum");
 	}
 	
-	public List<ProductDTO> getProductList(Pager pager)throws Exception{
-		return sqlSession.selectList(NAMESPACE+"getProductList",pager);
+	public List<ProductDTO> getProductList()throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getProductList");
 	}
 	
 //	public Long getProductCount(Pager pager) throws Exception {
 //		return sqlSession.selectOne(NAMESPACE+"getProductCount");
 //	}
-	
+//	
 	
 }
