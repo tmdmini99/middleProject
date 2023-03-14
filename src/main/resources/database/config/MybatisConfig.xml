@@ -6,6 +6,12 @@
   
 <configuration>
 	<typeAliases>
+  		<typeAlias type="com.home.middle.product.ProductDTO" alias="ProductDTO" />
+  		<typeAlias type="com.home.middle.product.ProductImgDTO" alias="ProductImgDTO" />
+  	    <typeAlias type="com.home.middle.product.ProductOptionDTO" alias="ProductOptionDTO" />
+  	     <typeAlias type="com.home.middle.util.Pager" alias="Pager"/>
+  	    <typeAlias type="java.lang.Long" alias="Long" />
+  		
   		
 	</typeAliases>
 </configuration>
