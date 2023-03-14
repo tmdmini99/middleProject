@@ -149,7 +149,7 @@ public class CartController {
 		int result = cartService.getCartUpdate(cartDTO);
 		
 		mv.addObject("result", result);
-		mv.setViewName("/common/result");
+		mv.setViewName("/common/result_1");
 		
 		return mv;
 	}
