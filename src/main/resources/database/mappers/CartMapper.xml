@@ -2,5 +2,73 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace = "sample">
+<mapper namespace = "com.home.middle.cart.CartDAO">
+	
+	<!-- 나중에 삭제하기 -->
+	<select id="getProductDetail" parameterType="productDTO" resultType="productDTO">
+		SELECT P.PRODUCTNUM, P.PRODUCTNAME, "POP".PRODUCTPRICE FROM PRODUCT P
+		LEFT OUTER JOIN PRODUCTOPTION "POP"
+		ON(P.PRODUCTNUM = "POP".PRODUCTNUM)
+		WHERE P.PRODUCTNUM = #{productNum} AND "POP".OPTIONNUM = 27
+	</select>
+
+	<select id="getCartList" parameterType="MemberDTO" resultMap="ProductCartList">
+		SELECT * FROM PRODUCTORDER PO
+		LEFT OUTER JOIN PRODUCT P
+		ON(PO.PRODUCTNUM = P.PRODUCTNUM)
+		LEFT OUTER JOIN PRODUCTOPTION "POP"
+		ON(P.PRODUCTNUM = "POP".PRODUCTNUM)
+		WHERE ID = #{id}
+		ORDER BY PO.ORDERNUM DESC
+	</select>
+	
+	<select id="getCartPaymentDetail" parameterType="CartDTO" resultMap="ProductCartList">
+		SELECT * FROM PRODUCTORDER PO
+		LEFT OUTER JOIN PRODUCT P
+		ON(PO.PRODUCTNUM = P.PRODUCTNUM)
+		LEFT OUTER JOIN PRODUCTOPTION "POP"
+		ON(P.PRODUCTNUM = "POP".PRODUCTNUM)
+		WHERE ORDERNUM = #{orderNum}
+	</select>
+	
+	<resultMap type="CartDTO" id="ProductCartList">
+		<id column="ORDERNUM" property="orderNum" ></id>
+ 		<result column="ID" property="id"/>
+ 		<result column="TOTALPRICE" property="totalPrice"/>
+ 		<result column="PRODUCTEA" property="productEa"/>
+ 		<result column="ORDERDATE" property="orderDate"/>
+ 		<result column="BUYCHECK" property="buyCheck"/>
+ 		<result column="OPTIONNUM" property="optionNum"/>
+ 		
+ 		<association property="productDTO" javaType="ProductDTO">
+ 			<id column="PRODUCTNUM" property="productNum"></id>
+ 			<result column="PRODUCTNAME" property="productName"/>
+ 			<result column="PRODUCTPRICE" property="productPrice"/>
+ 			<result column="OPTIONNUM" property="optionNum"/>
+ 			<result column="OPTIONNAME" property="optionName"/>
+ 		</association>
+	</resultMap>
+	
+	<insert id="setCartAdd" parameterType="CartDTO">
+		INSERT INTO PRODUCTORDER VALUES (ORDER_SEQ.NEXTVAL, #{productDTO.productNum}, #{id}, #{totalPrice}, #{productEa}, SYSDATE, 0, #{optionNum})
+	</insert>
+	
+	
+	<delete id="setCartDelete" parameterType="CartDTO">
+		DELETE PRODUCTORDER WHERE ORDERNUM = #{orderNum}
+	</delete>
+	<delete id="setCartClear" parameterType="CartDTO">
+		DELETE PRODUCTORDER WHERE ID = #{id}
+	</delete>
+	
+	
+	<update id="setCartPayment" parameterType="CartDTO">
+		UPDATE PRODUCTORDER SET BUYCHECK = 1 WHERE ORDERNUM = #{orderNum}
+	</update>
+	<update id="setCartPaymentCancel" parameterType="CartDTO">
+		UPDATE PRODUCTORDER SET BUYCHECK = 0 WHERE ORDERNUM = #{orderNum}
+	</update>
+	<update id="getCartUpdate" parameterType="CartDTO">
+		UPDATE PRODUCTORDER SET PRODUCTEA = #{productEa}, TOTALPRICE=#{totalPrice} WHERE ORDERNUM = #{orderNum}
+	</update>
 </mapper>

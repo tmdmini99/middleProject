@@ -5,10 +5,9 @@
 	<title>Home</title>
 </head>
 <body>
-<h1>
-	Hello world!  
-</h1>
-
-<P>  The time on the server is ${serverTime}. </P>
+	<a href="/cart/cartAdd" type="button" class="btn btn-primary" id="add">cartAdd</a>
+	<a href="/cart/cartList" type="button" class="btn btn-primary" id="list">cartList</a>
+	
+	
 </body>
 </html>

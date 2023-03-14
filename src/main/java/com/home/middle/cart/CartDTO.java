@@ -4,25 +4,36 @@ import java.sql.Date;
 
 public class CartDTO {
 	private Long orderNum;
-	private Long productNum;
+	
 	private String id;
 	private Long totalPrice;
 	private Long productEa;
-	private Date date;
+	private Date orderDate;
 	private Long buyCheck;
+	private Long optionNum;
 	
+	public Long getOptionNum() {
+		return optionNum;
+	}
+	public void setOptionNum(Long optionNum) {
+		this.optionNum = optionNum;
+	}
+	private ProductDTO productDTO;
+	
+	
+	public ProductDTO getProductDTO() {
+		return productDTO;
+	}
+	public void setProductDTO(ProductDTO productDTO) {
+		this.productDTO = productDTO;
+	}
 	public Long getOrderNum() {
 		return orderNum;
 	}
 	public void setOrderNum(Long orderNum) {
 		this.orderNum = orderNum;
 	}
-	public Long getProductNum() {
-		return productNum;
-	}
-	public void setProductNum(Long productNum) {
-		this.productNum = productNum;
-	}
+	
 	public String getId() {
 		return id;
 	}
@@ -41,11 +52,12 @@ public class CartDTO {
 	public void setProductEa(Long productEa) {
 		this.productEa = productEa;
 	}
-	public Date getDate() {
-		return date;
+	
+	public Date getOrderDate() {
+		return orderDate;
 	}
-	public void setDate(Date date) {
-		this.date = date;
+	public void setOrderDate(Date orderDate) {
+		this.orderDate = orderDate;
 	}
 	public Long getBuyCheck() {
 		return buyCheck;
