@@ -27,7 +27,7 @@ public class CartController {
 		memberDTO.setId("TEST2");
 		
 		List<CartDTO> ar = cartService.getCartList(memberDTO);
-		
+		System.out.println(ar.get(0).getProductDTO().getProductPrice());
 		mv.addObject("list", ar);
 		
 		return mv;
@@ -72,8 +72,8 @@ public class CartController {
 		
 		int result = cartService.setCartDelete(cartDTO);
 		
-		//mv.addObject("result", result);
-		mv.setViewName("redirect:./cartList");
+		mv.addObject("result", result);
+		mv.setViewName("/common/result_1");
 		
 		return mv;
 	}
