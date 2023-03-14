@@ -7,7 +7,7 @@
 <configuration>
 	<typeAliases>
   		<typeAlias type="com.home.middle.cart.CartDTO" alias="CartDTO"/>
-  		<typeAlias type="com.home.middle.cart.MemberDTO" alias="MemberDTO"/>
+  		
   		<typeAlias type="com.home.middle.cart.ProductDTO" alias="ProductDTO"/>
   		<typeAlias type="com.home.middle.member.MemberDTO" alias="MemberDTO"/>
   		<typeAlias type="com.home.middle.member.RoleDTO" alias="RoleDTO"/>

@@ -2,6 +2,8 @@ package com.home.middle.cart;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +11,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.home.middle.member.MemberDTO;
 
 @Controller
 @RequestMapping("/cart/*")
@@ -19,17 +23,20 @@ public class CartController {
 	
 	
 	@GetMapping("cartList")
-	public ModelAndView getCartList() throws Exception{
+	public ModelAndView getCartList(HttpSession session) throws Exception{
 		//member 연동해서 아이디에 따른 장바구니 가져오기
 		ModelAndView mv = new ModelAndView();
-		//임시 아이디 설정
-		MemberDTO memberDTO = new MemberDTO();
-		memberDTO.setId("TEST2");
 		
-		List<CartDTO> ar = cartService.getCartList(memberDTO);
-		System.out.println(ar.get(0).getProductDTO().getProductPrice());
-		mv.addObject("list", ar);
-		
+		if(session.getAttribute("member")!=null) {
+			MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
+			
+			List<CartDTO> ar = cartService.getCartList(memberDTO);
+			
+			mv.addObject("list", ar);
+			mv.setViewName("/cart/cartPayment");
+		}else {
+			mv.setViewName("redirect:../");
+		}
 		return mv;
 		
 	}
@@ -91,17 +98,19 @@ public class CartController {
 	}
 	
 	@GetMapping("cartPayment")
-	public ModelAndView setCartPayment() throws Exception{
+	public ModelAndView setCartPayment(HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
-		//임시 아이디 설정
-		MemberDTO memberDTO = new MemberDTO();
-		memberDTO.setId("TEST2");
-		List<CartDTO> ar = cartService.getCartList(memberDTO);
-		
-		mv.addObject("list", ar);
-		mv.setViewName("/cart/cartPayment");
-		
+		if(session.getAttribute("member")!=null) {
+			MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
+			
+			List<CartDTO> ar = cartService.getCartList(memberDTO);
+			
+			mv.addObject("list", ar);
+			mv.setViewName("/cart/cartPayment");
+		}else {
+			mv.setViewName("redirect:../");
+		}
 		return mv;
 	}
 	
