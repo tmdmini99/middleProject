@@ -7,6 +7,10 @@
 	<title>Home</title>
 </head>
 <body>
+	<a href="/cart/cartAdd" type="button" class="btn btn-primary" id="add">cartAdd</a>
+	<a href="/cart/cartList" type="button" class="btn btn-primary" id="list">cartList</a>
+	
+	
 <h1>
 ok
 	Hello world!  
