@@ -27,11 +27,25 @@ list.addEventListener('click', function(e){
     }
     if(e.target.classList.contains('delete')){
         let del = document.getElementById('delete-' + idx);
+        let orderNum = document.getElementById("orderNum-"+idx).innerText;
         let check = window.confirm("정말 삭제 하시겠습니까?");
+        
         if(check){
-            frm.setAttribute("action", "./cartDelete");
-            frm.setAttribute("method", "post");
-            frm.submit();
+            fetch('./cartDelete', {
+            method : 'POST',
+            headers : {"Content-type": "application/x-www-form-urlencoded"},
+            body : "orderNum=" + orderNum
+            }).then((response)=> response.text() )
+            .then((res)=> {
+            if(res.trim() == 1){
+                alert("성공")
+                location.reload();
+            }else{
+                alert("실패")
+            }
+            }).catch(()=>{
+            alert('에러');
+            })
         }
     }
     if(e.target.classList.contains('updateCheck')){
@@ -65,6 +79,7 @@ list.addEventListener('change', function(e){
         let idx = e.target.getAttribute('data-all-idx');
         let total = document.getElementById('totalPrice-'+idx);
         let price = document.getElementById("price-"+idx).value;
+        console.log(price);
         total.innerText = price * document.getElementById('updateEA').value;
     }
 })

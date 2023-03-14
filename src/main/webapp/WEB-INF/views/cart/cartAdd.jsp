@@ -27,11 +27,11 @@
 				</div>
 				<div class="mb-3">
 					<label for="OptionNum" class="form-label">OptionNum</label>
-					<input type="text" class="form-control" id="OptionNum" name="optionNum" value="${pDTO.productNum}" readonly>
+					<input type="text" class="form-control" id="OptionNum" name="optionNum" value="${pDTO.optionNum}" readonly>
 				</div>
 				<div class="mb-3">
 					<label for="OptionName" class="form-label">OptionName</label>
-					<input type="text" class="form-control" id="OptionName" name="optionName" value="${pDTO.productName}" readonly>
+					<input type="text" class="form-control" id="OptionName" name="optionName" value="${pDTO.optionName}" readonly>
 				</div>
 				<div class="mb-3">
 					<label for="ProductPrice" class="form-label">ProductPrice</label>
