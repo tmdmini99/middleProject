@@ -34,19 +34,24 @@ public class ProductController {
 	}
 	
 	
-	@RequestMapping(value="detail")
-	public String getProductDetail(ProductDTO productDTO, Model model) throws Exception{
+	
+	
+	//@RequestMapping(value="detail",method=RequestMethod.GET)
+	@RequestMapping(value="detail",method=RequestMethod.GET)
+	public ModelAndView getProductDetail(ProductDTO productDTO, Model model) throws Exception{
 		//파라미터 이름과 setter의 이름과 같아야함 
 		
 		System.out.println("Product detail");
-		
+		ModelAndView mv = new ModelAndView();
 		productDTO = productService.getProductDetail(productDTO);
 		
 		System.out.println(productDTO!=null);
 		
-		model.addAttribute("dto",productDTO);
+		 mv.setViewName("/product/productDetail");
+		 mv.addObject("dto",productDTO);
 		
-		return "product/productDetail";
+		return mv;
+		
 	}
 	
 	

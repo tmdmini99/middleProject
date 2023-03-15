@@ -11,31 +11,30 @@
 </head>
 	<body>
 		<h1>Detail Page</h1>
-	<% ProductDTO productDTO = (ProductDTO)request.getAttribute("dto"); %>
-	
-	<h3><%= productDTO.getProductName() %> </h3>
-	<h3><%= productDTO.getProductNum() %></h3>
-	
-	<hr>
-	<h3>${requestScope.dto.productName}</h3>
-	<h3>${dto.getProductNum()}</h3>
-			<!-- 싹싹싹 긁어온 부분  -->
-			 	<div class="col-lg-6 col-md-12 col-12">
-			        <div class="product-images">
-			            <main id="gallery">
-			                    <div class="main-img">
-									<img src="https://demo.graygrids.com/themes/shopgrids/assets/images/product-details/x01.jpg.pagespeed.ic.dzfilwUWdG.webp" id="current" alt="#" data-pagespeed-url-hash="4064215021" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
-			                    </div>
-			                    <div class="images">
-			                    <img src="assets/images/product-details/x01.jpg.pagespeed.ic.dzfilwUWdG.webp" class="img" alt="#" data-pagespeed-url-hash="4064215021" onload="pagespeed.CriticalImages.checkImageForCriticality(this);" style="opacity: 0.6;">
-			                    <img src="assets/images/product-details/x02.jpg.pagespeed.ic.DfOtEWLJTK.webp" class="img" alt="#" data-pagespeed-url-hash="63747646" onload="pagespeed.CriticalImages.checkImageForCriticality(this);" style="opacity: 1;">
-			                    <img src="assets/images/product-details/x03.jpg.pagespeed.ic.34ELmg8Ko8.webp" class="img" alt="#" data-pagespeed-url-hash="358247567" onload="pagespeed.CriticalImages.checkImageForCriticality(this);" style="opacity: 1;">
-			                    <img src="assets/images/product-details/x04.jpg.pagespeed.ic.xTI-mpWzZ4.webp" class="img" alt="#" data-pagespeed-url-hash="652747488" onload="pagespeed.CriticalImages.checkImageForCriticality(this);" style="opacity: 1;">
-			                    <img src="assets/images/product-details/x05.jpg.pagespeed.ic.4akyUDrzmC.webp" class="img" alt="#" data-pagespeed-url-hash="947247409" onload="pagespeed.CriticalImages.checkImageForCriticality(this);" style="opacity: 1;">
-			                    </div>
-			            </main>
-			        </div>
-			    </div>
+	<!-- Product section-->
+        <section class="py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="row gx-4 gx-lg-5 align-items-center">
+                    <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="https://dummyimage.com/600x700/dee2e6/6c757d.jpg" alt="..." /></div>
+                    <div class="col-md-6">
+                        <div class="small mb-1">업로드 날짜 : ${dto.productOptionDTO.productDate}</div>
+                        <h1 class="display-5 fw-bolder">${dto.productName}</h1>
+                        <div class="fs-5 mb-5">
+                            <span class="text-decoration-line-through">${dto.productOptionDTO.productPrice}원</span>
+                            <span>${dto.productOptionDTO.productPrice}원</span>
+                        </div>
+                        <p class="lead">옵션명 : ${dto.productOptionDTO.optionName} 옵션종류 :${dto.productOptionDTO.optionValue}</p>
+                        <div class="d-flex">
+                            <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
+                            <button class="btn btn-outline-dark flex-shrink-0" type="button">
+                                <i class="bi-cart-fill me-1"></i>
+                                Add to cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 			<c:import url="../template/common_js.jsp"></c:import>
 	</body>
 </html>

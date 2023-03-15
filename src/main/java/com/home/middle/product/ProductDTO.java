@@ -8,7 +8,21 @@ public class ProductDTO {
 	private Double discountPercent;
 	private Long productSales;
 	private Long categoryNum;
+	private ProductOptionDTO productOptionDTO;
+	private ProductImgDTO productImgDTO;
 	
+	public ProductOptionDTO getProductOptionDTO() {
+		return productOptionDTO;
+	}
+	public void setProductOptionDTO(ProductOptionDTO productOptionDTO) {
+		this.productOptionDTO = productOptionDTO;
+	}
+	public ProductImgDTO getProductImgDTO() {
+		return productImgDTO;
+	}
+	public void setProductImgDTO(ProductImgDTO productImgDTO) {
+		this.productImgDTO = productImgDTO;
+	}
 	public Long getProductNum() {
 		return productNum;
 	}

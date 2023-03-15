@@ -52,10 +52,6 @@
 </section>
 	
 	
-	
-	
-	
-	
 <div class="row col-md-7 mx-auto">
 	<table class="table table-hover"> 
 	

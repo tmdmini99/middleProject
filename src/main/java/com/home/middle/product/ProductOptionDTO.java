@@ -1,5 +1,7 @@
 package com.home.middle.product;
 
+import java.sql.Date;
+
 public class ProductOptionDTO {
 	
 	//productoption 테이블
@@ -8,8 +10,46 @@ public class ProductOptionDTO {
 	private Long productPrice;
 	private Long productStock;
 	private String optionName;
+	private Date productDate;
+	private String optionValue;
+	private Long ref;
+	private Long depth;
+	private Long step;
+	
 	
 	///getters setters
+	public Date getProductDate() {
+		return productDate;
+	}
+	public void setProductDate(Date productDate) {
+		this.productDate = productDate;
+	}
+	
+	public String getOptionValue() {
+		return optionValue;
+	}
+	public void setOptionValue(String optionValue) {
+		this.optionValue = optionValue;
+	}
+	public Long getRef() {
+		return ref;
+	}
+	public void setRef(Long ref) {
+		this.ref = ref;
+	}
+	public Long getDepth() {
+		return depth;
+	}
+	public void setDepth(Long depth) {
+		this.depth = depth;
+	}
+	public Long getStep() {
+		return step;
+	}
+	public void setStep(Long step) {
+		this.step = step;
+	}
+
 	public Long getOptionNum() {
 		return optionNum;
 	}
