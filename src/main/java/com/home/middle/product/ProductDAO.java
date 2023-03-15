@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import com.home.middle.util.Pager;
 
-
 @Repository
 public class ProductDAO {
 	@Autowired
@@ -23,9 +22,10 @@ public class ProductDAO {
 		return sqlSession.selectList(NAMESPACE+"getProductList");
 	}
 	
-//	public Long getProductCount(Pager pager) throws Exception {
-//		return sqlSession.selectOne(NAMESPACE+"getProductCount");
-//	}
-//	
+	public ProductDTO getProductDetail(ProductDTO productDTO) throws Exception {		
+		return sqlSession.selectOne(NAMESPACE+"getProductDetail", productDTO);
+	}
+	
+	
 	
 }

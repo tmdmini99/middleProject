@@ -14,7 +14,15 @@
   	SELECT PRODUCTNUM , PRODUCTNAME , DISCOUNT , DISCOUNTPERCENT  FROM PRODUCT
   	
   	</select>
-  		
+  	<!-- parameterType="ProductDTO" resultType="ProductDTO" -->
+  	<!-- 	SELECT P.*, PO.* FROM PRODUCT P
+	JOIN PRODUCTOPTION PO 
+	ON PO.OPTIONNUM  = P.PRODUCTNUM 
+	WHERE P.PRODUCTNUM = #{productNum}; -->
+  				
+   <select id="getProductDetail" parameterType="ProductDTO" resultType="ProductDTO">
+	SELECT * FROM PRODUCT  WHERE PRODUCTNUM = #{productNum}
+   </select>
  	
  
  	 

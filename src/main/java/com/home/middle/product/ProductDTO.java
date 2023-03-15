@@ -2,40 +2,53 @@ package com.home.middle.product;
 
 public class ProductDTO {
 	//product 테이블
-	private Long  ProductNum;
-	private String ProductName;
-	private Long Discount;
-	private Double DiscountPercent;
+	private Long  productNum;
+	private String productName;
+	private Long discount;
+	private Double discountPercent;
+	private Long productSales;
+	private Long categoryNum;
 	
-	///getters setters
 	public Long getProductNum() {
-		return ProductNum;
+		return productNum;
 	}
 	public void setProductNum(Long productNum) {
-		ProductNum = productNum;
+		this.productNum = productNum;
 	}
 	public String getProductName() {
-		return ProductName;
+		return productName;
 	}
 	public void setProductName(String productName) {
-		ProductName = productName;
+		this.productName = productName;
 	}
 	public Long getDiscount() {
-		return Discount;
+		return discount;
 	}
 	public void setDiscount(Long discount) {
-		Discount = discount;
+		this.discount = discount;
 	}
 	public Double getDiscountPercent() {
-		return DiscountPercent;
+		return discountPercent;
 	}
 	public void setDiscountPercent(Double discountPercent) {
-		DiscountPercent = discountPercent;
+		this.discountPercent = discountPercent;
+	}
+	public Long getProductSales() {
+		return productSales;
+	}
+	public void setProductSales(Long productSales) {
+		this.productSales = productSales;
+	}
+	public Long getCategoryNum() {
+		return categoryNum;
+	}
+	public void setCategoryNum(Long gategoryNum) {
+		this.categoryNum = gategoryNum;
 	}
 	
-  
 	
 	
+
 	
 	
 }
