@@ -2,6 +2,8 @@ package com.home.middle.product;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -46,5 +48,11 @@ public class ProductController {
 		return mv;
 	}
 	
+	@GetMapping("update")
+	public ModelAndView setProductUpdate(ProductDTO productDTO, HttpSession session, MultipartFile[] pics) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		
+		
+	}
 	
 }

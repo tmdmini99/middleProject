@@ -29,5 +29,9 @@
 		WHERE PRODUCTNUM = #{productNum}
 	</update>
 	
+	<delete id="setProductFileDelete" parameterType="Long">
+		DELETE PRODUCTFILES
+		WHERE FILENUM=#{fileNum}
+	</delete>
 	
 	</mapper>  

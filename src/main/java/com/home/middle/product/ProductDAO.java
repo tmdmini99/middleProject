@@ -18,13 +18,19 @@ public class ProductDAO {
 		return sqlSession.insert(NAMESPACE + "setProductAdd", productDTO);
 	}
 	
-	public int setProductFileAdd(ProductImgDTO productFileDTO) throws Exception {
-		return sqlSession.insert(NAMESPACE + "setProductFileAdd", productFileDTO);
+	public int setProductFileAdd(ProductImgDTO productImgDTO) throws Exception {
+		return sqlSession.insert(NAMESPACE + "setProductFileAdd", productImgDTO);
 	}
 	
 	public List<ProductDTO> getProductList() throws Exception {
 		return sqlSession.selectList(NAMESPACE + "getProductList");
 	}
 	
+	public int setProductUpdate(ProductDTO productDTO) throws Exception {
+		return sqlSession.update(NAMESPACE + "setProductUpdate", productDTO);
+	}
 	
+	public int setProductFileDelete(Long fileNum) throws Exception {
+		return sqlSession.delete(NAMESPACE + "setProductFileDelete", fileNum);
+	}
 }

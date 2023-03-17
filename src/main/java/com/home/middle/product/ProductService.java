@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -51,6 +52,38 @@ public class ProductService {
 	
 	public List<ProductDTO> getProductList() throws Exception {
 		return productDAO.getProductList();
+	}
+	
+	public int setProductUpdate(ProductDTO productDTO, MultipartFile[] pic, Long[] fileNums, HttpSession session) throws Exception {
+		int result =  productDAO.setProductUpdate(productDTO);
+		
+		//파일삭제
+		for(Long fileNum : fileNums) {
+			productDAO.setProductFileDelete(fileNum);
+		}
+		
+		//파일 다시 add
+		String realPath = session.getServletContext().getRealPath("resources/upload/product");
+		
+		for(MultipartFile pics : pic) {
+			if(pics.isEmpty()) {
+				continue;
+			}
+			
+			String fileName = fileManager.fileSave(pics, realPath);
+			
+			ProductImgDTO productImgDTO = new ProductImgDTO();
+			
+			productImgDTO.setFileName(fileName);
+			productImgDTO.setOriName(pics.getOriginalFilename());
+			productImgDTO.setProductNum(productDTO.getProductNum());
+			
+			result = productDAO.setProductFileAdd(productImgDTO);
+			
+		}
+		
+		return result;
+		
 	}
 
 }
