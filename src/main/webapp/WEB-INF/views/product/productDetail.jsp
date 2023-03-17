@@ -10,20 +10,73 @@
 <c:import url="../template/common_css.jsp"></c:import>
 </head>
 	<body>
+	
 		<h1>Detail Page</h1>
 	<!-- Product section-->
+		
         <section class="py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="row gx-4 gx-lg-5 align-items-center">
-                    <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="https://dummyimage.com/600x700/dee2e6/6c757d.jpg" alt="..." /></div>
+              
                     <div class="col-md-6">
-                        <div class="small mb-1">업로드 날짜 : ${dto.productOptionDTO.productDate}</div>
-                        <h1 class="display-5 fw-bolder">${dto.productName}</h1>
-                        <div class="fs-5 mb-5">
-                            <span class="text-decoration-line-through">${dto.productOptionDTO.productPrice}원</span>
-                            <span>${dto.productOptionDTO.productPrice}원</span>
-                        </div>
-                        <p class="lead">옵션명 : ${dto.productOptionDTO.optionName} 옵션종류 :${dto.productOptionDTO.optionValue}</p>
+                     <c:forEach items="${dto.productImgDTOs}" var="productImgDTO">
+                   		<img class="card-img-top mb-5 mb-md-0" src= "../resources/upload/product/${productImgDTO.fileName}" /> 
+                    </c:forEach>
+                    </div>
+                    
+                    	<div class="col-md-6">
+                    	<c:set var="loop_flag" value="false" />
+
+                        <c:forEach items="${dto.productOptionDTOs}" var="productOptionDTO">
+                        <c:if test="${not loop_flag }">
+                        <div class="small mb-1">업로드 날짜 : ${productOptionDTO.productDate}</div>
+                            <h1 class="display-5 fw-bolder">${dto.productName}</h1>
+                          	<div class="fs-5 mb-5">
+                            <span class="text-decoration-line-through">${productOptionDTO.productPrice}원</span>
+                            <span>원</span>
+                       	
+                       	</div>
+                       		 
+                       		 <!-- 옵션 창 띄워주는 부분 -->
+                       		 <select class="form-select" aria-label="Default select example"> 
+                       		 <c:if test="${productOptionDTO.depth eq 0}">
+                      		<option selected>${productOptionDTO.optionName}</option>  
+                      		</c:if>
+                      		
+                      		<c:forEach items="${dto.productOptionDTOs}" var="productOptionDTO">
+							<c:if test="${productOptionDTO.depth eq 0}">
+						 	<option value="${productOptionDTO.optionValue}">${productOptionDTO.optionValue}</option>  
+							 </c:if> 
+							 </c:forEach>
+							</select>
+						
+						     <select class="form-select" aria-label="Default select example"> 
+                       		<!-- <c:if test="${productOptionDTO.depth eq 1}">  -->	
+                      		<option selected>${productOptionDTO.optionName}</option>  
+                      		<!-- </c:if> -->
+                      		<c:forEach items="${dto.productOptionDTOs}" var="productOptionDTO">
+							<c:if test="${productOptionDTO.depth eq 1}">
+						 	<option value="${productOptionDTO.optionValue}">${productOptionDTO.optionValue}</option>  
+							 </c:if> 
+							 </c:forEach>
+							</select>
+							
+							
+						 <select class="form-select" aria-label="Default select example"> 
+                       		<!-- <c:if test="${productOptionDTO.depth eq 1}">  -->	
+                      		<option selected>${productOptionDTO.optionName}</option>  
+                      		<!-- </c:if> -->
+                      		<c:forEach items="${dto.productOptionDTOs}" var="productOptionDTO">
+							<c:if test="${productOptionDTO.depth eq 2}">
+						 	<option value="${productOptionDTO.optionValue}">${productOptionDTO.optionValue}</option>  
+							 </c:if> 
+							 </c:forEach>
+							</select>
+						
+                         <c:set var="loop_flag" value="true" />
+                         </c:if>
+                        </c:forEach>
+
                         <div class="d-flex">
                             <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
                             <button class="btn btn-outline-dark flex-shrink-0" type="button">
@@ -32,9 +85,11 @@
                             </button>
                         </div>
                     </div>
+                    
                 </div>
             </div>
         </section>
+        	
 			<c:import url="../template/common_js.jsp"></c:import>
 	</body>
 </html>

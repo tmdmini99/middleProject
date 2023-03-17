@@ -16,9 +16,12 @@
   	</select>
   	
  	<select id="getProductDetail" parameterType="ProductDTO" resultMap="productDetailResult">
-	SELECT P.*, PO.* FROM PRODUCT P
-	JOIN PRODUCTOPTION PO 
-	ON PO.OPTIONNUM  = P.PRODUCTNUM 
+
+	SELECT P.*, PO.* ,FI.* FROM PRODUCT P
+	LEFT JOIN PRODUCTOPTION PO 
+	ON PO.PRODUCTNUM   = P.PRODUCTNUM 
+	LEFT JOIN PRODUCTFILES FI 
+	ON FI.PRODUCTNUM  = P.PRODUCTNUM 
 	WHERE P.PRODUCTNUM = #{productNum}
    </select> 
  	
@@ -35,7 +38,7 @@
 	   <result column="CATEGORYNUM" property="categoryNum" />
 	   
  	   <!-- 1:n 관계일 때  -->
- 	   <collection property="productOptionDTO" javaType="ProductOptionDTO">
+ 	   <collection property="productOptionDTOs" javaType="List" ofType="ProductOptionDTO">
  	    <id  column="OPTIONNUM"  property="optionNum" />
  	    <result  column="PRODUCTNUM" property="productNum"/>
         <result  column="PRODUCTPRICE" property="productPrice"/>
@@ -48,7 +51,31 @@
     	<result  column="STEP" property="step"/>
  	   </collection>
  	 
+ 	   <collection property="productImgDTOs" javaType="List" ofType="ProductImgDTO" >
+ 	    <id  column="FILENUM"  property="fileNum" />
+        <result  column="NUM" property="num"/>
+    	<result  column="FILENAME" property="fileName"/>
+    	<result  column="ORINAME" property="oriName"/>
+ 	   </collection>
+ 	   
  	    <!-- 1:1 관계일 때 -->
     	<!--<association property="" javaType="">-->
    </resultMap>
+   
+   
+   
+
+   	<insert id="setProductAdd" parameterType="ProductDTO">
+		<selectKey keyProperty="productNum" resultType="Long" order="BEFORE">
+		SELECT PRODUCT_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO PRODUCT 
+		VALUES (#{productNum}, #{productName}, #{discount},#{discountPercent} , #{productSales}, #{categoryNum})
+	</insert>
+	
+	<insert id="setProductFileAdd" parameterType="ProductImgDTO">
+		INSERT INTO PRODUCTFILES
+		VALUES (PRODUCTFILES_SEQ.NEXTVAL, #{productNum},1, #{fileName}, #{oriName})
+	</insert>
+    
  </mapper>

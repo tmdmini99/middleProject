@@ -28,5 +28,14 @@ public class ProductDAO {
 	}
 	
 	
+	//////////////////////미리가 구현한 부분 ///////////////////////////
+	public int setProductAdd(ProductDTO productDTO) throws Exception {
+		return sqlSession.insert(NAMESPACE + "setProductAdd", productDTO);
+	}
+	
+	public int setProductFileAdd(ProductImgDTO productFileDTO) throws Exception {
+		return sqlSession.insert(NAMESPACE + "setProductFileAdd", productFileDTO);
+	}
+	//////////////////////////여기까지///////////////////////////////
 	
 }

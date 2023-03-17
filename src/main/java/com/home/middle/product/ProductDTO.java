@@ -1,5 +1,9 @@
 package com.home.middle.product;
 
+import java.util.List;
+
+
+
 public class ProductDTO {
 	//product 테이블
 	private Long  productNum;
@@ -7,22 +11,35 @@ public class ProductDTO {
 	private Long discount;
 	private Double discountPercent;
 	private Long productSales;
+
+	//리스트로 수정 //
 	private Long categoryNum;
-	private ProductOptionDTO productOptionDTO;
-	private ProductImgDTO productImgDTO;
 	
-	public ProductOptionDTO getProductOptionDTO() {
-		return productOptionDTO;
+	private List<ProductOptionDTO> productOptionDTOs;
+	private List<ProductImgDTO> productImgDTOs;
+	
+	
+	public Long getCategoryNum() {
+		return categoryNum;
 	}
-	public void setProductOptionDTO(ProductOptionDTO productOptionDTO) {
-		this.productOptionDTO = productOptionDTO;
+	public void setCategoryNum(Long categoryNum) {
+		this.categoryNum = categoryNum;
 	}
-	public ProductImgDTO getProductImgDTO() {
-		return productImgDTO;
+	public List<ProductOptionDTO> getProductOptionDTOs() {
+		return productOptionDTOs;
 	}
-	public void setProductImgDTO(ProductImgDTO productImgDTO) {
-		this.productImgDTO = productImgDTO;
+	public void setProductOptionDTOs(List<ProductOptionDTO> productOptionDTOs) {
+		this.productOptionDTOs = productOptionDTOs;
 	}
+	public List<ProductImgDTO> getProductImgDTOs() {
+		return productImgDTOs;
+	}
+	public void setProductImgDTOs(List<ProductImgDTO> productImgDTOs) {
+		this.productImgDTOs = productImgDTOs;
+	}
+	
+
+
 	public Long getProductNum() {
 		return productNum;
 	}
@@ -53,13 +70,7 @@ public class ProductDTO {
 	public void setProductSales(Long productSales) {
 		this.productSales = productSales;
 	}
-	public Long getCategoryNum() {
-		return categoryNum;
-	}
-	public void setCategoryNum(Long gategoryNum) {
-		this.categoryNum = gategoryNum;
-	}
-	
+
 	
 	
 

@@ -18,13 +18,13 @@ public class ProductOptionDTO {
 	
 	
 	///getters setters
+	
 	public Date getProductDate() {
 		return productDate;
 	}
 	public void setProductDate(Date productDate) {
 		this.productDate = productDate;
 	}
-	
 	public String getOptionValue() {
 		return optionValue;
 	}

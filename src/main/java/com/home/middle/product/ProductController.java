@@ -5,8 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.home.middle.util.Pager;
@@ -55,6 +58,28 @@ public class ProductController {
 	}
 	
 	
+	
+	//////////////////미리가 구현한 부분 DB 테스트 후 삭제 예정   /////////////////
+	
+	@GetMapping("add")
+	public ModelAndView setProductAdd() throws Exception {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("product/productAdd");
+		return mv;
+	}
+	
+	@PostMapping("add")
+	public ModelAndView setProductAdd(ProductDTO productDTO, MultipartFile[] pics) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		
+		int result =  productService.setProductAdd(productDTO, pics);
+		
+	    mv.setViewName("redirect:./list");
+		
+		return mv;
+	}
+	
+	//////////////////미리가 구현한 부분 DB 테스트 후 삭제 예정   /////////////////
 
 	
 	
