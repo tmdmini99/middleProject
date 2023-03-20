@@ -11,7 +11,7 @@
 </head>
 	<body>
 	
-		<h1>Detail Page</h1>
+	<h1>Detail Page</h1>
 	<!-- Product section-->
 		
         <section class="py-5">
@@ -23,9 +23,10 @@
                    		<img class="card-img-top mb-5 mb-md-0" src= "../resources/upload/product/${productImgDTO.fileName}" /> 
                     </c:forEach>
                     </div>
-                    
+                  
                     	<div class="col-md-6">
                     	<c:set var="loop_flag" value="false" />
+
 
                         <c:forEach items="${dto.productOptionDTOs}" var="productOptionDTO">
                         <c:if test="${not loop_flag }">
@@ -34,52 +35,52 @@
                           	<div class="fs-5 mb-5">
                             <span class="text-decoration-line-through">${productOptionDTO.productPrice}원</span>
                             <span>원</span>
-                       	
                        	</div>
                        		 
                        		 <!-- 옵션 창 띄워주는 부분 -->
-                       		 <select class="form-select" aria-label="Default select example"> 
-                       		 <c:if test="${productOptionDTO.depth eq 0}">
-                      		<option selected>${productOptionDTO.optionName}</option>  
-                      		</c:if>
-                      		
-                      		<c:forEach items="${dto.productOptionDTOs}" var="productOptionDTO">
-							<c:if test="${productOptionDTO.depth eq 0}">
-						 	<option value="${productOptionDTO.optionValue}">${productOptionDTO.optionValue}</option>  
-							 </c:if> 
-							 </c:forEach>
-							</select>
-						
-						     <select class="form-select" aria-label="Default select example"> 
-                       		<!-- <c:if test="${productOptionDTO.depth eq 1}">  -->	
-                      		<option selected>${productOptionDTO.optionName}</option>  
-                      		<!-- </c:if> -->
-                      		<c:forEach items="${dto.productOptionDTOs}" var="productOptionDTO">
-							<c:if test="${productOptionDTO.depth eq 1}">
-						 	<option value="${productOptionDTO.optionValue}">${productOptionDTO.optionValue}</option>  
-							 </c:if> 
-							 </c:forEach>
-							</select>
+                   		 <form class="option" action="./상품구매" method="post">
+	                   		 <select class="form-select" aria-label="Default select example"> 
+	                       		 <c:if test="${productOptionDTO.depth eq 0}">
+	                       		 <option selected id="optionName">${productOptionDTO.optionName}</option>  
+	                      		</c:if>
+	                      		
+	                      		<c:forEach items="${dto.productOptionDTOs}" var="productOptionDTO">
+								<c:if test="${productOptionDTO.depth eq 0}">
+							 	<option value="${productOptionDTO.optionValue}" id ="optionValue">${productOptionDTO.optionValue}</option>  
+								 </c:if> 
+								 </c:forEach>
+								</select>
 							
-							
-						 <select class="form-select" aria-label="Default select example"> 
-                       		<!-- <c:if test="${productOptionDTO.depth eq 1}">  -->	
-                      		<option selected>${productOptionDTO.optionName}</option>  
-                      		<!-- </c:if> -->
-                      		<c:forEach items="${dto.productOptionDTOs}" var="productOptionDTO">
-							<c:if test="${productOptionDTO.depth eq 2}">
-						 	<option value="${productOptionDTO.optionValue}">${productOptionDTO.optionValue}</option>  
-							 </c:if> 
-							 </c:forEach>
-							</select>
+							     <select class="form-select" aria-label="Default select example"> 
+	                       		<!-- <c:if test="${productOptionDTO.depth eq 1}">  -->	
+	                      		<option selected>${productOptionDTO.optionName}</option>  
+	                      		<!-- </c:if> -->
+	                      		<c:forEach items="${dto.productOptionDTOs}" var="productOptionDTO">
+								<c:if test="${productOptionDTO.depth eq 1}">
+								<c:if test="${productOptionDTO.optionNum eq productOptionDTO.ref}">
+							 	<option value="${productOptionDTO.optionValue}" id ="optionValue1">${productOptionDTO.optionValue}</option>  
+								</c:if> 
+								 </c:if> 
+								 </c:forEach>
+								</select>
+				
+							 <select class="form-select" aria-label="Default select example"> 
+	                      		<c:forEach items="${dto.productOptionDTOs}" var="productOptionDTO">
+								<c:if test="${productOptionDTO.depth eq 2}">
+							 	<option value="${productOptionDTO.optionValue}" id ="optionValue2">${productOptionDTO.optionValue}</option>  
+								 </c:if> 
+								 </c:forEach>
+								</select>
+						</form>
 						
                          <c:set var="loop_flag" value="true" />
-                         </c:if>
+                        </c:if>
                         </c:forEach>
+
 
                         <div class="d-flex">
                             <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
-                            <button class="btn btn-outline-dark flex-shrink-0" type="button">
+                            <button class="btn btn-outline-dark flex-shrink-0" type="button" id="btn">
                                 <i class="bi-cart-fill me-1"></i>
                                 Add to cart
                             </button>
@@ -89,7 +90,7 @@
                 </div>
             </div>
         </section>
-        	
+        	<script src="../resources/js/productDetail.js"></script>
 			<c:import url="../template/common_js.jsp"></c:import>
 	</body>
 </html>
