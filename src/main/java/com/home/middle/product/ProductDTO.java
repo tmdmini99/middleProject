@@ -1,15 +1,25 @@
 package com.home.middle.product;
 
+import java.util.List;
+
 public class ProductDTO {
+	private Long r;
 	private Long productNum;
 	private String productName;
 	private Long discount;
 	private Double discountPercent;
 	private Integer productSales;
 	private Long categoryNum;
-	private ProductOptionDTO productOptionDTO;
-	private ProductImgDTO productImgDTO;
+	private List<ProductOptionDTO> productOptionDTOs;
+	private List<ProductImgDTO> productImgDTOs;
 	
+	
+	public Long getR() {
+		return r;
+	}
+	public void setR(Long r) {
+		this.r = r;
+	}
 	public Long getProductNum() {
 		return productNum;
 	}
@@ -48,17 +58,17 @@ public class ProductDTO {
 	public void setCategoryNum(Long categoryNum) {
 		this.categoryNum = categoryNum;
 	}
-	public ProductOptionDTO getProductOptionDTO() {
-		return productOptionDTO;
+	public List<ProductOptionDTO> getProductOptionDTOs() {
+		return productOptionDTOs;
 	}
-	public void setProductOptionDTO(ProductOptionDTO productOptionDTO) {
-		this.productOptionDTO = productOptionDTO;
+	public void setProductOptionDTOs(List<ProductOptionDTO> productOptionDTOs) {
+		this.productOptionDTOs = productOptionDTOs;
 	}
-	public ProductImgDTO getProductImgDTO() {
-		return productImgDTO;
+	public List<ProductImgDTO> getProductImgDTOs() {
+		return productImgDTOs;
 	}
-	public void setProductImgDTO(ProductImgDTO productImgDTO) {
-		this.productImgDTO = productImgDTO;
+	public void setProductImgDTOs(List<ProductImgDTO> productImgDTOs) {
+		this.productImgDTOs = productImgDTOs;
 	}
 	
 	
