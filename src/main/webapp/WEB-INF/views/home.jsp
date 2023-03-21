@@ -28,5 +28,7 @@ ok
 	</c:choose>
 
 <P>  The time on the server is ${serverTime}. </P>
+<a href="./product/add">ProductAdd</a>
+
 </body>
 </html>
