@@ -11,7 +11,7 @@ function deleteValue() {
     }
 
     if(valueArr.length == 0) {
-        alert("선택하려는 상품을 선택하세요")
+        alert("삭제하려는 상품을 선택하세요")
     }else {
         let check = confirm("정말 삭제하시겠습니까?")
 

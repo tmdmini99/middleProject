@@ -40,7 +40,7 @@
  		<result column="BUYCHECK" property="buyCheck"/>
  		<result column="OPTIONNUM" property="optionNum"/>
  		
- 		<association property="ProductDTO" javaType="ProductDTO">
+ 		<association property="productDTO" javaType="ProductDTO">
  			<id column="PRODUCTNUM" property="productNum"></id>
  			<result column="PRODUCTNAME" property="productName"/>
  			<result column="PRODUCTPRICE" property="productPrice"/>
