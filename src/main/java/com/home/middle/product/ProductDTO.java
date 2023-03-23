@@ -1,8 +1,14 @@
 package com.home.middle.product;
 
+
 import java.util.List;
+import javax.servlet.http.HttpSession;
+
+import com.home.middle.member.MemberDTO;
+
 
 public class ProductDTO {
+	private String id;
 	private Long r;
 	private Long productNum;
 	private String productName;
@@ -13,6 +19,12 @@ public class ProductDTO {
 	private List<ProductOptionDTO> productOptionDTOs;
 	private List<ProductImgDTO> productImgDTOs;
 	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	
 	public Long getR() {
 		return r;
@@ -70,6 +82,8 @@ public class ProductDTO {
 	public void setProductImgDTOs(List<ProductImgDTO> productImgDTOs) {
 		this.productImgDTOs = productImgDTOs;
 	}
+	
+	
 	
 	
 	

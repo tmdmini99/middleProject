@@ -24,12 +24,8 @@ function deleteValue() {
                 
             },
             success : function(jdata) {
-                if(jdata == 1) {
-                    alert("삭재되었습니다")
-                    location.replace("./list")
-                }else {
-                    alert("삭제실패")
-                }
+                alert("상품이 삭제되었습니다")
+                location.replace("./list")
             }
         })
         

@@ -1,8 +1,15 @@
 package com.home.middle.util;
 
+import java.util.List;
+
 public class Pager {
 	
 	private Long productNum;
+	private String id;
+	private String name;
+	private String[] roleName;
+	
+	
 
 	//검색
 	private String kind;
@@ -23,111 +30,203 @@ public class Pager {
 	private boolean before;
 	private boolean after;
 
+	//startNum, lastNum
+		public void makeNum(Long totalCount) {
+			
+			
+			Long totalPage = totalCount/this.getPerPage();
+			if(totalCount%this.getPerPage() !=0) {
+				//totalPage = totalPage + 1;
+				totalPage++;
+			}
+			
+			if(this.getPage() > totalPage) {
+				this.setPage(totalPage);
+			}
+			
+		
+			Long perBlock = 5L;
+			
+			Long totalBlock = totalPage/ perBlock;
+			if(totalPage % perBlock !=0) {
+				totalBlock ++;
+			}
+			
+			
+			Long curBlock = this.getPage() / perBlock;
+			if(this.getPage() % perBlock !=0) {
+				curBlock++;
+			}
+			
+			
+			
+			this.startNum = (curBlock-1) * perBlock + 1;
+			this.lastNum = curBlock * perBlock;
+			
+			this.after= true;
+			
+			if(curBlock == totalBlock) {
+				lastNum = totalPage;
+				this.after = false;
+			}
+			
+			if(curBlock == 1) {
+				this.before= true;
+			}
+		}
+		
+//		public Long getTotalCount() {
+//			return totalCount;
+//		}
+//		public void setTotalCount(Long totalCount) {
+//			this.totalCount = totalCount;
+//		}
+		public Pager() {
+			this.perPage = 10L;
+		}
+		//startRow, lastRow ��� �ϴ� �޼���
+		public void makeRow() {
+			this.startRow = (this.getPage()-1) * this.getPerPage() + 1;
+			this.lastRow = this.getPage() * this.getPerPage();
+		}
+		
+		
+		public Long getProductNum() {
+			return productNum;
+		}
+
+		public void setProductNum(Long productNum) {
+			this.productNum = productNum;
+		}
+
 	
-	public Long getProductNum() {
-		return productNum;
-	}
+		public Long getPerBlock() {
+			return perBlock;
+		}
 
-	public void setProductNum(Long productNum) {
-		this.productNum = productNum;
-	}
+		public void setPerBlock(Long perBlock) {
+			this.perBlock = perBlock;
+		}
 
-	public String getKind() {
-		return kind;
-	}
+		public Long getTotalPage() {
+			return totalPage;
+		}
 
-	public void setKind(String kind) {
-		this.kind = kind;
-	}
+		public void setTotalPage(Long totalPage) {
+			this.totalPage = totalPage;
+		}
 
-	public String getSearch() {
-		return search;
-	}
+		public String getKind() {
+			return kind;
+		}
 
-	public void setSearch(String search) {
-		this.search = search;
-	}
+		public void setKind(String kind) {
+			this.kind = kind;
+		}
 
-	public Long getPerPage() {
-		return perPage;
-	}
+		public String getSearch() {
+			if(search == null) {
+				search = "";
+			}
+			return search;
+		}
 
-	public void setPerPage(Long perPage) {
-		this.perPage = perPage;
-	}
+		public void setSearch(String search) {
+			this.search = search;
+		}
 
-	public Long getPerBlock() {
-		return perBlock;
-	}
+		public boolean isBefore() {
+			return before;
+		}
 
-	public void setPerBlock(Long perBlock) {
-		this.perBlock = perBlock;
-	}
+		public void setBefore(boolean before) {
+			this.before = before;
+		}
 
-	public Long getTotalPage() {
-		return totalPage;
-	}
+		public boolean isAfter() {
+			return after;
+		}
 
-	public void setTotalPage(Long totalPage) {
-		this.totalPage = totalPage;
-	}
+		public void setAfter(boolean after) {
+			this.after = after;
+		}
 
-	public Long getPage() {
-		return page;
-	}
+		public Long getStartRow() {
+			if(this.perPage == null || this.perPage == 0) {
+				this.perPage = 10L;
+			}
+			return startRow;
+		}
+		public void setStartRow(Long startRow) {
+			this.startRow = startRow;
+		}
+		public Long getLastRow() {
+			return lastRow;
+		}
+		public void setLastRow(Long lastRow) {
+			this.lastRow = lastRow;
+		}
+		public Long getPerPage() {
+			return perPage;
+		}
+		public void setPerPage(Long perPage) {
+			this.perPage = perPage;
+		}
+		public Long getPage() {
+			if(this.page == null || this.page <1) {
+				this.page=1L;
+			}
+			return page;
+		}
+		public void setPage(Long page) {
+			this.page = page;
+		}
 
-	public void setPage(Long page) {
-		this.page = page;
-	}
+		public Long getStartNum() {
+			return startNum;
+		}
 
-	public Long getStartRow() {
-		return startRow;
-	}
+		public void setStartNum(Long startNum) {
+			this.startNum = startNum;
+		}
 
-	public void setStartRow(Long startRow) {
-		this.startRow = startRow;
-	}
+		public Long getLastNum() {
+			return lastNum;
+		}
 
-	public Long getLastRow() {
-		return lastRow;
-	}
+		public void setLastNum(Long lastNum) {
+			this.lastNum = lastNum;
+		}
 
-	public void setLastRow(Long lastRow) {
-		this.lastRow = lastRow;
-	}
+		public String getId() {
+			return id;
+		}
 
-	public Long getStartNum() {
-		return startNum;
-	}
+		public void setId(String id) {
+			this.id = id;
+		}
 
-	public void setStartNum(Long startNum) {
-		this.startNum = startNum;
-	}
+		public String getName() {
+			return name;
+		}
 
-	public Long getLastNum() {
-		return lastNum;
-	}
+		public void setName(String name) {
+			this.name = name;
+		}
 
-	public void setLastNum(Long lastNum) {
-		this.lastNum = lastNum;
-	}
+		public String[] getRoleName() {
+			return roleName;
+		}
 
-	public boolean isBefore() {
-		return before;
-	}
+		public void setRoleName(String[] roleName) {
+			this.roleName = roleName;
+		}
 
-	public void setBefore(boolean before) {
-		this.before = before;
-	}
+		
 
-	public boolean isAfter() {
-		return after;
-	}
-
-	public void setAfter(boolean after) {
-		this.after = after;
-	}
+		
 	
-	
+		
+		
 	
 }

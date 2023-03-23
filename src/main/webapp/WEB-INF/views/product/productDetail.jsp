@@ -38,11 +38,34 @@
                 </div>
             </div>
         </section>
-        
-       
-        <button type="button" class="btn btn-primary"><a href="./update?productNum=${dto.productNum}">상품수정</a></button>
-        <button type="button" class="btn btn-danger">상품삭제</button>
+        <c:if test="${member.roleDTO.roleName eq 'ADMIN' or member.id eq dto.id}">
+	        <div class="col text-center">
+		        <a href="./update?productNum=${dto.productNum}"><button type="button" style="color : white;" class="btn btn-primary">상품수정</button></a>
+		        <button type="button" class="btn btn-danger" id="del2">상품삭제</button>
+		    </div>    
+	    </c:if>    
+	    
+	    <script type="text/javascript">
+	    
+		$("#del2").click(function()  {
+	    $.ajax( {
+	        type : 'POST',
+	        url : './delete',
+	        data : {
+	            productNum : ${dto.productNum}
+
+	        },
+	        success : function(jdata) {
+	            alert("삭제성공")
+	            location.replace("./list")
+	        }
+	    })
+	})
+		</script> 
            </c:forEach>
          <c:import url="../template/common_js.jsp"></c:import>
+	
+	    
+	
    </body>
 </html>

@@ -4,13 +4,25 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 	<mapper namespace="com.home.middle.product.ProductDAO">
+	<sql id="ProductCondition">
+		<where>
+			<if test="kind == 'productName'">
+				PRODUCTNAME LIKE '%' || #{search} || '%'
+			</if>
+		</where>
+	</sql>
+	
+	<select id="getTotalCount" resultType="Long" parameterType="Pager">
+ 		SELECT COUNT(PRODUCTNUM) FROM PRODUCT
+ 		<include refid="ProductCondition"></include>
+ 	</select>
 	
 	<insert id="setProductAdd" parameterType="ProductDTO">
 		<selectKey keyProperty="productNum" resultType="Long" order="BEFORE">
 			SELECT PRODUCT_SEQ.NEXTVAL FROM DUAL
 		</selectKey>
 		INSERT INTO PRODUCT 
-		VALUES (#{productNum}, #{productName}, #{discount},#{discountPercent} , #{productSales}, #{categoryNum}, 'member')
+		VALUES (#{productNum}, #{productName}, #{discount},#{discountPercent} , #{productSales}, #{categoryNum},#{id})
 	</insert>
 	
 	<insert id="setProductFileAdd" parameterType="ProductImgDTO">
@@ -18,25 +30,33 @@
 		VALUES (PRODUCTFILES_SEQ.NEXTVAL, #{productNum}, #{fileName}, #{oriName})
 	</insert>
 	
-	<select id="getProductList" resultType="ProductDTO" >
+	<select id="getProductList" resultType="ProductDTO" parameterType="Pager" >
 		SELECT * FROM 
 		(
 			SELECT ROWNUM R, N.* FROM
 			(
-			(SELECT * FROM PRODUCT ORDER BY PRODUCTNUM) N
+			(SELECT * FROM PRODUCT 
+				<include refid="ProductCondition"></include>
+			 ORDER BY PRODUCTNUM DESC) 
 			)
-		)	
-
+		N)
+		
+		WHERE R BETWEEN #{startRow} AND #{lastRow} 	
 		
 	</select>	
 	
+	<select id="getProductFileList" resultType="ProductImgDTO">
+		SELECT * FROM PRODUCTFILES
+		WHERE PRODUCTNUM=#{productNum}
+	</select>
+	
 	<select id="getProductDetail" parameterType="ProductDTO" resultMap="productDetailResult">
-	   SELECT P.*, PO.* ,FI.* FROM PRODUCT P
-	   LEFT JOIN PRODUCTOPTION PO 
-	   ON PO.PRODUCTNUM   = P.PRODUCTNUM 
-	   LEFT JOIN PRODUCTFILES FI 
-	   ON FI.PRODUCTNUM  = P.PRODUCTNUM 
-	   WHERE P.PRODUCTNUM = #{productNum}
+		   SELECT P.*, PO.* ,FI.* FROM PRODUCT P
+		   LEFT JOIN PRODUCTOPTION PO 
+		   ON PO.PRODUCTNUM   = P.PRODUCTNUM 
+		   LEFT JOIN PRODUCTFILES FI 
+		   ON FI.PRODUCTNUM  = P.PRODUCTNUM 
+		   WHERE P.PRODUCTNUM = #{productNum}
    </select> 
 
     
@@ -46,6 +66,7 @@
       <!--Primary Key  -->
       <id column="PRODUCTNUM" property="productNum" />
       <!-- 그외 나머지 -->
+      <result column = "ID" property="id"/>
       <result column="PRODUCTNAME" property="productName" />
       
       <result column="DISCOUNT" property="discount" />
@@ -81,7 +102,7 @@
 		UPDATE PRODUCT 
 		SET PRODUCTNAME = #{productName}, DISCOUNT = #{discount}, DISCOUNTPERCENT = #{discountPercent}, PRODUCTSALES = #{productSales}, CATEGORYNUM = #{categoryNum}
 		WHERE PRODUCTNUM = #{productNum}
-	</update>
+	</update>	
 	
 	<delete id="setProductFileDelete" parameterType="Long">
 		DELETE PRODUCTFILES

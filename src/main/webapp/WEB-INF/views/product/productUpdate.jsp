@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>        
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,8 +9,14 @@
 <c:import url="../template/common_css.jsp"></c:import>
 </head>
 <body>
+<div class="container-fluid my-5">
+	<div class="row col-md-4 mx-auto text-center border-bottom border-dark pb-2">
+     	<p class="fs-2" style="font-family: 'Impact'">상품 수정</p>
+    </div>
 	<form action="./update" method="post" enctype="multipart/form-data">
-		<div class="fw-bold fs-5 col-12">>
+		<input type="hidden" name="productNum" value="${dto.productNum}">
+		
+		<div class="fw-bold fs-5 col-12">
 			<p>상품종류</p>
 			<select name="categoryNum" class="form-select form-select-sm" aria-label=".form-select-sm example"><br>
 				<option value="1" ${dto.categoryNum eq '1' ? 'selected' : ''} >컴퓨터</option>
@@ -40,21 +47,34 @@
             <legend class="fw-bold fs-5">판매 여부</legend>
             <div class="form-check form-check-inline">
                <label for="bs1" class="form-check-labyyel" id="inlineRadio1">판매</label>
-               <input id="bs1" type="radio" name="productSales" value= ${dto.productSales eq '1'? 'checked':'' } checked class="form-check-input" for="inlineRadio1">
+               <input id="bs1" type="radio" name="productSales" value= "1"${dto.productSales eq '1'? 'checked':'1' } checked class="form-check-input" for="inlineRadio1">
             </div>
             <div class="form-check form-check-inline">
                <label for="bs2" class="form-check-label" id="inlineRadio2">판매 중지</label>
-               <input id="bs2" type="radio" name="productSales" value="${dto.productSales eq '0' ? 'checked':'' }" class="form-check-input" for="inlineRadio2">
+               <input id="bs2" type="radio" name="productSales" value= "2"${dto.productSales eq '0' ? 'checked':'2' } class="form-check-input" for="inlineRadio2">
             </div>
          </fieldset>
 		
 		<div class="input-group" id="fileUpdate">
+			<button type="button" class="btn btn-danger " id="addBtn2">+</button>
+			 <c:forEach items="${dto.productImgDTOs}" var="fileDTO">
+               <div class="fw-bold fs-5 col-12 mt-3">
+                	<div class="input-group mb-3 my-3">
+					  <div class="input-group-text">
+					    <input class="form-check-input mt-0 deleteCheck" type="checkbox" value="${fileDTO.fileNum}" name="fileNum" aria-label="Checkbox for following text input">
+					  </div>
+					  <input type="text" disabled value="${fileDTO.oriName}" class="form-control" aria-label="Text input with checkbox">
+					</div>
+               </div> 
+            </c:forEach>   
+            
 		</div>
 
-		<button type="button" class="btn btn-danger " id="addBtn2">+</button>
-		<button type="submit" class="btn btn-primary" id="submit2">상품등록</button>
+		<button type="submit" class="btn btn-primary" id="submit2">등록</button>
 		
 	</form>
-	<script type="text/javascript" src="../resources/productUpdate.js"></script>
+</div>	
+<script type="text/javascript" src="../resources/js/productUpdate.js"></script>
+<c:import url="../template/common_js.jsp"></c:import>	
 </body>
 </html>

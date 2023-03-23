@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.home.middle.util.Pager;
+
 @Controller
 @RequestMapping("/product/*")
 public class ProductController {
@@ -22,9 +24,10 @@ public class ProductController {
 	private ProductService productService;
 	
 	@GetMapping("list")
-	public ModelAndView getProductList() throws Exception {
+	public ModelAndView getProductList(Pager pager) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		List<ProductDTO> ar =  productService.getProductList();
+		
+		List<ProductDTO> ar =  productService.getProductList(pager);
 		
 		mv.setViewName("product/productList");
 		mv.addObject("list", ar);
@@ -40,10 +43,10 @@ public class ProductController {
 	}
 	
 	@PostMapping("add")
-	public ModelAndView setProductAdd(ProductDTO productDTO, MultipartFile[] pics) throws Exception {
+	public ModelAndView setProductAdd(ProductDTO productDTO, MultipartFile[] pics, HttpSession session) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		
-		int result =  productService.setProductAdd(productDTO, pics);
+		int result =  productService.setProductAdd(productDTO, pics, session);
 		String message = "등록 실패";
 		
 		if(result > 0) {
@@ -65,6 +68,7 @@ public class ProductController {
 
        mv.setViewName("product/productDetail");
        
+       System.out.println(productDTO.getId());
        mv.addObject("dto",productDTO);
       
       return mv;
@@ -90,17 +94,24 @@ public class ProductController {
 		ModelAndView mv = new ModelAndView();
 		
 		int result =  productService.setProductUpdate(productDTO, pics, fileNum, session);
+		String message="등록실패";
 		
-		mv.setViewName("redirect:./list");
+		if(result > 0) {
+			message="글이 수정되었습니다";
+		}
+		
+		mv.addObject("result", message);
+		mv.setViewName("common/result");
+		mv.addObject("url", "./list");
 		
 		return mv;
 	}
 	
 	@PostMapping("delete")
-	public ModelAndView setProductDelete(ProductDTO productDTO, HttpSession session, ProductImgDTO productImgDTO) throws Exception {
+	public ModelAndView setProductDelete(ProductDTO productDTO, HttpSession session) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		
-		int result = productService.setProductDelete(productDTO, session, productImgDTO) ;
+		int result = productService.setProductDelete(productDTO, session) ;
 		
 		
 		mv.setViewName("redirect:./list");

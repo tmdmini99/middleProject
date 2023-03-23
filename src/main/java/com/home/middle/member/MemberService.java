@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.home.middle.util.Pager;
+
 @Service
 public class MemberService {
 	
@@ -13,6 +15,22 @@ public class MemberService {
 	
 	public int setMemberJoin(MemberDTO memberDTO)throws Exception{
 		return memberDAO.setMemberJoin(memberDTO);
+	}
+	
+	public List<MemberDTO> getMemberList(Pager pager) throws Exception {
+		
+		pager.makeNum(memberDAO.getTotalCount(pager));
+		pager.makeRow();
+		
+		
+		System.out.println(memberDAO.getTotalCount(pager));
+		
+		List<MemberDTO> ar = memberDAO.getMemberList(pager);
+		
+				
+		
+		return ar;
+		
 	}
 	
 	public MemberDTO getMemberDetail(MemberDTO memberDTO) throws Exception{
@@ -35,6 +53,15 @@ public class MemberService {
 	public int setMemberUpdate(MemberDTO memberDTO) throws Exception{
 		return memberDAO.setMemberUpdate(memberDTO);
 	}
+	
+	public int setAdminMemberUpdate(MemberDTO memberDTO) throws Exception {
+		return memberDAO.setAdminMemberUpdate(memberDTO);
+	}
+	
+	public int setMemberDelete(MemberDTO memberDTO) throws Exception {
+		return memberDAO.setMemberDelete(memberDTO);
+	}
+	
 	public boolean getMemberCheck(MemberDTO memberDTO)throws Exception{
 		boolean check = true;
 		memberDTO=memberDAO.getMemberLogin(memberDTO);

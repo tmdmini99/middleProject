@@ -12,7 +12,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.home.middle.util.Pager;
+
+import oracle.jdbc.proxy.annotation.Post;
 
 @Controller
 @RequestMapping(value="/member/*")
@@ -20,6 +25,53 @@ public class MemberController {
 	
 	@Autowired
 	private MemberService memberService;
+	
+//	@GetMapping("memberList")
+//	public ModelAndView getMemberList(Pager pager) throws Exception {
+//		ModelAndView mv = new ModelAndView();
+//
+//		
+//		List<MemberDTO> ar = memberService.getMemberList(pager);
+//		
+//		mv.addObject("list", ar);
+//		mv.setViewName("member/memberList");
+//		
+//		
+//		return mv;
+//		
+//	}
+	
+	@GetMapping("memberList")
+	public ModelAndView getMemberList(Pager pager, @RequestParam(name = "roleName", required = false) String [] roleName) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		pager.setRoleName(roleName);
+		System.out.println(pager.getRoleName() == null);
+		
+		List<MemberDTO> ar = memberService.getMemberList(pager);
+		
+//		System.out.println("AR" + ar.size());
+		
+		mv.addObject("list", ar);
+		mv.setViewName("member/memberList");
+		
+		
+		return mv;
+		
+	}
+	
+	
+	
+	@PostMapping("memberDelete")
+	public ModelAndView setMemberDelete(MemberDTO memberDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		
+		int result =  memberService.setMemberDelete(memberDTO);
+		
+		mv.setViewName("redirect:./memberList");
+		
+		return mv;
+		
+	}
 	
 	@GetMapping("memberIdFind")
 	public ModelAndView getMemberIdFind()throws Exception{
@@ -144,14 +196,31 @@ public class MemberController {
 		return mv;
 	}
 	@PostMapping("memberUpdate")
-	public ModelAndView setMemberUpdate(MemberDTO memberDTO) throws Exception{
+	public ModelAndView setMemberUpdate(MemberDTO memberDTO, HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		System.out.println(memberDTO.getId());
 		int result=memberService.setMemberUpdate(memberDTO);
-	
+		
 		mv.setViewName("redirect:./memberDetail");
 		return mv;
 	}
+	
+	@GetMapping("adminMemberUpdate")
+	public ModelAndView setAdminMemberUpdate(HttpSession session) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		MemberDTO memberDTO = new MemberDTO();
+		memberDTO =  (MemberDTO)session.getAttribute("member");
+		
+		memberDTO =  memberService.getMemberDetail(memberDTO);
+		
+		mv.addObject("dto", memberDTO);
+		mv.setViewName("member/adminMemberUpdate");
+		
+		return mv;
+	}
+	
+	
+	
 	@GetMapping("memberLogout")
 	public ModelAndView setMemberLogout(HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();

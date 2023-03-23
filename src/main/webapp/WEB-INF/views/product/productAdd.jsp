@@ -10,11 +10,11 @@
 </head>
 <body>
 <div class="container-fluid my-5">
- <div class="row col-md-4 mx-auto text-center border-bottom border-dark pb-2">
-     <p class="fs-2" style="font-family: 'Impact'">Product Add Page</p>
+ 	<div class="row col-md-4 mx-auto text-center border-bottom border-dark pb-2">
+     <p class="fs-2" style="font-family: 'Impact'">상품 등록</p>
    </div>
 	<form action="./add" method="post" enctype="multipart/form-data">	
-	
+		<input type="hidden" value="${member.id }" name="id">
 		<div class="fw-bold fs-5 col-12">
 			<p>상품종류</p>
 		 	<select name="categoryNum" class="form-select form-select-sm" aria-label=".form-select-sm example"><br>
@@ -64,7 +64,7 @@
 		<button type="submit" class="btn btn-primary" id="submit">상품등록</button>
 	</form>
 </div>
-<script src="../resources/productAdd.js"></script>	
+<script src="../resources/js/productAdd.js"></script>	
 <c:import url="../template/common_js.jsp"></c:import>	
 </body>
 </html>

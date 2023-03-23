@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.home.middle.util.FileManager;
+import com.home.middle.util.Pager;
 
 @Service
 public class ProductService {
@@ -24,13 +25,13 @@ public class ProductService {
 	private ServletContext servletContext;
 	
 	
-	public int setProductAdd(ProductDTO productDTO, MultipartFile[] pic) throws Exception {
+	public int setProductAdd(ProductDTO productDTO, MultipartFile[] pic, HttpSession session) throws Exception {
 		
 		int result =  productDAO.setProductAdd(productDTO);
 		
 		System.out.println(result);
 		
-		String realPath = servletContext.getRealPath("resources/upload/product");
+		String realPath = session.getServletContext().getRealPath("resources/upload/product");
 		
 		for(MultipartFile pics : pic) {
 			if(pics.isEmpty()) {
@@ -53,8 +54,14 @@ public class ProductService {
 		return result;	
 	}
 	
-	public List<ProductDTO> getProductList() throws Exception {
-		return productDAO.getProductList();
+	public List<ProductDTO> getProductList(Pager pager) throws Exception {
+		pager.makeRow();
+		
+		pager.makeNum(productDAO.getTotalCount(pager));
+		
+		List<ProductDTO> ar = productDAO.getProductList(pager);
+		
+		return ar;
 	}
 	
 	
@@ -69,44 +76,47 @@ public class ProductService {
 	public int setProductUpdate(ProductDTO productDTO, MultipartFile[] pic, Long[] fileNums, HttpSession session) throws Exception {
 		int result =  productDAO.setProductUpdate(productDTO);
 		
-		//파일삭제
-		for(Long fileNum : fileNums) {
-			productDAO.setProductFileDelete(fileNum);
-		}
-		
-		//파일 다시 add
-		String realPath = session.getServletContext().getRealPath("resources/upload/product/");
-		
-		for(MultipartFile pics : pic) {
-			if(pics.isEmpty()) {
-				continue;
+		if(fileNums != null) {
+			for(Long fileNum : fileNums) {
+				productDAO.setProductFileDelete(fileNum);
 			}
 			
-			String fileName = fileManager.fileSave(pics, realPath);
+			//파일 다시 add
+			String realPath = session.getServletContext().getRealPath("resources/upload/product/");
 			
-			ProductImgDTO productImgDTO = new ProductImgDTO();
-			
-			productImgDTO.setFileName(fileName);
-			productImgDTO.setOriName(pics.getOriginalFilename());
-			productImgDTO.setProductNum(productDTO.getProductNum());
-			
-			result = productDAO.setProductFileAdd(productImgDTO);
-			
+			for(MultipartFile pics : pic) {
+				if(pics.isEmpty()) {
+					continue;
+				}
+				
+				String fileName = fileManager.fileSave(pics, realPath);
+				
+				ProductImgDTO productImgDTO = new ProductImgDTO();
+				
+				productImgDTO.setFileName(fileName);
+				productImgDTO.setOriName(pics.getOriginalFilename());
+				productImgDTO.setProductNum(productDTO.getProductNum());
+				
+				result = productDAO.setProductFileAdd(productImgDTO);
+				
+			}
 		}
+		//파일삭제
+		
 		
 		return result;
 		
 	}
 	
-	public int setProductDelete(ProductDTO productDTO, HttpSession session, ProductImgDTO productImgDTO) throws Exception {
-		List<ProductDTO> ar = productDAO.getProductList();
+	public int setProductDelete(ProductDTO productDTO, HttpSession session) throws Exception {
+		List<ProductImgDTO> ar = productDAO.getProductFileList(productDTO);
 		
 		int result =  productDAO.setProductDelete(productDTO);
 		
 		if(result > 0) {
 			String realPath = session.getServletContext().getRealPath("resources/upload/product/");
 			
-			for(ProductDTO productDTO2 : ar) {
+			for(ProductImgDTO productImgDTO : ar) {
 				
 				boolean check =  fileManager.fileDelete(realPath, productImgDTO.getFileName());
 			}
