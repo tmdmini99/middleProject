@@ -2,7 +2,7 @@ package com.home.middle.util;
 
 public class Pager {
 	
-	private Long bookNumber;
+	
 	private Long num;
 	
 	public Long getNum() {
@@ -13,13 +13,9 @@ public class Pager {
 		this.num = num;
 	}
 
-	public Long getBookNumber() {
-		return bookNumber;
-	}
+	
 
-	public void setBookNumber(Long bookNumber) {
-		this.bookNumber = bookNumber;
-	}
+	
 
 	//검색 종료(사용할 column)
 	private String kind;
@@ -190,6 +186,7 @@ public class Pager {
 	public Pager() {
 		this.perPage=10L;
 	}
+	
 	   //startRow, lastRow 계산 하는 메서드
 	public void makeRow() {
 	      this.startRow = (this.getPage()-1)*this.getPerPage()+1;

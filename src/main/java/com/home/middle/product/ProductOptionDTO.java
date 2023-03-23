@@ -14,11 +14,8 @@ public class ProductOptionDTO {
 	private String optionValue;
 	private Long ref;
 	private Long depth;
-	private Long step;
-	
 	
 	///getters setters
-	
 	public Date getProductDate() {
 		return productDate;
 	}
@@ -42,12 +39,6 @@ public class ProductOptionDTO {
 	}
 	public void setDepth(Long depth) {
 		this.depth = depth;
-	}
-	public Long getStep() {
-		return step;
-	}
-	public void setStep(Long step) {
-		this.step = step;
 	}
 
 	public Long getOptionNum() {

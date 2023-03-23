@@ -36,8 +36,7 @@ public class ProductController {
 		return mv;
 	}
 	
-	
-	
+
 	
 	//@RequestMapping(value="detail",method=RequestMethod.GET)
 	@RequestMapping(value="detail",method=RequestMethod.GET)

@@ -76,7 +76,8 @@
                          <c:set var="loop_flag" value="true" />
                         </c:if>
                         </c:forEach>
-
+                        
+         				
 
                         <div class="d-flex">
                             <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
@@ -90,6 +91,11 @@
                 </div>
             </div>
         </section>
+                          
+                   <div class="row">
+						<a href="../../review/add?productNum=${dto.productNum}" class="btn btn-primary">리뷰작성</a>
+						<a href="./add" class="btn btn-primary">상품추가</a>
+					</div>
         	<script src="../resources/js/productDetail.js"></script>
 			<c:import url="../template/common_js.jsp"></c:import>
 	</body>
