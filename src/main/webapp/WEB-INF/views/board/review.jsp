@@ -26,13 +26,13 @@
 			</thead>
 			<tbody>
 				<c:forEach items="${list}" var="dto">
-					<tr>
-						<td>${dto.num}</td>
-						<td>${dto.contents}</td>
-						<td>${dto.id}</td>
-						<td>${dto.regDate}</td>
-					    <td>${dto.productNum}</td>
-				   </tr>
+				<tr>
+					<td>${dto.num}</td>
+					<td>${dto.contents}</td>
+					<td>${dto.id}</td>
+					<td>${dto.regDate}</td>
+					<td>${dto.productNum}</td>
+				</tr>
 				</c:forEach>
 			</tbody>
 		

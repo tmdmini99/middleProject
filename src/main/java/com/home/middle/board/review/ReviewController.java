@@ -1,6 +1,5 @@
 package com.home.middle.board.review;
 
-
 import java.lang.System.Logger;
 import java.util.List;
 
@@ -23,11 +22,9 @@ import com.home.middle.board.BbsDTO;
 import com.home.middle.product.ProductDTO;
 import com.home.middle.util.Pager;
 
-
 @Controller
 @RequestMapping("/review/**")
-public class ReviewController {
-									
+public class ReviewController {						
 	
 			@Autowired
 			private ReviewService reviewService;
@@ -40,9 +37,8 @@ public class ReviewController {
 			@RequestMapping(value="list", method = RequestMethod.GET)
 			public ModelAndView getBoardList(Pager pager)throws Exception {
 			ModelAndView mv = new ModelAndView();
-			
-			List<BbsDTO> ar = reviewService.getBoardList(pager);
 	
+			List<BbsDTO> ar = reviewService.getBoardList(pager);
 		
 			mv.addObject("pager",pager);
 			mv.addObject("list",ar);
@@ -50,8 +46,7 @@ public class ReviewController {
 				
 			return mv;			
 			}
-			
-			
+				
 			//글쓰기 
 			@GetMapping("add")
 			public ModelAndView SetBoardAdd(ProductDTO productDTO) throws Exception{
@@ -74,9 +69,5 @@ public class ReviewController {
 			mv.addObject("url", "./list");
 			mv.setViewName("common/result");
 			return mv;
-			
-			}
-			
-			
-	
+			}	
 }

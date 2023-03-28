@@ -2,6 +2,9 @@ const optionName = document.getElementById("optionName");
 const optionValue = document.getElementById("optionValue");
 const optionValue1 = document.getElementById("optionValue1");
 const optionValue2 = document.getElementById("optionValue2");
+const optionValueform = document.getElementById("optionValueform");
+
+
 
 const frm = document.getElementById("frm");
 const btn = document.getElementById("btn");
@@ -90,3 +93,27 @@ btn.addEventListener("click", function(){
       alert("확인좀용")
   }
 })
+
+///////////////////////////////////희진 옵션 테스트/////////////////////////////////////////////////////////
+
+
+
+
+
+
+btn.addEventListener("click", function(){
+  //if(idCheck && pwLengthCheck && pwNullCheck && pwEqualCheck){
+  if(optionName.value!=null){
+      alert('값이있음');
+      console.log(optionName.value)
+      console.log(optionValue.value)
+      console.log(optionValue1.value)
+      console.log(optionValue2.value)
+      btn.submit();
+  }else {
+      alert("확인좀용")
+  }
+})
+
+////////////////////////////////////////////////////////////////////////
+

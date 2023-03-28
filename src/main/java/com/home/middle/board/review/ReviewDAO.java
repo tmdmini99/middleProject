@@ -41,11 +41,13 @@ public class ReviewDAO implements BbsDAO {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	
 	@Override
 	public int setBoardDelete(BbsDTO bbsDTO) throws Exception {
 		// TODO Auto-generated method stub
 		return sqlSession.delete(NAMESPACE+"setBoardDelete",bbsDTO);
 	}
+	
 	@Override
 	public Long getTotalCount(Pager pager) throws Exception {
 		// TODO Auto-generated method stub

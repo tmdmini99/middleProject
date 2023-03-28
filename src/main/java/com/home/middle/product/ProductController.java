@@ -1,6 +1,10 @@
 package com.home.middle.product;
 
+import java.io.Console;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -55,8 +59,47 @@ public class ProductController {
 		return mv;
 		
 	}
+	////////////////테스트 해봤던것 /////////////////////////////////////////////////
+	@RequestMapping(value ="option" , method=RequestMethod.GET)
+	public ModelAndView getOptionPk(ProductOptionDTO productOptionDTO)throws Exception {
+		System.out.println("getoptionpk");
+		System.out.println(productOptionDTO.getOptionNum());
+		ModelAndView mv = new ModelAndView();
+		productOptionDTO = productService.getOptionPk(productOptionDTO);
+	    mv.setViewName("/product/productDetail");
+	    mv.addObject("option",productOptionDTO);
+	    return mv;
+		
+	}	
 	
+	////////////////디테일 페이지에서 받아온 옵션의 벨류값을 저장 ///////////////////////////
+	@PostMapping("detail")
+	public List<ProductOptionDTO> doGetOption(String optionValue,String optionValue1, String optionValue2 ,Long productNum)  throws Exception {
 	
+		System.out.println(optionValue);
+		System.out.println(optionValue1);
+		System.out.println(optionValue2);
+		System.out.println(productNum);
+		//요청처리 db에 sql 문 실행
+		
+		ProductOptionDTO productOptionDTO = new ProductOptionDTO();
+		
+		
+		List<ProductOptionDTO> ar = null;
+		
+		if(optionValue!=null && optionValue1 == null) {
+			productOptionDTO.setOptionValue(optionValue);
+			productOptionDTO.setDepth(1L);
+	        productOptionDTO.setProductNum(productNum);
+			ar = productService.doGetOption(productOptionDTO);
+	        
+		}
+
+		//list로 받아온 ar배열의 별명 opval 
+		
+		
+		   return ar;
+	}
 	
 	//////////////////미리가 구현한 부분 DB 테스트 후 삭제 예정   /////////////////
 	
