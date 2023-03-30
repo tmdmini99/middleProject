@@ -12,13 +12,6 @@ function deleteValue() {
         let check = confirm("정말 삭제하겠습니까?")
 
         if(check == false) {
-            for(let i=0; i<list.length; i++) {
-                if(list[i].checked) {
-                    valueArr.push(list[i].value)
-                    list[i].checked == false
-                    
-                }
-            }
 
             $.ajax ({
             url : "./memberDelete",
