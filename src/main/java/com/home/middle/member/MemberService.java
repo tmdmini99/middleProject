@@ -33,6 +33,7 @@ public class MemberService {
 		
 	}
 	
+
 	public MemberDTO getMemberDetail(MemberDTO memberDTO) throws Exception{
 		return memberDAO.getMemberLogin(memberDTO);
 	}

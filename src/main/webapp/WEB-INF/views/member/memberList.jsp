@@ -34,7 +34,7 @@
 						<td>
 							<input class="form-check-input mt-0"  type="checkbox" name="chkList" value="${dto.id}" aria-label="Checkbox for following text input">
 						</td>
-						<td><a href="./memberDetail">${dto.id}</a></td>
+						<td><a href="./adminMemberDetail?id=${dto.id}">${dto.id}</a></td>
 						<td>${dto.name}</td>
 						<td>${dto.roleDTO.roleName }</td>
 						
@@ -109,13 +109,13 @@
 		</div>
 		
 		
-		<script type="text/javascript">
+		<!-- <script type="text/javascript">
 			console.log("${list.get(0).roleDTO.roleName}")
 			let list = ${list};
 			for(let i=0; i<${list.size()}; i++) {
 				console.log("${list.get(i).roleDTO.roleName}")
 			}
-		</script>
+		</script> -->
 <c:import url="../template/common_js.jsp"	></c:import>	
 
 

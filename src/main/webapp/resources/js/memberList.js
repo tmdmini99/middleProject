@@ -10,7 +10,17 @@ function deleteValue() {
         alert("삭제하려는 회원을 선택하세요")
     }else {
         let check = confirm("정말 삭제하겠습니까?")
-        $.ajax ({
+
+        if(check == false) {
+            for(let i=0; i<list.length; i++) {
+                if(list[i].checked) {
+                    valueArr.push(list[i].value)
+                    list[i].checked == false
+                    
+                }
+            }
+
+            $.ajax ({
             url : "./memberDelete",
             type : 'POST',
             traditional : true,
@@ -20,11 +30,30 @@ function deleteValue() {
             },
 
             success : function(jdata) {
+                location.replace("./memberList")
+            }
+    
+        })
+        }else {
+             $.ajax ({
+            url : "./memberDelete",
+            type : 'POST',
+            traditional : true,
+    
+            data : {
+                id : valueArr
+            },
+
+            success : function(jdata) {
+                
                 alert("회원이 삭제되었습니다")
                 location.replace("./memberList")
             }
     
         })
+        }
+
+       
     }
    
 }

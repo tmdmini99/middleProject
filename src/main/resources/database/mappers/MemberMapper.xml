@@ -27,7 +27,6 @@
  		SELECT COUNT(ID) FROM MEMBER
  		<include refid="MemberCondition"></include>
  	</select>
-  
   	
   	<insert id="setMemberJoin" parameterType="MemberDTO">
   		INSERT INTO MEMBER VALUES(#{id},3,#{pw},#{name},#{address},#{phone},#{email})
@@ -96,6 +95,5 @@
   		</association>
 
   	</resultMap>
-  	
   	
   </mapper>

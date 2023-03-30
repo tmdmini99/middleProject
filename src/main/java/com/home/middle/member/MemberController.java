@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.home.middle.util.Pager;
 
@@ -155,6 +156,17 @@ public class MemberController {
 		mv.setViewName("./member/memberDetail");
 		return mv;
 	}
+	
+	@GetMapping("adminMemberDetail")
+	public ModelAndView getAdminMemberDetail(MemberDTO memberDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		memberDTO = memberService.getMemberDetail(memberDTO);
+		
+		mv.addObject("dto", memberDTO);
+		mv.setViewName("./member/adminMemberDetail");
+		
+		return mv;
+	}
 	@GetMapping("memberLogin")
 	public ModelAndView getMemberLogin() throws Exception{
 		ModelAndView mv = new ModelAndView();
@@ -207,6 +219,27 @@ public class MemberController {
 		mv.setViewName("redirect:./memberDetail");
 		return mv;
 	}
+	
+	@GetMapping("adminMemberUpdate")
+	public ModelAndView setAdminMemberUpdate(MemberDTO memberDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		memberDTO = memberService.getMemberDetail(memberDTO);
+		
+		mv.addObject("dto", memberDTO);
+		mv.setViewName("./member/adminMemberUpdate");
+		
+		return mv;
+	}
+	
+	@PostMapping("adminMemberUpdate")
+	public ModelAndView setAdminMemberUpdate(MemberDTO memberDTO, ModelAndView mv) throws Exception {
+		int result = memberService.setAdminMemberUpdate(memberDTO);
+		
+		mv.setViewName("redirect:./adminMemberDetail?id=" + memberDTO.getId());
+		
+		return mv;
+	}
+	
 	
 	@GetMapping("memberLogout")
 	public ModelAndView setMemberLogout(HttpSession session) throws Exception{
