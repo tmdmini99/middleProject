@@ -32,11 +32,33 @@ public class QnaService implements BbsService{
 	}
 	
 	@Override
-	public int setBoardAdd(BbsDTO bbsDTO, MultipartFile[] multipartFiles, HttpSession session) throws Exception {
+	public int setBoardAdd(BbsDTO bbsDTO, MultipartFile[] multipartFiles , HttpSession session) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		int result = qnaDAO.setBoardAdd(bbsDTO);
+		
+		String realPath = session.getServletContext().getRealPath("resources/upload/qna/");
+		System.out.println(realPath);
+		System.out.println(multipartFiles.length);
+		
+		for(MultipartFile multipartFile : multipartFiles) {
+			if(multipartFile.isEmpty()) {
+				//다시위로 올라가세용 컨티뉴...!
+				continue;
+			}
+			
+		String fileName = fileManager.fileSave(multipartFile, realPath);
+		// db에 insert 
+		BoardFileDTO boardFileDTO = new BoardFileDTO();
+		boardFileDTO.setNum(bbsDTO.getNum());
+		boardFileDTO.setFileName(fileName);
+		boardFileDTO.setOriName(multipartFile.getOriginalFilename());
+		
+		result = qnaDAO.setProductFileAdd(boardFileDTO);
+		}
+		//file을 hdd에 저장
+		return result;
 	}
-
+	
 	@Override
 	public int setBoardUpdate(BbsDTO bbsDTO) throws Exception {
 		// TODO Auto-generated method stub

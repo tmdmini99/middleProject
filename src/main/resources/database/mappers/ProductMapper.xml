@@ -69,9 +69,6 @@
 		SELECT * FROM PRODUCTOPTION WHERE PRODUCTNUM = #{productNum} AND REF = #{ref} AND DEPTH = #{depth} ORDER BY OPTIONNUM ASC
 	</select>
 	
-   
-   
-   
    	<insert id="setProductAdd" parameterType="ProductDTO">
 		<selectKey keyProperty="productNum" resultType="Long" order="BEFORE">
 		SELECT PRODUCT_SEQ.NEXTVAL FROM DUAL

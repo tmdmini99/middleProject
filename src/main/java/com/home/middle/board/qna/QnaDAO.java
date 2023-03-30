@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import com.home.middle.board.BbsDAO;
 import com.home.middle.board.BbsDTO;
+import com.home.middle.board.BoardFileDTO;
 import com.home.middle.util.Pager;
 
 @Repository
@@ -32,7 +33,7 @@ public class QnaDAO implements BbsDAO{
 	@Override
 	public int setBoardAdd(BbsDTO bbsDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+	    return sqlSession.insert(NAMESPACE+"setBoardAdd", bbsDTO);
 	}
 
 	@Override
@@ -47,8 +48,7 @@ public class QnaDAO implements BbsDAO{
 		return 0;
 	}
 	
-	/*
-	 * public Long getTotalCount() throws Exception { // TODO Auto-generated method
-	 * stub return sqlSession.selectOne(NAMESPACE+"getTotalCount"); }
-	 */
+	public int setProductFileAdd(BoardFileDTO boardFileDTO) throws Exception {
+		return sqlSession.insert(NAMESPACE + "setProductFileAdd", boardFileDTO);
+	}
 }

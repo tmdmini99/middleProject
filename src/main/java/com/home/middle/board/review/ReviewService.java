@@ -58,8 +58,6 @@ public class ReviewService implements BbsService {
 		//file을 hdd에 저장
 		return result;
 	}
-
-
 	
 	@Override
 	public int setBoardUpdate(BbsDTO bbsDTO) throws Exception {

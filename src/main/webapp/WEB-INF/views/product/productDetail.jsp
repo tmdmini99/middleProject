@@ -67,15 +67,18 @@
         </section>
            <!-- 리뷰 창 들어가는 곳  -->
           <div class="container-fluid my-5" id="reviewList">  </div>            
-                
+          <div  id="qnaList">  </div>   
+                 
           <div class="row">
 			<a href="../../review/add?productNum=${dto.productNum}" class="btn btn-primary">리뷰작성</a>
 			<a href="./add" class="btn btn-primary">상품추가</a>
 		  </div>
 			
-			
-					
 			<script src="../resources/js/reviewTop5.js"></script>
+			<script src="../resources/js/qnaTop5.js"></script>		
+					
+				
+		
         	<script src="../resources/js/productDetail.js"></script>
 			<c:import url="../template/common_js.jsp"></c:import>
 	</body>
