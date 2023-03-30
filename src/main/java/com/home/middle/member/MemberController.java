@@ -51,8 +51,11 @@ public class MemberController {
 		
 //		System.out.println("AR" + ar.size());
 		
+		
 		mv.addObject("list", ar);
+		
 		mv.setViewName("member/memberList");
+		System.out.println("RoleName : " + ar.get(0).getRoleDTO().getRoleName());
 		
 		
 		return mv;
@@ -204,22 +207,6 @@ public class MemberController {
 		mv.setViewName("redirect:./memberDetail");
 		return mv;
 	}
-	
-	@GetMapping("adminMemberUpdate")
-	public ModelAndView setAdminMemberUpdate(HttpSession session) throws Exception {
-		ModelAndView mv = new ModelAndView();
-		MemberDTO memberDTO = new MemberDTO();
-		memberDTO =  (MemberDTO)session.getAttribute("member");
-		
-		memberDTO =  memberService.getMemberDetail(memberDTO);
-		
-		mv.addObject("dto", memberDTO);
-		mv.setViewName("member/adminMemberUpdate");
-		
-		return mv;
-	}
-	
-	
 	
 	@GetMapping("memberLogout")
 	public ModelAndView setMemberLogout(HttpSession session) throws Exception{

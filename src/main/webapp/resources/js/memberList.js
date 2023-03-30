@@ -29,14 +29,10 @@ function deleteValue() {
    
 }
 
-if($("input:checkbox[id='allRole']").prop("checked", true)) {
-    console.log("test2")
-}
 
 
 $(document).ready(() => {
-
-
+    let checkArr = []
     // const frm = new FormData();
 
     // frm.append
@@ -44,25 +40,16 @@ $(document).ready(() => {
     
    $("#allRole").change(() => {
 
-    let checkArr = []
+    
     $('input:checkbox[name="roleName"]:checked').each(function(i) {
         checkArr.push($(this).val())
     }) 
-        location.href = "./memberList?roleName="+checkArr;
         
-        //   $.ajax({
-        //     url : "./memberList",
-        //     type : 'GET',
-        //     traditional : true,
-        //     data : {
-        //        roleName : checkArr
-        //     },
-        //     success : function() {
-
-        //     }
-        //   })
+    
+    location.href = "memberList?roleName=" + checkArr
         
    })
+
 
    $("#memberRole").change(() => {
         if($("#memberRole").is(":checked")) {
@@ -82,5 +69,15 @@ $(document).ready(() => {
             console.log("admin")
         }
    })
-})
 
+   
+}) 
+   
+
+
+
+    
+    
+
+   
+   

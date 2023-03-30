@@ -6,16 +6,10 @@
   <mapper namespace="com.home.middle.member.MemberDAO">
 	  <sql id="MemberCondition">
 	  	<where>
-<!-- 	  		<if test="kind == 'id'">
+	  			<if test="kind == 'id'">
 	  			ID LIKE '%' || #{search} || '%' 
-	  			OR ROLENAME IN
-	  			<if test="roleName != null">
-		  			<foreach collection="roleName" item="role" index="index" open="(" close=")" separator=",">
-						LIKE '%' || #{role[index]} || '%'	  			
-		  			</foreach>
+	  			
 	  			</if>
-	  			 LIKE '%' || #{roleName} || '%' 
-	  		</if> -->
 	  		
 	  			<if test="roleName != null">
 	  				ROLENUM IN (SELECT ROLENUM FROM MEMBERROLE WHERE ROLENAME IN 

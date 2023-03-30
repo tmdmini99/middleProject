@@ -15,10 +15,11 @@
 		<h1>회원리스트</h1>
 	</div>
 	회원등급
-	<input type="checkbox" id="allRole" name="roleName" value=""> 전체
+	<input type="checkbox" id="allRole" name="roleName" value=""  checked > 전체
 	<input type="checkbox" id="memberRole" name="roleName" value="MEMBER">일반회원
 	<input type="checkbox" id="sellerRole" name="roleName" value="SELLER">판매자
 	<input type="checkbox" id="adminRole" name="roleName" value="ADMIN">관리자	
+	
 	
 		<div class="row">
 			<table class="table table-hover text-center">
@@ -55,7 +56,7 @@
 	               </li>
 	               
 	               <li class="page-item ${pager.before?'disabled':''}">
-	                  <a class="page-link" href="./memberList?page=${pager.startNum-1}" aria-label="Previous" data-board-page="${pager.startNum-1}">
+	                  <a class="page-link" href="./memberList?page=${pager.startNum-1}	" aria-label="Previous" data-board-page="${pager.startNum-1}">
 	                     <span aria-hidden="true">&lsaquo;</span>
 	                  </a>
 	               </li>
@@ -106,7 +107,18 @@
 		<div class="col text-center">
 			<button type="button" class="btn btn-danger" onclick="deleteValue()">탈퇴처리</button>	
 		</div>
-<c:import url="../template/common_js.jsp"></c:import>	
+		
+		
+		<script type="text/javascript">
+			console.log("${list.get(0).roleDTO.roleName}")
+			let list = ${list};
+			for(let i=0; i<${list.size()}; i++) {
+				console.log("${list.get(i).roleDTO.roleName}")
+			}
+		</script>
+<c:import url="../template/common_js.jsp"	></c:import>	
+
+
 <script type="text/javascript" src="../resources/js/memberList.js"></script>	
 
 </body>
