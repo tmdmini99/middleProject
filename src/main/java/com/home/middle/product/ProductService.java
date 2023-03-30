@@ -37,21 +37,17 @@ public class ProductService {
 		
 	}
 	
-	
-	/////////////////////////////옵션창 가져오는 구문//////////////////////////////////////
-	public  List<ProductOptionDTO> doGetOption(ProductOptionDTO productOptionDTO) throws Exception {
-		List<ProductOptionDTO> ar =  productDAO.doGetOption(productOptionDTO);
 
-		return ar;
-		
+	///////////////////////////////상품 하위 옵션 ////////////////////////////
+	public ProductDTO getProductOPtionDetail(ProductDTO productDTO) throws Exception{
+		productDTO.setProductOptionDTOs(productDAO.getProductOptionDetail(productDTO));
+		return productDTO;
 	}
 	
-	
-	/////////////////////////////////////////////////////////////////////////////////////////
-	public ProductOptionDTO getOptionPk(ProductOptionDTO productOptionDTO) throws Exception {
-		return productDAO.getOptionPk(productOptionDTO);
+	public List<ProductOptionDTO> getOption(ProductOptionDTO productOptionDTO) throws Exception{
+		return productDAO.getOption(productOptionDTO);
 	}
-	
+
 	///////////////////////////미리가 구현한 파트 ///////////////////////////////
 	public int setProductAdd(ProductDTO productDTO, MultipartFile[] pic) throws Exception {
 		

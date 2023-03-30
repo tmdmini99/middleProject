@@ -70,4 +70,19 @@ public class ReviewController {
 			mv.setViewName("common/result");
 			return mv;
 			}	
+			
+			
+			@GetMapping("listTop")
+			public ModelAndView getReviewListTop(Pager pager) throws Exception{
+			ModelAndView mv = new ModelAndView();
+			pager.setPerPage(5L);
+			
+			List<BbsDTO> ar = reviewService.getBoardList(pager);
+			
+			mv.addObject("list", ar);
+			mv.setViewName("common/noticeResult");
+			return mv;
+			
+			}
+			
 }

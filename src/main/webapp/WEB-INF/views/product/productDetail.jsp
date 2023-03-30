@@ -24,11 +24,9 @@
                     </c:forEach>
                     </div>
                     
-                       		
                     	<div class="col-md-6">
+                    	<!-- 옵션 dto의 횟수 만큼 돌지 않도록 loop_flag 설정-->
                     	<c:set var="loop_flag" value="false" />
-
-
                         <c:forEach items="${dto.productOptionDTOs}" var="productOptionDTO">
                         <c:if test="${not loop_flag }">
                         <div class="small mb-1">업로드 날짜 : ${productOptionDTO.productDate}</div>
@@ -37,40 +35,21 @@
                             <span class="text-decoration-line-through">${productOptionDTO.productPrice}원</span>
                             <span>원</span>
                        	</div>
-                       		 
-      -
-                       		 
+                               
                        		 <!-- 옵션 창 띄워주는 부분 -->
-
-	                   		 <select class="form-select" aria-label="Default select example" id ="optionValueform" > 
+                       		<div id="depth0">
+	                   		 <select class="form-select" aria-label="Default select example" id ="selectForm1" > 
 	                       		 <c:if test="${productOptionDTO.depth eq 0}">
-	                       		 <option selected id="optionName">${productOptionDTO.optionName}</option>  
+	                       		 <option selected >${productOptionDTO.optionName}</option>  
 	                      		</c:if>
 	                      		<c:forEach items="${dto.productOptionDTOs}" var="productOptionDTO">
 								<c:if test="${productOptionDTO.depth eq 0}">
-							 	<option value="${productOptionDTO.optionValue}" id ="optionValue" >${productOptionDTO.optionValue}</option>  
+							 	<option value="${productOptionDTO.optionNum}" data-productnum="${productOptionDTO.productNum}" id ="option" >${productOptionDTO.optionValue}</option>  
 								 </c:if> 
 								 </c:forEach>
 								</select>
-							<div id= "one">
-							<select class="form-select" aria-label="Default select example" id ="optionValueform1"> 
-	                      		<c:forEach items="${opval.productOptionDTO}" var="productOptionDTO">
-							
-							 	<option value="${productOptionDTO.optionValue}" id ="optionValue1">${productOptionDTO.optionValue}</option>  
-								
-								 </c:forEach>
-								</select> 
-				             </div>
-							 <select class="form-select" aria-label="Default select example" id ="optionValueform2"> 
-	                      		<c:forEach items="${dto.productOptionDTOs}" var="productOptionDTO">
-								<c:if test="${productOptionDTO.depth eq 2}">
-							 	<option value="${productOptionDTO.optionValue}" id ="optionValue2">${productOptionDTO.optionValue}</option>  
-								 </c:if> 
-								 </c:forEach>
-								</select>
-						
-						<button id= "btn1">버튼입니다 </button>
-						<label id ="output1"> 여기다 뿌려줘 </label>
+							</div>
+											
                          <c:set var="loop_flag" value="true" />
                         </c:if>
                         </c:forEach>
@@ -86,45 +65,18 @@
                 </div>
             </div>
         </section>
-                          
-                          <div>  </div>
-                   <div class="row">
-						<a href="../../review/add?productNum=${dto.productNum}" class="btn btn-primary">리뷰작성</a>
-						<a href="./add" class="btn btn-primary">상품추가</a>
-					</div>
-					
-					
-			<script>
-			$(function(){
-				$("#btn1").click(function(){
-					$.ajax({
-						type : "POST" ,
-						url : "./detail?productNum=${dto.productNum}",
-						data : {optionValue : $("#optionValueform option:checked").val(),
-							optionValue1 : $("#optionValueform1 option:checked").val(),
-							optionValue2 : $("#optionValueform2 option:checked").val(),
-							productNum : ${dto.productNum}
-						       },
-						
-						success:function(){ //매개변수의  goget 컨트롤러에서 돌아오는 응답데이터가 담길거임
-							console.log("ajax통신성공");
-						   
-							$("#optionValueform1").load(window.location.href + "#optionValueform1");
-							
-						},
-					   error:function(){
-						   console.log("ajax통신실패");
-					   },
-					   complete:function(){
-						   console.log("실행은 되는것 같음");
-					   }
-					});
-				})
-				
-			});
-		   </script>
+           <!-- 리뷰 창 들어가는 곳  -->
+          <div class="container-fluid my-5" id="reviewList">  </div>            
+                
+          <div class="row">
+			<a href="../../review/add?productNum=${dto.productNum}" class="btn btn-primary">리뷰작성</a>
+			<a href="./add" class="btn btn-primary">상품추가</a>
+		  </div>
 			
-        	<!-- <script src="../resources/js/productDetail.js"></script> -->
+			
+					
+			<script src="../resources/js/reviewTop5.js"></script>
+        	<script src="../resources/js/productDetail.js"></script>
 			<c:import url="../template/common_js.jsp"></c:import>
 	</body>
 </html>

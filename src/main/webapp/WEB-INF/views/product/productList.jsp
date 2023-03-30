@@ -49,32 +49,7 @@
 
          </div>
      </div>
-</section>
-	
-	
-<div class="row col-md-7 mx-auto">
-	<table class="table table-hover"> 
-	
-	<thead>
-		 <tr>
-		  	<th>상품명</th>
-		  	<th>상품평점</th>
-		 </tr>
-	</thead>
-	<tbody class="table-group-divider">
-	<c:forEach items="${list}" var="dto"> <!-- dto는 page 영역에 담긴다 -->
-	<tr>
-			<td><a class="tbl2_td"> ${pageScope.dto.productNum}</a></td>
-			<td><a class="tbl2_td"> ${pageScope.dto.productName}</a></td>
-			<td class="tbl2_td">		
-	</tr>
-	</c:forEach>
-	</tbody>
-	</table>
-	<div class="row col-md-7 mx-auto">
-	<a href="./productAdd" class="btn btn-primary col-2">상품등록</a>
-	</div>
-</div>	 
+</section> 
 <c:import url="../template/common_js.jsp"></c:import>
 </body>
 </html>

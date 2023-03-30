@@ -42,65 +42,40 @@ public class ProductController {
 	
 
 	
-	//@RequestMapping(value="detail",method=RequestMethod.GET)
+
 	@RequestMapping(value="detail",method=RequestMethod.GET)
 	public ModelAndView getProductDetail(ProductDTO productDTO, Model model) throws Exception{
 		//파라미터 이름과 setter의 이름과 같아야함 
 		
-		System.out.println("Product detail");
-		ModelAndView mv = new ModelAndView();
-		productDTO = productService.getProductDetail(productDTO);
+		 System.out.println("Product detail");
+		 ModelAndView mv = new ModelAndView();
+		 productDTO = productService.getProductDetail(productDTO);
 		
-		System.out.println(productDTO!=null);
+		 System.out.println(productDTO!=null);
 		
 		 mv.setViewName("/product/productDetail");
 		 mv.addObject("dto",productDTO);
 		
-		return mv;
+	   return mv;
 		
 	}
-	////////////////테스트 해봤던것 /////////////////////////////////////////////////
-	@RequestMapping(value ="option" , method=RequestMethod.GET)
-	public ModelAndView getOptionPk(ProductOptionDTO productOptionDTO)throws Exception {
-		System.out.println("getoptionpk");
-		System.out.println(productOptionDTO.getOptionNum());
-		ModelAndView mv = new ModelAndView();
-		productOptionDTO = productService.getOptionPk(productOptionDTO);
-	    mv.setViewName("/product/productDetail");
-	    mv.addObject("option",productOptionDTO);
-	    return mv;
-		
-	}	
-	
-	////////////////디테일 페이지에서 받아온 옵션의 벨류값을 저장 ///////////////////////////
-	@PostMapping("detail")
-	public List<ProductOptionDTO> doGetOption(String optionValue,String optionValue1, String optionValue2 ,Long productNum)  throws Exception {
-	
-		System.out.println(optionValue);
-		System.out.println(optionValue1);
-		System.out.println(optionValue2);
-		System.out.println(productNum);
-		//요청처리 db에 sql 문 실행
-		
-		ProductOptionDTO productOptionDTO = new ProductOptionDTO();
-		
-		
-		List<ProductOptionDTO> ar = null;
-		
-		if(optionValue!=null && optionValue1 == null) {
-			productOptionDTO.setOptionValue(optionValue);
-			productOptionDTO.setDepth(1L);
-	        productOptionDTO.setProductNum(productNum);
-			ar = productService.doGetOption(productOptionDTO);
-	        
-		}
 
-		//list로 받아온 ar배열의 별명 opval 
-		
-		
-		   return ar;
-	}
+	////////////////////////상품 하위 옵션 구현 ///////////////////////////////////// 
 	
+
+	//ajax의 post url "./optionList" 
+	@PostMapping("optionList")
+	public ModelAndView getOption(ProductOptionDTO productOptionDTO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		List<ProductOptionDTO> ar = productService.getOption(productOptionDTO);
+		
+		mv.addObject("list", ar);
+		mv.setViewName("/product/selectOption");
+		
+		return mv;
+	}		
+
 	//////////////////미리가 구현한 부분 DB 테스트 후 삭제 예정   /////////////////
 	
 	@GetMapping("add")

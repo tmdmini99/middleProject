@@ -11,7 +11,7 @@
   	
   	
   	<select id="getProductList" resultType="ProductDTO" statementType="PREPARED">
-  	SELECT PRODUCTNUM , PRODUCTNAME , DISCOUNT , DISCOUNTPERCENT  FROM PRODUCT
+  	SELECT PRODUCTNUM , PRODUCTNAME , DISCOUNT , DISCOUNTPERCENT FROM PRODUCT
   	
   	</select>
   	
@@ -62,6 +62,15 @@
     	<!--<association property="" javaType="">-->
    </resultMap>
    
+    <select id="getProductOptionDetail" parameterType="ProductDTO" resultType="ProductOptionDTO">
+		SELECT * FROM PRODUCTOPTION WHERE PRODUCTNUM = #{productNum} ORDER BY OPTIONNUM ASC
+	</select>
+	<select id="getOption" parameterType="ProductOptionDTO" resultType="ProductOptionDTO">
+		SELECT * FROM PRODUCTOPTION WHERE PRODUCTNUM = #{productNum} AND REF = #{ref} AND DEPTH = #{depth} ORDER BY OPTIONNUM ASC
+	</select>
+	
+   
+   
    
    	<insert id="setProductAdd" parameterType="ProductDTO">
 		<selectKey keyProperty="productNum" resultType="Long" order="BEFORE">
@@ -85,40 +94,9 @@
  		VALUES (#{optionNum}, #{productNum}, #{optionName}, #{optionValue}, #{productPrice}, #{productStock}, #{ref}, #{depth})
  	</insert>
     
-    <select id="doGetOption" parameterType="ProductOptionDTO" resultType="ProductOptionDTO" >
+
     
-    SELECT * FROM PRODUCTOPTION WHERE 
-    (REF IN (SELECT OPTIONNUM  FROM PRODUCTOPTION  WHERE (OPTIONVALUE IN #{optionValue} ))AND PRODUCTNUM IN #{productNum} AND DEPTH IN #{depth})
-   
-    </select>
-    
-    <!--  <resultMap type="ProductOptionDTO" id="productOptionDTOs">
-   
-	   Primary Key 
-	    <id  column="OPTIONNUM"  property="optionNum" />
- 	    <result  column="PRODUCTNUM" property="productNum"/>
-        <result  column="PRODUCTPRICE" property="productPrice"/>
-    	<result  column="PRODUCTSTOCK" property="productStock"/>
-    	<result  column="OPTIONNAME" property="optionName"/>
-    	<result  column="PRODUCTDATE" property="productDate"/>
-    	<result  column="OPTIONVALUE" property="optionValue"/>
-    	<result  column="REF" property="ref"/>
-    	<result  column="DEPTH" property="depth"/>
-    	<result  column="STEP" property="step"/>
-    	
- 	   1:n 관계일 때 
- 	   <collection property="productOptionDTOs" javaType="List" ofType="ProductOptionDTO">
- 	    <id  column="OPTIONNUM"  property="optionNum" />
- 	    <result  column="PRODUCTNUM" property="productNum"/>
-        <result  column="PRODUCTPRICE" property="productPrice"/>
-    	<result  column="PRODUCTSTOCK" property="productStock"/>
-    	<result  column="OPTIONNAME" property="optionName"/>
-    	<result  column="PRODUCTDATE" property="productDate"/>
-    	<result  column="OPTIONVALUE" property="optionValue"/>
-    	<result  column="REF" property="ref"/>
-    	<result  column="DEPTH" property="depth"/>
-    	<result  column="STEP" property="step"/>
- 	   </collection>
-     -->
+  
+
     
  </mapper>

@@ -27,18 +27,15 @@ public class ProductDAO {
 		return sqlSession.selectOne(NAMESPACE+"getProductDetail", productDTO);
 	}
 	
-	////////////////////옵션창 선택해서 가져오기 /////////////////////////////////
-	
-	public  List<ProductOptionDTO> doGetOption(ProductOptionDTO productOptionDTO)throws Exception{
-		return sqlSession.selectList(NAMESPACE+"doGetOption", productOptionDTO);
+	////////////////////// 상품 하위 옵션 추가 /////////////////////////
+	public List<ProductOptionDTO> getProductOptionDetail(ProductDTO productDTO) throws Exception{
+		return sqlSession.selectList(NAMESPACE + "getProductOptionDetail", productDTO);
 	}
 	
-	
-	////////////////////////////////////////////////////////////////////////////
-	//옵션 모달창에 있는 옵션 정보를 가져오기 
-	public ProductOptionDTO getOptionPk(ProductOptionDTO productOptionDTO) throws Exception {
-		return sqlSession.selectOne(NAMESPACE+"setOptionPk", productOptionDTO);
+	public List<ProductOptionDTO> getOption(ProductOptionDTO productOptionDTO) throws Exception{
+		return sqlSession.selectList(NAMESPACE + "getOption", productOptionDTO);
 	}
+	
 	
 	//////////////////////미리가 구현한 부분 ///////////////////////////
 	public int setProductAdd(ProductDTO productDTO) throws Exception {
@@ -48,7 +45,7 @@ public class ProductDAO {
 	public int setProductFileAdd(ProductImgDTO productFileDTO) throws Exception {
 		return sqlSession.insert(NAMESPACE + "setProductFileAdd", productFileDTO);
 	}
-	//////////////////////////여기까지///////////////////////////////
+	//////////////////////////상품 추가 //////////////////////////////
 	public int productOptionAdd0(ProductOptionDTO productOptionDTO) throws Exception{
 		return sqlSession.insert(NAMESPACE + "productOptionAdd0", productOptionDTO);
 	}
