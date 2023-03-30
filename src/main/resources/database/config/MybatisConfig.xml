@@ -6,7 +6,21 @@
   
 <configuration>
 	<typeAliases>
-  		<typeAlias type="com.home.middle.cart.CartDTO" alias="CartDTO"/>
+  		<typeAlias type="com.home.middle.product.ProductDTO" alias="ProductDTO" />
+  		<typeAlias type="com.home.middle.product.ProductImgDTO" alias="ProductImgDTO" />
+  	    <typeAlias type="com.home.middle.product.ProductOptionDTO" alias="ProductOptionDTO" />
+  	    
+  	    
+  	    
+  	    <typeAlias type="com.home.middle.board.BbsDTO" alias="BbsDTO" />
+  	    <typeAlias type="com.home.middle.board.boardCommentDTO" alias="boardCommentDTO" />
+  	    <typeAlias type="com.home.middle.board.BoardFileDTO" alias="BoardFileDTO" />
+  	    <typeAlias type="com.home.middle.board.review.ReviewDTO" alias="ReviewDTO" />
+  	     <typeAlias type="com.home.middle.board.qna.QnaDTO" alias="QnaDTO" />
+
+  	     <typeAlias type="com.home.middle.util.Pager" alias="Pager"/>
+  	    <typeAlias type="java.lang.Long" alias="Long" />
+  		
   		
   		<typeAlias type="com.home.middle.cart.ProductDTO" alias="ProductDTO"/>
   		<typeAlias type="com.home.middle.member.MemberDTO" alias="MemberDTO"/>
