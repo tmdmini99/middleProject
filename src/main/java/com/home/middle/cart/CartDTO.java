@@ -2,6 +2,8 @@ package com.home.middle.cart;
 
 import java.sql.Date;
 
+import com.home.middle.product.ProductDTO;
+
 public class CartDTO {
 	private Long orderNum;
 	

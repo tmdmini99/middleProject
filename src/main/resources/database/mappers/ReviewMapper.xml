@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   <mapper namespace="com.home.middle.board.review.ReviewDAO">
+    
+    
+     <sql id="reviewCondition">
+  		<where>
+  			<if test="kind=='contents'">
+  				CONTENTS LIKE '%'||#{search}||'%'
+  			</if>
+  			<if test="kind=='id'">
+  				ID LIKE '%'||#{search}||'%'
+  			</if>
+  		</where>
+  	</sql>
+  
+	<select id="getTotalCount" resultType="Long">
+  		SELECT COUNT (NUM) FROM REVIEW
+  		
+  	</select>
+    
+      <select id="getBoardList" parameterType="Pager" resultType="ReviewDTO">
+	 	  	SELECT * FROM
+	  	(
+		  	SELECT ROWNUM R, N.* FROM
+		  		(
+			  		SELECT NUM, ID ,PRODUCTNUM,CONTENTS, REGDATE,DEPTH FROM REVIEW
+			  		<include refid="reviewCondition"></include>
+			  		ORDER BY DEPTH DESC
+		  		) N
+	  	 )
+	  	WHERE R BETWEEN #{startRow} AND  #{lastRow}	  
+  	 </select>
+    
+    
+    <!--글쓰기 -->
+    <insert id="setBoardAdd" parameterType="ReviewDTO"  >
+    <!--파일 추가같이하고 싶으면 넣어라 -->
+ 	<!-- <selectKey keyProperty="num" resultType="Long" order="BEFORE">
+      SELECT REVIEW_SEQ.NEXTVAL FROM DUAL
+    </selectKey> -->
+    
+    INSERT INTO REVIEW (NUM,ID,CONTENTS,REGDATE,DEPTH,PRODUCTNUM)
+	VALUES(REVIEW_SEQ.NEXTVAL,#{id},#{contents},sysdate,0,#{productNum})
+    </insert>
+    
+    
+    <!--파일 추가-->
+    <insert id="setProductFileAdd" parameterType="ReviewDTO">
+	INSERT INTO REVIEWFILES
+	VALUES (REVIEW_FILE_SEQ.NEXTVAL, #{num}, #{fileName}, #{oriName})
+	</insert>
+    
+   <!--글삭제-->
+   <delete id="setBoardDelete" parameterType="ReviewDTO">
+	DELETE REVIEW WHERE NUM = #{num}
+   </delete>
+    
+    
+    
+    
+   </mapper>
