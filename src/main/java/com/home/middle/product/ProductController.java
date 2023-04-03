@@ -29,10 +29,11 @@ public class ProductController {
 	private ProductService productService;
 	
 	@RequestMapping(value="list" , method=RequestMethod.GET)
-	public ModelAndView getProductList() throws Exception{
+	public ModelAndView getProductList(ProductDTO productDTO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
-		List<ProductDTO> ar = productService.getProductList();
+		
+		List<ProductDTO> ar = productService.getProductList(productDTO);
 	  
 		mv.setViewName("product/productList");
 		mv.addObject("list",ar);

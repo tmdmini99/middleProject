@@ -18,8 +18,8 @@ public class ProductDAO {
 		return sqlSession.selectOne(NAMESPACE+"getProductNum");
 	}
 	
-	public List<ProductDTO> getProductList()throws Exception{
-		return sqlSession.selectList(NAMESPACE+"getProductList");
+	public List<ProductDTO> getProductList(ProductDTO productDTO)throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getProductList",productDTO);
 	}
 	
 	//1개는 selectOne으로 받기 검색하려면 변수가 필요하니깐 뒤에 추가로 매개변수 dto 선언 

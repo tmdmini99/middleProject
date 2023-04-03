@@ -26,8 +26,8 @@ public class ProductService {
 	@Autowired
 	private FileManager fileManager;
 	
-	public List<ProductDTO> getProductList() throws Exception {
-		List<ProductDTO> ar =  productDAO.getProductList();
+	public List<ProductDTO> getProductList(ProductDTO productDTO) throws Exception {
+		List<ProductDTO> ar =  productDAO.getProductList(productDTO);
 
 		return ar;
 	}

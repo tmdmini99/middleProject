@@ -10,8 +10,9 @@
   	</select>
   	
   	
-  	<select id="getProductList" resultType="ProductDTO" statementType="PREPARED">
+  	<select id="getProductList" resultType="ProductDTO" parameterType="ProductDTO">
   	SELECT PRODUCTNUM , PRODUCTNAME , DISCOUNT , DISCOUNTPERCENT FROM PRODUCT
+  	WHERE CATEGORYNUM = #{categoryNum}
   	
   	</select>
   	
