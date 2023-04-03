@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	
-	<!-- Connection -->
+	<!-- Connection  id/pw = projectM / localhost-->
 	<bean class = "org.springframework.jdbc.datasource.DriverManagerDataSource" id = "dataSource">
 		<property name = "username" value= "user01"></property>
 		<property name= "password" value= "user01"></property>
