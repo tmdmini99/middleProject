@@ -79,9 +79,6 @@
 			
 			<script src="../resources/js/reviewTop5.js"></script>
 			<script src="../resources/js/qnaTop5.js"></script>		
-					
-				
-		
         	<script src="../resources/js/productDetail.js"></script>
 			<c:import url="../template/common_js.jsp"></c:import>
 	</body>

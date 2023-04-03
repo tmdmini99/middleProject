@@ -20,7 +20,7 @@
 		<table class="table table-hover">
 			<thead>
 				<tr>
-					<th>NUM</th><th>CONTENTS</th><th>TITLE</th><th>ID</th><th>DATE</th><th>상품번호</th><th>삭제</th>
+					<th>NUM</th><th>CONTENTS</th><th>TITLE</th><th>ID</th><th>DATE</th><th>상품번호</th><th>삭제</th><th>수정</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -36,6 +36,12 @@
 					<form action="./delete" id="frm">
 					 <input type="hidden" name="num" value="${dto.num}">
 					 <button id="delete" type="button" class="btn btn-info">DELETE</button>
+					</form>
+					</td>
+					<td>
+					<form action="./update" id="frm">
+					 <input type="hidden" name="num" value="${dto.num}">
+					 <button id="update" type="button" class="btn btn-info">update</button>
 					</form>
 					</td>
 				</tr>

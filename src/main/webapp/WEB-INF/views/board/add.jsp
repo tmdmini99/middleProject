@@ -7,7 +7,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-   <c:import url="../template/common_css.jsp"></c:import>
+<c:import url="../template/common_css.jsp"></c:import>
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 </head>
 <body>
    <div class="container fluid my-5">
@@ -24,10 +26,18 @@
     		<label for="title" class="form-label">아이디</label>
     		<input type="text" class="form-control" id="id" name="id" placeholder="id" value="id">
   		</div>
-  		<div class="col-12">
+  	<!-- 	<div class="col-12">
     		<label for="contents" class="form-label">내용</label>
     		<input type="text" class="form-control" id="contents" name="contents" placeholder="상세내용">
-  		</div>
+  		</div> -->
+  		
+  			<div class="mb-3">
+			  <label for="contents" class="form-label">내용</label>
+			  <textarea name="contents" class="form-control" id="contents" placeholder="내용 입력" rows="7">${dto.contents}</textarea>
+			</div>
+  		
+  		
+  		
   			<div class="col-12">
     		<label for="contents" class="form-label">상품번호</label>
     		<input type="text" class="form-control" id="productNum" name="productNum" readonly value="${dto.productNum}">
@@ -45,6 +55,9 @@
 	</form>
    </div>
    
+   <script>
+	$("#contents").summernote();
+</script>
    <c:import url="../template/common_js.jsp"></c:import>
    
 </body>

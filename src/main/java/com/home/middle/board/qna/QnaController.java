@@ -88,6 +88,15 @@ public class QnaController {
 		return mv;
 	}
 	
+	@GetMapping("update")
+	public ModelAndView setBoardUpdate(BbsDTO bbsDTO) throws Exception{
+	ModelAndView mv = new ModelAndView();
+	bbsDTO = qnaService.getBoardDetail(bbsDTO);
+	mv.addObject("dto", bbsDTO);
+	mv.setViewName("board/update");
+	return mv;
+
+	}
 	
 	//디테일 페이지에 productnum 기준으로 뿌리기 
 	@GetMapping("listqnaTop")
