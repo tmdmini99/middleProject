@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,13 +9,13 @@
 </head>
 <body>
 <script type="text/javascript">
-	let message = "${result}"
-		if(message !='') {
+	let message = '${result}';
+	if(message != '' ){
 			alert(message);
-		}
+	}
 	
-	location.href = '${url}'
-
+	location.href='${url}';
 </script>
+
 </body>
 </html>

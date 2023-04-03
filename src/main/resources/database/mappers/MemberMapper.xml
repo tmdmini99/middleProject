@@ -31,13 +31,14 @@
   	<insert id="setMemberJoin" parameterType="MemberDTO">
   		INSERT INTO MEMBER VALUES(#{id},3,#{pw},#{name},#{address},#{phone},#{email})
   	</insert>
+  	
   	<select id="getMemberLogin" parameterType="MemberDTO" resultMap="MemberLogin">
-  	SELECT * FROM  MEMBER M
-  								INNER JOIN
-  								MEMBERROLE R
-  								ON(M.ROLENUM=R.ROLENUM)
-  	WHERE M.ID=#{id}
+	  	SELECT * FROM  MEMBER M
+	  	INNER JOIN
+	  	MEMBERROLE R ON(M.ROLENUM=R.ROLENUM)
+	  	WHERE M.ID=#{id}
   	</select>
+  	
   	<resultMap type="MemberDTO" id="MemberLogin">
   		<id column="ID" property="id"/>
   		<result column="PW" property="pw"/>
@@ -46,8 +47,8 @@
   		<result column="PHONE" property="phone"/>
   		<result column="EMAIL" property="email"/>
   		<association property="roleDTO" javaType="RoleDTO">
-  			<id column="ROLENUM" property="roleNum"/>
-  			<result column="ROLENAME" property="roleName"/>
+  		<id column="ROLENUM" property="roleNum"/>
+  		<result column="ROLENAME" property="roleName"/>
   		</association>
   	</resultMap>
   	

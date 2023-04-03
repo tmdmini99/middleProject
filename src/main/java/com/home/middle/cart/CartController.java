@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.home.middle.member.MemberDTO;
 import com.home.middle.product.ProductDTO;
+import com.home.middle.product.ProductService;
 
 @Controller
 @RequestMapping("/cart/*")
@@ -20,6 +21,9 @@ public class CartController {
 	
 	@Autowired
 	private CartService cartService;
+	
+	@Autowired
+	private ProductService productService;
 	
 	
 	@GetMapping("cartList")
@@ -50,7 +54,7 @@ public class CartController {
 		memberDTO.setId("TEST2");
 		ProductDTO productDTO = new ProductDTO();
 		productDTO.setProductNum(3L);
-		productDTO = cartService.getProductDetail(productDTO);
+		productDTO = productService.getProductDetail(productDTO);
 		
 		mv.addObject("mDTO", memberDTO);
 		mv.addObject("pDTO", productDTO);

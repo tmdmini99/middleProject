@@ -11,23 +11,7 @@ function deleteValue() {
     }else {
         let check = confirm("정말 삭제하겠습니까?")
 
-        if(check == false) {
-
-            $.ajax ({
-            url : "./memberDelete",
-            type : 'POST',
-            traditional : true,
-    
-            data : {
-                id : valueArr
-            },
-
-            success : function(jdata) {
-                location.replace("./memberList")
-            }
-    
-        })
-        }else {
+        if(check == true) {
              $.ajax ({
             url : "./memberDelete",
             type : 'POST',

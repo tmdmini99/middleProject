@@ -1,8 +1,10 @@
 package com.home.middle.product;
 
+import java.io.Console;
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +18,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.home.middle.util.Pager;
 
+
+
+
 @Controller
 @RequestMapping("/product/*")
 public class ProductController {
@@ -23,17 +28,55 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 	
-	@GetMapping("list")
-	public ModelAndView getProductList(Pager pager) throws Exception {
+	@RequestMapping(value="list" , method=RequestMethod.GET)
+	public ModelAndView getProductList() throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
-		List<ProductDTO> ar =  productService.getProductList(pager);
-		
+		List<ProductDTO> ar = productService.getProductList();
+	  
 		mv.setViewName("product/productList");
-		mv.addObject("list", ar);
-		
+		mv.addObject("list",ar);
+		//mv.addObject("pager", pager);
 		return mv;
 	}
+	
+
+	
+
+	@RequestMapping(value="detail",method=RequestMethod.GET)
+	public ModelAndView getProductDetail(ProductDTO productDTO, Model model) throws Exception{
+		//파라미터 이름과 setter의 이름과 같아야함 
+		
+		 System.out.println("Product detail");
+		 ModelAndView mv = new ModelAndView();
+		 productDTO = productService.getProductDetail(productDTO);
+		
+		 System.out.println(productDTO!=null);
+		
+		 mv.setViewName("/product/productDetail");
+		 mv.addObject("dto",productDTO);
+		
+	   return mv;
+		
+	}
+
+	////////////////////////상품 하위 옵션 구현 ///////////////////////////////////// 
+	
+
+	//ajax의 post url "./optionList" 
+	@PostMapping("optionList")
+	public ModelAndView getOption(ProductOptionDTO productOptionDTO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		List<ProductOptionDTO> ar = productService.getOption(productOptionDTO);
+		
+		mv.addObject("list", ar);
+		mv.setViewName("/product/selectOption");
+		
+		return mv;
+	}		
+
+	//////////////////미리가 구현한 부분 DB 테스트 후 삭제 예정   /////////////////
 	
 	@GetMapping("add")
 	public ModelAndView setProductAdd() throws Exception {
@@ -43,80 +86,28 @@ public class ProductController {
 	}
 	
 	@PostMapping("add")
-	public ModelAndView setProductAdd(ProductDTO productDTO, MultipartFile[] pics, HttpSession session) throws Exception {
+	public ModelAndView setProductAdd(ProductDTO productDTO, MultipartFile[] pics) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		
-		int result =  productService.setProductAdd(productDTO, pics, session);
-		String message = "등록 실패";
+		int result =  productService.setProductAdd(productDTO, pics);
 		
-		if(result > 0) {
-			message = "글이 등록되었습니다";
-		}
+	    mv.setViewName("redirect:./list");
 		
-		mv.addObject("result", message);
-		mv.setViewName("common/result");
-		mv.addObject("url", "./list");
 		return mv;
 	}
 	
-   @RequestMapping(value="detail",method=RequestMethod.GET)
-   public ModelAndView getProductDetail(ProductDTO productDTO, Model model) throws Exception{
-      //파라미터 이름과 setter의 이름과 같아야함 
-      ModelAndView mv = new ModelAndView();
-     
-      productDTO = productService.getProductDetail(productDTO);     
+	//////////////////미리가 구현한 부분 DB 테스트 후 삭제 예정   /////////////////
 
-       mv.setViewName("product/productDetail");
-       
-       System.out.println(productDTO.getId());
-       mv.addObject("dto",productDTO);
-      
-      return mv;
-      
-   }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
-	@GetMapping("update")
-	public ModelAndView setProductUpdate(ProductDTO productDTO) throws Exception {
-		ModelAndView mv = new ModelAndView();
-		
-		productDTO=  productService.getProductDetail(productDTO);
-		
-		mv.addObject("dto", productDTO);
-		
-		mv.setViewName("product/productUpdate");
-		
-		return mv;
-		
-	}
-	
-	@PostMapping("update")
-	public ModelAndView setProductUpdate(ProductDTO productDTO, HttpSession session, MultipartFile[] pics, Long[] fileNum) throws Exception {
-		ModelAndView mv = new ModelAndView();
-		
-		int result =  productService.setProductUpdate(productDTO, pics, fileNum, session);
-		String message="등록실패";
-		
-		if(result > 0) {
-			message="글이 수정되었습니다";
-		}
-		
-		mv.addObject("result", message);
-		mv.setViewName("common/result");
-		mv.addObject("url", "./list");
-		
-		return mv;
-	}
-	
-	@PostMapping("delete")
-	public ModelAndView setProductDelete(ProductDTO productDTO, HttpSession session) throws Exception {
-		ModelAndView mv = new ModelAndView();
-		
-		int result = productService.setProductDelete(productDTO, session) ;
-		
-		
-		mv.setViewName("redirect:./list");
-		
-		return mv;
-	}
-	
 }
