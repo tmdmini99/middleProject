@@ -22,6 +22,9 @@ public class CartController {
 	@Autowired
 	private CartService cartService;
 	
+	@Autowired
+	private ProductService productService;
+	
 	
 	@GetMapping("cartList")
 	public ModelAndView getCartList(HttpSession session) throws Exception{
@@ -51,7 +54,7 @@ public class CartController {
 		memberDTO.setId("TEST2");
 		ProductDTO productDTO = new ProductDTO();
 		productDTO.setProductNum(3L);
-		productDTO = cartService.getProductDetail(productDTO);
+		productDTO = productService.getProductDetail(productDTO);
 		
 		mv.addObject("mDTO", memberDTO);
 		mv.addObject("pDTO", productDTO);
