@@ -24,6 +24,16 @@ public class ProductService {
 	//저장관리는 os가 존재하는데, os와 통신하는 과정을 하는 역할
 	private ServletContext servletContext;
 	
+	public List<ProductDTO> getProductList(ProductDTO productDTO) throws Exception {
+		List<ProductDTO> ar =  productDAO.getProductList(productDTO);
+
+		return ar;
+	}
+		
+	public ProductDTO getProductDetail(ProductDTO productDTO) throws Exception {
+		return productDAO.getProductDetail(productDTO);
+		
+	}
 	
 	public int setProductAdd(ProductDTO productDTO, MultipartFile[] pic, HttpSession session) throws Exception {
 		
