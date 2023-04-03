@@ -4,18 +4,39 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
   <mapper namespace="com.home.middle.member.MemberDAO">
+	  <sql id="MemberCondition">
+	  	<where>
+	  			<if test="kind == 'id'">
+	  			ID LIKE '%' || #{search} || '%' 
+	  			
+	  			</if>
+	  		
+	  			<if test="roleName != null">
+	  				ROLENUM IN (SELECT ROLENUM FROM MEMBERROLE WHERE ROLENAME IN 
+		  			<foreach collection="roleName" item="role" index="index" open="(" close=")" separator=",">
+						#{role}			
+		  			</foreach>
+		  			)
+	  			</if>
+	  	</where>
+	  </sql>
+
+  
+  	<select id="getTotalCount" resultType="Long" parameterType="Pager">
+ 		SELECT COUNT(ID) FROM MEMBER
+ 		<include refid="MemberCondition"></include>
+ 	</select>
   	
   	<insert id="setMemberJoin" parameterType="MemberDTO">
   		INSERT INTO MEMBER VALUES(#{id},3,#{pw},#{name},#{address},#{phone},#{email})
   	</insert>
-  	
   	<select id="getMemberLogin" parameterType="MemberDTO" resultMap="MemberLogin">
-	  	SELECT * FROM  MEMBER M
-	  	INNER JOIN
-	  	MEMBERROLE R ON(M.ROLENUM=R.ROLENUM)
-	  	WHERE M.ID=#{id}
+  	SELECT * FROM  MEMBER M
+  								INNER JOIN
+  								MEMBERROLE R
+  								ON(M.ROLENUM=R.ROLENUM)
+  	WHERE M.ID=#{id}
   	</select>
-  	
   	<resultMap type="MemberDTO" id="MemberLogin">
   		<id column="ID" property="id"/>
   		<result column="PW" property="pw"/>
@@ -24,20 +45,57 @@
   		<result column="PHONE" property="phone"/>
   		<result column="EMAIL" property="email"/>
   		<association property="roleDTO" javaType="RoleDTO">
-  		<id column="ROLENUM" property="roleNum"/>
-  		<result column="ROLENAME" property="roleName"/>
+  			<id column="ROLENUM" property="roleNum"/>
+  			<result column="ROLENAME" property="roleName"/>
   		</association>
   	</resultMap>
-  	<update id="setMemberUpdate">
+  	
+  	<update id="setMemberUpdate" parameterType="MemberDTO">
   		UPDATE MEMBER SET PW=#{pw},NAME=#{name},ADDRESS=#{address},PHONE=#{phone},EMAIL=#{email} WHERE ID=#{id}
+  	</update>
+  	
+  	<update id="setAdminMemberUpdate" parameterType="MemberDTO">
+  		UPDATE MEMBER SET ID=#{id},ROLENUM=#{roleNum},PW=#{pw},NAME=#{name},ADDRESS=#{address},PHONE=#{phone},
+  		EMAIL=#{email} WHERE ID=#{id}
   	</update>
   	
   	<select id="getMemberIdFind" parameterType="String" resultType="String">
   		SELECT ID FROM MEMBER WHERE EMAIL=#{email}
   	</select>
   	
+  	<delete id="setMemberDelete" parameterType="MemberDTO">
+  		DELETE MEMBER WHERE ID=#{id}
+  	</delete>
+  	
   	<update id="setMemberPwChange" parameterType="MemberDTO">
   	UPDATE MEMBER SET PW=#{pw} WHERE ID=#{id}
   	</update>
+  	
+  	<select id="getMemberList"  parameterType="Pager" resultMap="MemberList">
+		  		SELECT * FROM
+				(SELECT ROWNUM R, N.* FROM
+						(SELECT * FROM MEMBER M
+						LEFT JOIN MEMBERROLE MR 
+						USING(ROLENUM)
+						<include refid="MemberCondition"></include>
+						ORDER BY ROLENUM 
+						)
+					N
+				)
+				
+				WHERE R BETWEEN #{startRow} AND #{lastRow}
+  	</select>
+  	<resultMap type="MemberDTO" id="MemberList">
+  		<id column="ID" property="id"/>
+  		<result column="NAME" property="name"/>
+  		<association property="roleDTO" javaType="RoleDTO">
+  			<id column="ROLENUM" property="roleNum"/>
+  			<result column="ROLENAME" property="roleName"/>
+  		</association>
+
+  	</resultMap>
+  	
+ 
+  	
   	
   </mapper>

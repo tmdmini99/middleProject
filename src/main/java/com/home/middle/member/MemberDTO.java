@@ -1,17 +1,22 @@
 package com.home.middle.member;
 
+
 public class MemberDTO {
 	private String id;
-	
 	private String pw;
 	private String name;
 	private	String address;
 	private String phone;
 	private String email;
+	private Integer roleNum;
 	private RoleDTO roleDTO;
 	
-	
-	
+	public Integer getRoleNum() {
+		return roleNum;
+	}
+	public void setRoleNum(Integer roleNum) {
+		this.roleNum = roleNum;
+	}
 	public RoleDTO getRoleDTO() {
 		return roleDTO;
 	}
@@ -55,6 +60,8 @@ public class MemberDTO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	
 	
 	
 }

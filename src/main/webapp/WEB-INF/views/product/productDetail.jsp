@@ -72,7 +72,9 @@
           <div class="row">
 			<a href="../../review/add?productNum=${dto.productNum}" class="btn btn-primary">리뷰작성</a>
 			<a href="./add" class="btn btn-primary">상품추가</a>
+			
 		  </div>
+		  
 			
 			<script src="../resources/js/reviewTop5.js"></script>
 			<script src="../resources/js/qnaTop5.js"></script>		

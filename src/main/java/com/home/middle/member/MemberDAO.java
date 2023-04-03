@@ -6,6 +6,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.home.middle.product.ProductDTO;
+import com.home.middle.util.Pager;
+
 @Repository
 public class MemberDAO {
 	
@@ -13,10 +16,17 @@ public class MemberDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE="com.home.middle.member.MemberDAO.";
 	
+	public Long getTotalCount(Pager pager) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + "getTotalCount", pager);
+	}
+	
 	public int setMemberJoin(MemberDTO memberDTO)throws Exception{
 		return sqlSession.insert(NAMESPACE+"setMemberJoin",memberDTO);
 	}
 	
+	public List<MemberDTO> getMemberList(Pager pager) throws Exception {
+		return sqlSession.selectList(NAMESPACE + "getMemberList", pager);
+	}
 	
 	public MemberDTO getMemberLogin(MemberDTO memberDTO) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"getMemberLogin", memberDTO);
@@ -29,6 +39,14 @@ public class MemberDAO {
 	}
 	public int setMemberPwChange(MemberDTO memberDTO)throws Exception{
 		return sqlSession.update(NAMESPACE+"setMemberPwChange", memberDTO);
+	}
+	
+	public int setAdminMemberUpdate(MemberDTO memberDTO) throws Exception {
+		return sqlSession.update(NAMESPACE + "setAdminMemberUpdate", memberDTO);
+	}
+	
+	public int setMemberDelete(MemberDTO memberDTO) throws Exception {
+		return sqlSession.delete(NAMESPACE + "setMemberDelete", memberDTO);
 	}
 	
 }
