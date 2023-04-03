@@ -45,8 +45,5 @@ public class CartService {
 		return cartDAO.getCartUpdate(cartDTO);
 	}
 	
-	//임시로 가져오는거임
-	public ProductDTO getProductDetail(ProductDTO productDTO) throws Exception{
-		return cartDAO.getProductDetail(productDTO);
-	}
+	
 }

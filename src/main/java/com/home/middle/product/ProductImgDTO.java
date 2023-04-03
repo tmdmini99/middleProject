@@ -1,11 +1,14 @@
 package com.home.middle.product;
 
 public class ProductImgDTO {
+	//productFiles 테이블
 	private Long fileNum;
 	private Long productNum;
+	private Long num;
 	private String fileName;
 	private String oriName;
 	
+	///getters setters
 	public Long getFileNum() {
 		return fileNum;
 	}
@@ -17,6 +20,12 @@ public class ProductImgDTO {
 	}
 	public void setProductNum(Long productNum) {
 		this.productNum = productNum;
+	}
+	public Long getNum() {
+		return num;
+	}
+	public void setNum(Long num) {
+		this.num = num;
 	}
 	public String getFileName() {
 		return fileName;
@@ -30,6 +39,9 @@ public class ProductImgDTO {
 	public void setOriName(String oriName) {
 		this.oriName = oriName;
 	}
+	
+	
+	
 	
 	
 

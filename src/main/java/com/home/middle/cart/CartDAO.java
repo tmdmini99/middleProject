@@ -48,9 +48,6 @@ public class CartDAO {
 		return sqlSession.update(NAMESPACE + "getCartUpdate", cartDTO);
 	}
 	
-	//임시로 가져오는거임
-	public ProductDTO getProductDetail(ProductDTO productDTO) throws Exception{
-		return sqlSession.selectOne(NAMESPACE + "getProductDetail", productDTO);
-	}
+	
 	
 }
