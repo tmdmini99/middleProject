@@ -28,6 +28,14 @@ public class CartService {
 	}
 	
 	public int setCartPayment(CartDTO cartDTO) throws Exception{
+		long temp = cartDTO.getProductEa();
+		System.out.println(cartDTO.getOptionNum());
+		
+		ProductOptionDTO productOptionDTO = cartDAO.getOptionDetail(cartDTO);
+		
+		cartDTO.setProductEa(productOptionDTO.getProductStock() - temp);
+		cartDAO.setOptionUpdate(cartDTO);
+
 		return cartDAO.setCartPayment(cartDTO);
 	}
 	

@@ -44,6 +44,7 @@
 	                                                            <td class="product-thumbnail orderNum" id="orderNum-${i.count}">
 	                                                               	<p class="orderNum">${dto.orderNum}</p>
 	                                                               	${dto.productDTO.productName}
+	                                                               	<p class="optionNum">${dto.optionNum}</p>
 	                                                               	<!-- 이미지 추가 -->
 																	<input type="hidden" value="${dto.productDTO.productPrice}" id="price-${i.count}">
 	                                                            </td>
@@ -61,7 +62,13 @@
 	                                                            <td class="product-subtotal totalPrice" id="totalPrice-${i.count}" data-all-idx="${i.count}">${dto.totalPrice}</td>
 	                                                            <td class="product-remove buttons">
 	                                                                <c:if test="${dto.buyCheck == 0}">
-																			<button type="button" class="btn btn-danger cartDelete" id="delete-${i.count}">Delete</button>	
+																			<c:if test ="${dto.paymentCheck == 0 }">
+																				<button type="button" class="btn btn-danger cartDelete" id="delete-${i.count}">Delete</button>	
+																				<button type="button" class="btn btn-danger cartPayment" id="delete-${i.count}">PAYMENT</button>	
+																			</c:if>
+																			<c:if test ="${dto.paymentCheck == 1 }">
+																						<button type="button" class="btn btn-danger cartPaymentCancel" id="delete-${i.count}">PAYMENTCANCEL</button>	
+																			</c:if>
 																	</c:if>
 	                                                            </td>
 	                                                        </tr>

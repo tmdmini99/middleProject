@@ -64,10 +64,17 @@
 	
 	
 	<update id="setCartPayment" parameterType="CartDTO">
-		UPDATE PRODUCTORDER SET BUYCHECK = 1 WHERE ORDERNUM = #{orderNum}
+		UPDATE PRODUCTORDER SET PAYMENTCHECK = 1 WHERE ORDERNUM = #{orderNum}
 	</update>
+	<select id="getOptionDetail" parameterType="CartDTO" resultType="ProductOptionDTO">
+		SELECT * FROM PRODUCTOPTION WHERE OPTIONNUM = #{optionNum}
+	</select>
+	<update id="setOptionUpdate" parameterType="CartDTO">
+		UPDATE PRODUCTOPTION SET PRODUCTSTOCK = #{productEa} WHERE OPTIONNUM = #{optionNum}
+	</update>
+	
 	<update id="setCartPaymentCancel" parameterType="CartDTO">
-		UPDATE PRODUCTORDER SET BUYCHECK = 0 WHERE ORDERNUM = #{orderNum}
+		UPDATE PRODUCTORDER SET PAYMENTCHECK = 0 WHERE ORDERNUM = #{orderNum}
 	</update>
 	<update id="getCartUpdate" parameterType="CartDTO">
 		UPDATE PRODUCTORDER SET PRODUCTEA = #{productEa}, TOTALPRICE=#{totalPrice} WHERE ORDERNUM = #{orderNum}

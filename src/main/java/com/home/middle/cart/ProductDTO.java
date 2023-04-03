@@ -7,6 +7,8 @@ public class ProductDTO {
 	private Long optionNum;
 	private String optionName;
 	
+	
+	
 	public Long getOptionNum() {
 		return optionNum;
 	}

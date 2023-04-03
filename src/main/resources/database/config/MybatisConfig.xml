@@ -9,5 +9,6 @@
   		<typeAlias type="com.home.middle.cart.CartDTO" alias="CartDTO"/>
   		<typeAlias type="com.home.middle.cart.MemberDTO" alias="MemberDTO"/>
   		<typeAlias type="com.home.middle.cart.ProductDTO" alias="ProductDTO"/>
+  		<typeAlias type="com.home.middle.cart.ProductOptionDTO" alias="ProductOptionDTO"/>
 	</typeAliases>
 </configuration>

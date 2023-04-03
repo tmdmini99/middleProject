@@ -90,44 +90,44 @@ public class CartController {
 		return mv;
 	}
 	
-	@GetMapping("cartPayment")
-	public ModelAndView setCartPayment() throws Exception{
-		ModelAndView mv = new ModelAndView();
-		
-		//임시 아이디 설정
-		MemberDTO memberDTO = new MemberDTO();
-		memberDTO.setId("TEST2");
-		List<CartDTO> ar = cartService.getCartList(memberDTO);
-		
-		mv.addObject("list", ar);
-		mv.setViewName("/cart/cartPayment");
-		
-		return mv;
-	}
-	
-	@PostMapping("cartPayment")
-	public ModelAndView setCartPayment(CartDTO cartDTO) throws Exception{
-		ModelAndView mv = new ModelAndView();
-		
-		int result = cartService.setCartPayment(cartDTO);
-		
-		//mv.addObject("result", result);
-		mv.setViewName("redirect:./cartPayment");
-		
-		return mv;
-	}
-	
-	@PostMapping("cartPaymentCancel")
-	public ModelAndView setCartPaymentCancel(CartDTO cartDTO) throws Exception{
-		ModelAndView mv = new ModelAndView();
-		
-		int result = cartService.setCartPaymentCancel(cartDTO);
-		
-		//mv.addObject("result", result);
-		mv.setViewName("redirect:./cartPayment");
-		
-		return mv;
-	}
+//	@GetMapping("cartPayment")
+//	public ModelAndView setCartPayment() throws Exception{
+//		ModelAndView mv = new ModelAndView();
+//		
+//		//임시 아이디 설정
+//		MemberDTO memberDTO = new MemberDTO();
+//		memberDTO.setId("TEST2");
+//		List<CartDTO> ar = cartService.getCartList(memberDTO);
+//		
+//		mv.addObject("list", ar);
+//		mv.setViewName("/cart/cartPayment");
+//		
+//		return mv;
+//	}
+//	
+//	@PostMapping("cartPayment")
+//	public ModelAndView setCartPayment(CartDTO cartDTO) throws Exception{
+//		ModelAndView mv = new ModelAndView();
+//		
+//		int result = cartService.setCartPayment(cartDTO);
+//		
+//		//mv.addObject("result", result);
+//		mv.setViewName("redirect:./cartPayment");
+//		
+//		return mv;
+//	}
+//	
+//	@PostMapping("cartPaymentCancel")
+//	public ModelAndView setCartPaymentCancel(CartDTO cartDTO) throws Exception{
+//		ModelAndView mv = new ModelAndView();
+//		
+//		int result = cartService.setCartPaymentCancel(cartDTO);
+//		
+//		//mv.addObject("result", result);
+//		mv.setViewName("redirect:./cartPayment");
+//		
+//		return mv;
+//	}
 	
 	@PostMapping("cartPaymentDetail")
 	public ModelAndView getCartPaymentDetail(CartDTO cartDTO) throws Exception{
@@ -151,6 +151,25 @@ public class CartController {
 		mv.addObject("result", result);
 		mv.setViewName("/common/result_1");
 		
+		return mv;
+	}
+	
+	@PostMapping("cartPayment")
+	public ModelAndView setCartPayment(CartDTO cartDTO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		int result = cartService.setCartPayment(cartDTO);
+		
+		mv.setViewName("redirect:./cartList");
+		return mv;
+	}
+	
+	@PostMapping("cartPaymentCancel")
+	public ModelAndView setCartPaymentCancel(CartDTO cartDTO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		int result = cartService.setCartPaymentCancel(cartDTO);
+		mv.setViewName("redirect:./cartList");
 		return mv;
 	}
 }

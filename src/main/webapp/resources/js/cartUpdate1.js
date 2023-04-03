@@ -37,12 +37,49 @@ $('.btnN').on("click", function(){
 })
 
 $('.cartDelete').on("click", function(){
+    
     let orderNum = parseInt($(this).parent().prev().prev().prev().prev().children(".orderNum").html(), 10);
     $.ajax({
         type:"POST",
         url : "./cartDelete",
         data:{
             orderNum : orderNum
+        }
+        ,success : function(){
+            location.href="/cart/cartList"
+        }
+    })
+})
+
+
+$('.cartPayment').on("click",function(){
+    
+    let ea = $(this).parent().prev().html();
+    let orderNum = parseInt($(this).parent().prev().prev().prev().prev().children(".orderNum").html(), 10);
+    let optionNum = parseInt($(this).parent().prev().prev().prev().prev().children(".optionNum").html(), 10);
+    console.log(orderNum);
+    $.ajax({
+        type:"POST",
+        url : "./cartPayment",
+        data:{
+            orderNum : orderNum,
+            productEa : ea,
+            optionNum : optionNum
+        }
+        ,success : function(){
+            location.href="/cart/cartList"
+        }
+    })
+})
+
+$('.cartPaymentCancel').on("click",function(){
+    let orderNum = parseInt($(this).parent().prev().prev().prev().prev().children(".orderNum").html(), 10);
+    $.ajax({
+        type:"POST",
+        url : "./cartPaymentCancel",
+        data:{
+            orderNum : orderNum,
+
         }
         ,success : function(){
             location.href="/cart/cartList"

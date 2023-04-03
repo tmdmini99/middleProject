@@ -33,6 +33,12 @@ public class CartDAO {
 	public int setCartPayment(CartDTO cartDTO) throws Exception{
 		return sqlSession.update(NAMESPACE + "setCartPayment", cartDTO);
 	}
+	public ProductOptionDTO getOptionDetail(CartDTO cartDTO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE + "getOptionDetail", cartDTO);
+	}
+	public int setOptionUpdate(CartDTO cartDTO) throws Exception{
+		return sqlSession.update(NAMESPACE + "setOptionUpdate", cartDTO);
+	}
 	
 	public int setCartPaymentCancel(CartDTO cartDTO) throws Exception{
 		return sqlSession.update(NAMESPACE + "setCartPaymentCancel", cartDTO);
