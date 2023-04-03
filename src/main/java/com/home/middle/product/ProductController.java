@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -23,13 +24,13 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 	
-	@GetMapping("list")
-	public ModelAndView getProductList(Pager pager) throws Exception {
+	@GetMapping("memberProductList")
+	public ModelAndView getMemberProductList(Pager pager) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		
-		List<ProductDTO> ar =  productService.getProductList(pager);
+		List<ProductDTO> ar =  productService.getMemberProductList(pager);
 		
-		mv.setViewName("product/productList");
+		mv.setViewName("product/memberProductList");
 		mv.addObject("list", ar);
 		
 		return mv;
@@ -108,13 +109,18 @@ public class ProductController {
 	}
 	
 	@PostMapping("delete")
-	public ModelAndView setProductDelete(ProductDTO productDTO, HttpSession session) throws Exception {
+	public ModelAndView setProductDelete(@RequestParam(value="chkList",required = false) ProductDTO[] productDTOs, HttpSession session) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		
-		int result = productService.setProductDelete(productDTO, session) ;
+		for (ProductDTO productDTO2 : productDTOs) {
+			productDTO2.setProductNum(productDTO2.getProductNum());
+			System.out.println(productDTO2.getProductNum());
+			int result = productService.setProductDelete(session, productDTO2) ;
+			
+		}
 		
 		
-		mv.setViewName("redirect:./list");
+		mv.setViewName("redirect:./memberProductList");
 		
 		return mv;
 	}

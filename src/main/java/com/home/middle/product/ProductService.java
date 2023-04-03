@@ -54,12 +54,12 @@ public class ProductService {
 		return result;	
 	}
 	
-	public List<ProductDTO> getProductList(Pager pager) throws Exception {
+	public List<ProductDTO> getMemberProductList(Pager pager) throws Exception {
 		pager.makeRow();
 		
 		pager.makeNum(productDAO.getTotalCount(pager));
 		
-		List<ProductDTO> ar = productDAO.getProductList(pager);
+		List<ProductDTO> ar = productDAO.getMemberProductList(pager);
 		
 		return ar;
 	}
@@ -108,7 +108,7 @@ public class ProductService {
 		
 	}
 	
-	public int setProductDelete(ProductDTO productDTO, HttpSession session) throws Exception {
+	public int setProductDelete(HttpSession session, ProductDTO productDTO) throws Exception {
 		List<ProductImgDTO> ar = productDAO.getProductFileList(productDTO);
 		
 		int result =  productDAO.setProductDelete(productDTO);
@@ -120,6 +120,8 @@ public class ProductService {
 				
 				boolean check =  fileManager.fileDelete(realPath, productImgDTO.getFileName());
 			}
+			
+			
 		}
 		
 		return result;

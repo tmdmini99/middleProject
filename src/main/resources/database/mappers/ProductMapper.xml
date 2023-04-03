@@ -30,7 +30,7 @@
 		VALUES (PRODUCTFILES_SEQ.NEXTVAL, #{productNum}, #{fileName}, #{oriName})
 	</insert>
 	
-	<select id="getProductList" resultType="ProductDTO" parameterType="Pager" >
+	<select id="getMemberProductList" resultType="ProductDTO" parameterType="Pager" >
 		SELECT * FROM 
 		(
 			SELECT ROWNUM R, N.* FROM

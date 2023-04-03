@@ -25,7 +25,7 @@ function deleteValue() {
             },
             success : function(jdata) {
                 alert("상품이 삭제되었습니다")
-                location.replace("./list")
+                location.replace("./memberProductList")
             }
         })
         

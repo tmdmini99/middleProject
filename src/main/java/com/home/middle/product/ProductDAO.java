@@ -30,8 +30,8 @@ public class ProductDAO {
 		return sqlSession.insert(NAMESPACE + "setProductFileAdd", productImgDTO);
 	}
 	
-	public List<ProductDTO> getProductList(Pager pager) throws Exception {
-		List<ProductDTO> ar = sqlSession.selectList(NAMESPACE + "getProductList", pager);
+	public List<ProductDTO> getMemberProductList(Pager pager) throws Exception {
+		List<ProductDTO> ar = sqlSession.selectList(NAMESPACE + "getMemberProductList", pager);
 		return ar;
 	}
 	

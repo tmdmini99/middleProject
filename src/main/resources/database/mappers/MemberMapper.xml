@@ -20,7 +20,6 @@
 	  			</if>
 	  	</where>
 	  </sql>
-	  
 
   
   	<select id="getTotalCount" resultType="Long" parameterType="Pager">
@@ -95,5 +94,8 @@
   		</association>
 
   	</resultMap>
+  	
+ 
+  	
   	
   </mapper>

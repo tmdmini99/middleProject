@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.home.middle.product.ProductDTO;
 import com.home.middle.util.Pager;
 
 import oracle.jdbc.proxy.annotation.Post;
@@ -62,7 +63,6 @@ public class MemberController {
 		return mv;
 		
 	}
-	
 	
 	
 	@PostMapping("memberDelete")
