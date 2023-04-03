@@ -24,10 +24,10 @@ public class CartController {
 		ModelAndView mv = new ModelAndView();
 		//임시 아이디 설정
 		MemberDTO memberDTO = new MemberDTO();
-		memberDTO.setId("TEST2");
+		memberDTO.setId("test");
 		
 		List<CartDTO> ar = cartService.getCartList(memberDTO);
-		System.out.println(ar.get(0).getProductDTO().getProductPrice());
+		System.out.println(ar.size());
 		mv.addObject("list", ar);
 		
 		return mv;
@@ -40,9 +40,9 @@ public class CartController {
 		ModelAndView mv = new ModelAndView();
 		//임시 아이디 설정
 		MemberDTO memberDTO = new MemberDTO();
-		memberDTO.setId("TEST2");
+		memberDTO.setId("test");
 		ProductDTO productDTO = new ProductDTO();
-		productDTO.setProductNum(3L);
+		productDTO.setProductNum(17L);//임시 수정
 		productDTO = cartService.getProductDetail(productDTO);
 		
 		mv.addObject("mDTO", memberDTO);
@@ -72,8 +72,8 @@ public class CartController {
 		
 		int result = cartService.setCartDelete(cartDTO);
 		
-		mv.addObject("result", result);
-		mv.setViewName("/common/result_1");
+		
+		mv.setViewName("redirect:../cart/cartList");
 		
 		return mv;
 	}
