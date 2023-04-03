@@ -37,17 +37,17 @@ public class CartController {
 		List<CartDTO> ar = cartService.getCartList(memberDTO);
 		System.out.println(ar.size());
 		mv.addObject("list", ar);
-		
-		if(session.getAttribute("member")!=null) {
-			MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
-			
-			List<CartDTO> ar = cartService.getCartList(memberDTO);
-			
-			mv.addObject("list", ar);
-			mv.setViewName("/cart/cartPayment");
-		}else {
-			mv.setViewName("redirect:../");
-		}
+		mv.setViewName("/cart/cartList");
+//		if(session.getAttribute("member")!=null) {
+//			MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
+//			
+//			List<CartDTO> ar = cartService.getCartList(memberDTO);
+//			
+//			mv.addObject("list", ar);
+//			mv.setViewName("/cart/cartPayment");
+//		}else {
+//			mv.setViewName("redirect:../");
+//		}
 		return mv;
 		
 	}
@@ -61,7 +61,7 @@ public class CartController {
 		memberDTO.setId("test");
 		ProductDTO productDTO = new ProductDTO();
 		productDTO.setProductNum(17L);//임시 수정
-		productDTO = cartService.getProductDetail(productDTO);
+		productDTO = productService.getProductDetail(productDTO);
 		
 		mv.addObject("mDTO", memberDTO);
 		mv.addObject("pDTO", productDTO);
