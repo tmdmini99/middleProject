@@ -5,6 +5,12 @@ public class Pager {
 	
 	private Long num;
 	
+	private Long productNum;
+	private String id;
+	private String name;
+	private String[] roleName;
+	
+	
 	public Long getNum() {
 		return num;
 	}
@@ -227,5 +233,42 @@ public class Pager {
 	public void setLastRow(Long lastRow) {
 		this.lastRow = lastRow;
 	}
+
+	public Long getProductNum() {
+		return productNum;
+	}
+
+	public void setProductNum(Long productNum) {
+		this.productNum = productNum;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String[] getRoleName() {
+		return roleName;
+	}
+
+	public void setRoleName(String[] roleName) {
+		this.roleName = roleName;
+	}
+
+	public void setTotalPage(Long totalPage) {
+		this.totalPage = totalPage;
+	}
+	
 	
 }
