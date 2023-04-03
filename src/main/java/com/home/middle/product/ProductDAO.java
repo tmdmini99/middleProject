@@ -50,15 +50,13 @@ public class ProductDAO {
 		return sqlSession.insert(NAMESPACE + "setProductFileAdd", productImgDTO);
 	}
 	
-	public List<ProductDTO> getMemberProductList(Pager pager) throws Exception {
-		List<ProductDTO> ar = sqlSession.selectList(NAMESPACE + "getMemberProductList", pager);
-		return ar;
-	}
 	
-	public ProductDTO getProductDetail(ProductDTO productDTO) throws Exception { 
-		productDTO =  sqlSession.selectOne(NAMESPACE + "getProductDetail", productDTO);
-	    return productDTO;
-	}  
+	 public List<ProductDTO> getMemberProductList(Pager pager) throws Exception {
+	 List<ProductDTO> ar = sqlSession.selectList(NAMESPACE +
+	 "getMemberProductList", pager); return ar; }
+	
+	
+
 	
 	public int setProductUpdate(ProductDTO productDTO) throws Exception {
 		return sqlSession.update(NAMESPACE + "setProductUpdate", productDTO);
@@ -75,5 +73,16 @@ public class ProductDAO {
 	public int setProductDelete(ProductDTO productDTO) throws Exception {
 		return sqlSession.delete(NAMESPACE + "setProductDelete", productDTO);
 	}
+	
+	public int productOptionAdd0(ProductOptionDTO productOptionDTO) throws Exception{
+		return sqlSession.insert(NAMESPACE + "productOptionAdd0", productOptionDTO);
+	}
+	
+	public Long productOptionNum() throws Exception{
+		return sqlSession.selectOne(NAMESPACE + "productOptionNum");
+	}
+	
+	
+	
 	
 }

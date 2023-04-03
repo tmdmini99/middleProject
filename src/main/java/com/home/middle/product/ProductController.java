@@ -24,6 +24,8 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 	
+	
+	
 	@RequestMapping(value="list" , method=RequestMethod.GET)
 	public ModelAndView getProductList(ProductDTO productDTO) throws Exception{
 		ModelAndView mv = new ModelAndView();
@@ -36,8 +38,6 @@ public class ProductController {
 		//mv.addObject("pager", pager);
 		return mv;
 	}
-	
-
 	
 
 	@RequestMapping(value="detail",method=RequestMethod.GET)
@@ -56,7 +56,18 @@ public class ProductController {
 	   return mv;
 		
 	}
-
+	
+	@GetMapping("memberProductList")
+	   public ModelAndView getMemberProductList(Pager pager) throws Exception {
+	      ModelAndView mv = new ModelAndView();
+	      
+	      List<ProductDTO> ar =  productService.getMemberProductList(pager);
+	      
+	      mv.setViewName("product/memberProductList");
+	      mv.addObject("list", ar);
+	      
+	      return mv;
+	   }
 	////////////////////////상품 하위 옵션 구현 ///////////////////////////////////// 
 	
 
@@ -67,11 +78,11 @@ public class ProductController {
 		
 		List<ProductOptionDTO> ar = productService.getOption(productOptionDTO);
 		
-		mv.setViewName("product/memberProductList");
 		mv.addObject("list", ar);
+		mv.setViewName("/product/selectOption");
 		
 		return mv;
-	}
+	}		
 	
 	@GetMapping("add")
 	public ModelAndView setProductAdd() throws Exception {
@@ -97,21 +108,6 @@ public class ProductController {
 		return mv;
 	}
 	
-   @RequestMapping(value="detail",method=RequestMethod.GET)
-   public ModelAndView getProductDetail(ProductDTO productDTO, Model model) throws Exception{
-      //파라미터 이름과 setter의 이름과 같아야함 
-      ModelAndView mv = new ModelAndView();
-     
-      productDTO = productService.getProductDetail(productDTO);     
-
-       mv.setViewName("product/productDetail");
-       
-       System.out.println(productDTO.getId());
-       mv.addObject("dto",productDTO);
-      
-      return mv;
-      
-   }
 
 	@GetMapping("update")
 	public ModelAndView setProductUpdate(ProductDTO productDTO) throws Exception {
