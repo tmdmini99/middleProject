@@ -1,45 +1,37 @@
 package com.home.middle.product;
 
-import java.util.List;
 
+import java.util.List;
+import javax.servlet.http.HttpSession;
+
+import com.home.middle.member.MemberDTO;
 
 
 public class ProductDTO {
-	//product 테이블
-	private Long  productNum;
+	private String id;
+	private Long r;
+	private Long productNum;
 	private String productName;
 	private Long discount;
 	private Double discountPercent;
-	private Long productSales;
-
-	//리스트로 수정 //
+	private Integer productSales;
 	private Long categoryNum;
-	
 	private List<ProductOptionDTO> productOptionDTOs;
 	private List<ProductImgDTO> productImgDTOs;
 	
-	
-	public Long getCategoryNum() {
-		return categoryNum;
+	public String getId() {
+		return id;
 	}
-	public void setCategoryNum(Long categoryNum) {
-		this.categoryNum = categoryNum;
-	}
-	public List<ProductOptionDTO> getProductOptionDTOs() {
-		return productOptionDTOs;
-	}
-	public void setProductOptionDTOs(List<ProductOptionDTO> productOptionDTOs) {
-		this.productOptionDTOs = productOptionDTOs;
-	}
-	public List<ProductImgDTO> getProductImgDTOs() {
-		return productImgDTOs;
-	}
-	public void setProductImgDTOs(List<ProductImgDTO> productImgDTOs) {
-		this.productImgDTOs = productImgDTOs;
+	public void setId(String id) {
+		this.id = id;
 	}
 	
-
-
+	public Long getR() {
+		return r;
+	}
+	public void setR(Long r) {
+		this.r = r;
+	}
 	public Long getProductNum() {
 		return productNum;
 	}
@@ -63,17 +55,42 @@ public class ProductDTO {
 	}
 	public void setDiscountPercent(Double discountPercent) {
 		this.discountPercent = discountPercent;
+		
 	}
-	public Long getProductSales() {
+	public Integer getProductSales() {
 		return productSales;
 	}
-	public void setProductSales(Long productSales) {
+	public void setProductSales(Integer productSales) {
 		this.productSales = productSales;
 	}
 
+	public Long getCategoryNum() {
+		return categoryNum;
+	}
+	public void setCategoryNum(Long categoryNum) {
+		this.categoryNum = categoryNum;
+	}
+	public List<ProductOptionDTO> getProductOptionDTOs() {
+		return productOptionDTOs;
+	}
+	public void setProductOptionDTOs(List<ProductOptionDTO> productOptionDTOs) {
+		this.productOptionDTOs = productOptionDTOs;
+	}
+	public List<ProductImgDTO> getProductImgDTOs() {
+		return productImgDTOs;
+	}
+	public void setProductImgDTOs(List<ProductImgDTO> productImgDTOs) {
+		this.productImgDTOs = productImgDTOs;
+	}
 	
 	
-
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }

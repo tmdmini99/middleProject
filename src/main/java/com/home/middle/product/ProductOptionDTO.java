@@ -1,46 +1,15 @@
 package com.home.middle.product;
 
-import java.sql.Date;
-
 public class ProductOptionDTO {
-	
-	//productoption 테이블
 	private Long optionNum;
 	private Long productNum;
+	private String optionName;
+	private String optionValue;
 	private Long productPrice;
 	private Long productStock;
-	private String optionName;
-	private Date productDate;
-	private String optionValue;
 	private Long ref;
 	private Long depth;
 	
-	///getters setters
-	public Date getProductDate() {
-		return productDate;
-	}
-	public void setProductDate(Date productDate) {
-		this.productDate = productDate;
-	}
-	public String getOptionValue() {
-		return optionValue;
-	}
-	public void setOptionValue(String optionValue) {
-		this.optionValue = optionValue;
-	}
-	public Long getRef() {
-		return ref;
-	}
-	public void setRef(Long ref) {
-		this.ref = ref;
-	}
-	public Long getDepth() {
-		return depth;
-	}
-	public void setDepth(Long depth) {
-		this.depth = depth;
-	}
-
 	public Long getOptionNum() {
 		return optionNum;
 	}
@@ -52,6 +21,19 @@ public class ProductOptionDTO {
 	}
 	public void setProductNum(Long productNum) {
 		this.productNum = productNum;
+	}
+	public String getOptionName() {
+		return optionName;
+	}
+	public void setOptionName(String optionName) {
+		this.optionName = optionName;
+	}
+	
+	public String getOptionValue() {
+		return optionValue;
+	}
+	public void setOptionValue(String optionValue) {
+		this.optionValue = optionValue;
 	}
 	public Long getProductPrice() {
 		return productPrice;
@@ -65,14 +47,18 @@ public class ProductOptionDTO {
 	public void setProductStock(Long productStock) {
 		this.productStock = productStock;
 	}
-	public String getOptionName() {
-		return optionName;
+	public Long getRef() {
+		return ref;
 	}
-	public void setOptionName(String optionName) {
-		this.optionName = optionName;
+	public void setRef(Long ref) {
+		this.ref = ref;
 	}
-	
-	
+	public Long getDepth() {
+		return depth;
+	}
+	public void setDepth(Long depth) {
+		this.depth = depth;
+	}
 	
 	
 	
