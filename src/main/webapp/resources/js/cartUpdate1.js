@@ -73,9 +73,10 @@ $('.cartPayment').on("click",function(){
 })
 
 $('.cartPaymentCancel').on("click",function(){
-    let ea = $(this).parent().prev().prev().children(".cart-plus-minus-box").val();
+    let ea = $(this).parent().prev().prev().html().trim();
     let orderNum = parseInt($(this).parent().prev().prev().prev().prev().children(".orderNum").html(), 10);
     let optionNum = parseInt($(this).parent().prev().prev().prev().prev().children(".optionNum").html(), 10);
+    console.log(ea);
     $.ajax({
         type:"POST",
         url : "./cartPaymentCancel",
@@ -86,7 +87,7 @@ $('.cartPaymentCancel').on("click",function(){
 
         }
         ,success : function(){
-            location.href="/cart/cartList"
+            location.href="/cart/cartPaymentList"
         }
     })
 })

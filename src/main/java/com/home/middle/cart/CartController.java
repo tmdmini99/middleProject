@@ -187,4 +187,19 @@ public class CartController {
 		return mv;
 		
 	}
+	
+	@GetMapping("cartPaymentList")
+	public ModelAndView setCartPaymentList() throws Exception{
+		//member 연동해서 아이디에 따른 장바구니 가져오기
+		ModelAndView mv = new ModelAndView();
+		//임시 아이디 설정
+		MemberDTO memberDTO = new MemberDTO();
+		memberDTO.setId("TEST2");
+				
+		List<CartDTO> ar = cartService.getCartPaymentList(memberDTO);
+		
+		mv.addObject("list", ar);
+				
+		return mv;
+	}
 }

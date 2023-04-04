@@ -20,6 +20,7 @@
 		</head>
 
 		<body>
+
 			<div class="container-fluid">
 				<div class="col-lg-10">
 					<!-- Tab panes -->
@@ -67,8 +68,8 @@
 															</div>
 														</c:if>
 														<c:if test="${dto.buyCheck == 1 }">
-															<input type="text" value="${dto.productEa}" name="qtybutton"
-																class="cart-plus-minus-box" readonly>
+															${dto.productEa}
+
 														</c:if>
 													</td>
 													<td class="product-subtotal totalPrice" id="totalPrice-${i.count}"
@@ -101,9 +102,7 @@
 						<!-- shopping-cart end -->
 					</div>
 				</div>
-
 			</div>
-
 			<script src="/resources/js/cartUpdate1.js"></script>
 			<c:import url="../template/common_js.jsp"></c:import>
 		</body>

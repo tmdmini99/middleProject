@@ -69,6 +69,9 @@ public class CartService {
 	public int getCartUpdate(CartDTO cartDTO) throws Exception{
 		return cartDAO.getCartUpdate(cartDTO);
 	}
+	public List<CartDTO> getCartPaymentList(MemberDTO memberDTO) throws Exception{
+		return cartDAO.getCartPaymentList(memberDTO);
+	}
 	
 	//임시로 가져오는거임
 	public ProductDTO getProductDetail(ProductDTO productDTO) throws Exception{
