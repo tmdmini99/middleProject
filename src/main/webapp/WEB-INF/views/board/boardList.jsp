@@ -21,31 +21,32 @@
 		<table class="table table-hover">
 			<thead>
 				<tr>
-					<th>NUM</th><th>CONTENTS</th><th>TITLE</th><th>ID</th><th>DATE</th><th>상품번호</th><c:if test="${member.id eq dto.id or member.roleDTO.roleNum < 3}"><th>삭제</th><th>수정</th> </c:if>
+					 <th>NUM</th><th>CONTENTS</th><th>TITLE</th><th>ID</th><th>DATE</th><th>상품번호</th><c:if test="${member.id eq dto.id or member.roleDTO.roleNum < 3}"><th>삭제</th><th>수정</th> </c:if>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${list}" var="dto">
+			
+			<c:forEach items="${list}" var="dto">
 				<tr>
 					<td>${dto.num}</td>
 					<td>${dto.contents}</td>
 					<td>${dto.title}</td>
 					<td>${dto.id}</td>
 					<td>${dto.regDate}</td>
-					<td>${dto.productNum}</td>
+					<td>${dto.productNum} ${product.list.productNum}</td>
 					<td>
-				  <c:if test="${member.id eq dto.id or member.roleDTO.roleNum < 3  }">
+				   <c:if test="${member.id eq dto.id or member.roleDTO.roleNum < 3 }">
 					<form action="./delete" id="frmde">
-					 <input type="hidden" name="num" value="${dto.num}">
-					 <button id="delete" type="button" class="btn btn-info">DELETE</button>
-					</form>
-					</td>
+						 <input type="hidden" name="num" value="${dto.num}">
+						 <button id="delete" type="button" class="btn btn-info">DELETE</button>
+				    </form>
+				   </td>
 					<td>
 					 <a class="btn btn-info"  href ="./update?num=${dto.num}">update</a>
 					</td>
-		        </c:if>
+		          </c:if>
 				</tr>
-				</c:forEach>
+			</c:forEach>
 			</tbody>
 		
 		</table>

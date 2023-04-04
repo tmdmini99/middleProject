@@ -27,7 +27,6 @@ public class ReviewService implements BbsService {
 		
 		pager.makeNum(reviewDAO.getTotalCount());
 		pager.makeRow();
-		
 		return reviewDAO.getBoardList(pager);
 	}
 	

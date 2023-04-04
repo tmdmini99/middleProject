@@ -52,8 +52,9 @@ public class ProductDAO {
 	
 	
 	 public List<ProductDTO> getMemberProductList(Pager pager) throws Exception {
-	 List<ProductDTO> ar = sqlSession.selectList(NAMESPACE +
-	 "getMemberProductList", pager); return ar; }
+	 List<ProductDTO> ar = sqlSession.selectList(NAMESPACE + "getMemberProductList", pager);
+	 return ar; 
+	 }
 	
 	
 
