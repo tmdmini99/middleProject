@@ -56,7 +56,7 @@
                             <div class="top-link clearfix">
                                 <ul class="link f-right">
                                     <li>
-                                        <a href="my-account.html">
+                                        <a href="/member/memberDetail">
                                             <i class="zmdi zmdi-account"></i>
                                             My Account
                                         </a>
@@ -68,7 +68,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="login.html">
+                                        <a href="/member/memberLogin">
                                             <i class="zmdi zmdi-lock"></i>
                                             Login
                                         </a>
@@ -383,7 +383,7 @@
                                                             <a href="login.html">Login</a>
                                                         </li>
                                                         <li>
-                                                            <a href="my-account.html">My Account</a>
+                                                            <a href="/member/memberDetail">My Account</a>
                                                         </li>
                                                         <li>
                                                             <a href="about.html">About us</a>
@@ -559,7 +559,7 @@
                                                 <a href="login.html">Login</a>
                                             </li>
                                             <li>
-                                                <a href="my-account.html">My Account</a>
+                                                <a href="/member/memberDetail">My Account</a>
                                             </li>
                                             <li>
                                                 <a href="about.html">About us</a>
@@ -643,7 +643,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="section-title text-center mb-50">
-                                <h2 class="uppercase">Featured product</h2>
+                                <h2 class="uppercase">놓치면 후회하는 오늘의 특가 </h2>
                                 <h6>There are many variations of passages of brands available,</h6>
                             </div>
                             <div class="featured-product">

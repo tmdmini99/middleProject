@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>상품보여주는 페이지 오늘안에 끝낸다 진짜로 </title>
+<title>상품 상세 페이지 </title>
 <c:import url="../template/common_css.jsp"></c:import>
 </head>
 	<body>
@@ -73,7 +73,7 @@
             <a href="../../qna/add?productNum=${dto.productNum}" class="btn btn-primary">상품문의</a>
 			<a href="../../review/add?productNum=${dto.productNum}" class="btn btn-primary">리뷰작성</a>
 			<a href="./add" class="btn btn-primary">상품추가</a>
-			
+		
 		  </div>
 		  
 			

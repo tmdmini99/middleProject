@@ -13,14 +13,15 @@
 
 <div class="container-fluid">
 	<div class="row my-5">
-		<h1>리뷰 List</h1>
+	${member.id}님 환영합니다
+		<h1>${boardName} List</h1>
 	</div>
 
 	<div class="row">
 		<table class="table table-hover">
 			<thead>
 				<tr>
-					<th>NUM</th><th>CONTENTS</th><th>TITLE</th><th>ID</th><th>DATE</th><th>상품번호</th><th>삭제</th><th>수정</th>
+					<th>NUM</th><th>CONTENTS</th><th>TITLE</th><th>ID</th><th>DATE</th><th>상품번호</th><c:if test="${member.id eq dto.id or member.roleDTO.roleNum < 3}"><th>삭제</th><th>수정</th> </c:if>
 				</tr>
 			</thead>
 			<tbody>
@@ -33,17 +34,16 @@
 					<td>${dto.regDate}</td>
 					<td>${dto.productNum}</td>
 					<td>
-					<form action="./delete" id="frm">
+				  <c:if test="${member.id eq dto.id or member.roleDTO.roleNum < 3  }">
+					<form action="./delete" id="frmde">
 					 <input type="hidden" name="num" value="${dto.num}">
 					 <button id="delete" type="button" class="btn btn-info">DELETE</button>
 					</form>
 					</td>
 					<td>
-					<form action="./update" id="frm">
-					 <input type="hidden" name="num" value="${dto.num}">
-					 <button id="update" type="button" class="btn btn-info">update</button>
-					</form>
+					 <a class="btn btn-info"  href ="./update?num=${dto.num}">update</a>
 					</td>
+		        </c:if>
 				</tr>
 				</c:forEach>
 			</tbody>
@@ -113,16 +113,7 @@
 		
 			<div class="row">
 				<a href="./add" class="btn btn-primary">글작성</a>
-			</div>
-				
-		 <form action="./update" id="frm">
-		      <input type="hidden" name="num" value="${dto.num}">
-		      <%-- <c:if test="${member.id eq dto.writer}"> --%>
-		      <button id="update" type="submit" class="btn btn-primary">UPDATE</button>
-		      <button id="delete" type="button" class="btn btn-info">DELETE</button>
-		      <%-- </c:if> --%>
-		      	</form>
-		
+			</div>		
 		</div>
 </div>
 

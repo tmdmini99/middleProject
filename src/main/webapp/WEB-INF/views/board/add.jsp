@@ -17,7 +17,7 @@
    
    <h1>${boardName} add page </h1>
    
-	<h1 class="mb-2"> 리뷰 등록 페이지 
+	<h1 class="mb-2"> 
 	</h1>
 	</div>
 	
@@ -26,17 +26,21 @@
     		<label for="title" class="form-label">아이디</label>
     		<input type="text" class="form-control" id="id" name="id" placeholder="id" value="id">
   		</div>
-  	<!-- 	<div class="col-12">
+  		
+  		<div class="col-12">
+    		<label for="contents" class="form-label">제목</label>
+    		<input type="text" class="form-control" id="title" name="title" placeholder="제목">
+  		</div> 
+  		
+     	<div class="col-12">
     		<label for="contents" class="form-label">내용</label>
     		<input type="text" class="form-control" id="contents" name="contents" placeholder="상세내용">
-  		</div> -->
+  		</div> 
   		
-  			<div class="mb-3">
+  			<!-- <div class="mb-3">
 			  <label for="contents" class="form-label">내용</label>
-			  <textarea name="contents" class="form-control" id="contents" placeholder="내용 입력" rows="7">${dto.contents}</textarea>
-			</div>
-  		
-  		
+			  <textarea name="contents" class="form-control" id="contents" placeholder="내용 입력" rows="7"></textarea>
+			</div> -->
   		
   			<div class="col-12">
     		<label for="contents" class="form-label">상품번호</label>
@@ -55,10 +59,10 @@
 	</form>
    </div>
    
-   <script>
-	$("#contents").summernote();
-</script>
+  
    <c:import url="../template/common_js.jsp"></c:import>
-   
+<script>
+   //라이브러리 summernote안에 있는 함수 호출 
+	$("#contents").summernote();</script>
 </body>
 </html>
