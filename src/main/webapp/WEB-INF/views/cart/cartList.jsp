@@ -47,6 +47,9 @@
 															data-orderNum="${dto.orderNum}">
 													</td>
 													<td class="product-thumbnail orderNum" id="orderNum-${i.count}">
+														<div class="pro-thumbnail-img">
+															<img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fshop1.phinf.naver.net%2F20230308_45%2F1678286952226XyteF_JPEG%2Fmain_3MR_61693_4.jpg&type=sc960_832">
+														</div>
 														<p class="orderNum">${dto.orderNum}</p>
 														${dto.productDTO.productName}
 														<p class="optionNum">${dto.optionNum}</p>
