@@ -24,7 +24,7 @@ public class CartController {
 		ModelAndView mv = new ModelAndView();
 		//임시 아이디 설정
 		MemberDTO memberDTO = new MemberDTO();
-		memberDTO.setId("test");
+		memberDTO.setId("TEST2");
 		
 		List<CartDTO> ar = cartService.getCartList(memberDTO);
 		System.out.println(ar.size());
@@ -171,5 +171,20 @@ public class CartController {
 		int result = cartService.setCartPaymentCancel(cartDTO);
 		mv.setViewName("redirect:./cartList");
 		return mv;
+	}
+	
+	@PostMapping("cartSelectedDelete")
+	public ModelAndView setCartSelectedDelete(String check[]) throws Exception{
+		
+		ModelAndView mv = new ModelAndView();
+		
+		for(int i = 0; i < check.length; i ++) {
+			CartDTO cartDTO = new CartDTO();
+			cartDTO.setOrderNum(Long.parseLong(check[i]));
+			cartService.setCartDelete(cartDTO);
+		}
+		mv.setViewName("redirect:./cartList");
+		return mv;
+		
 	}
 }

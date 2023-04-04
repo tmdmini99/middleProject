@@ -1,5 +1,7 @@
 package com.home.middle.cart;
 
+import java.util.List;
+
 public class ProductDTO {
 	private Long productNum;
 	private String productName;
@@ -7,8 +9,15 @@ public class ProductDTO {
 	private Long optionNum;
 	private String optionName;
 	
+	private List<ProductOptionDTO> productOptionDTOs;
 	
 	
+	public List<ProductOptionDTO> getProductOptionDTOs() {
+		return productOptionDTOs;
+	}
+	public void setProductOptionDTOs(List<ProductOptionDTO> productOptionDTOs) {
+		this.productOptionDTOs = productOptionDTOs;
+	}
 	public Long getOptionNum() {
 		return optionNum;
 	}

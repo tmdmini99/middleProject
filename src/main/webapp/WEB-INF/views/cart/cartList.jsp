@@ -31,6 +31,7 @@
                                                 <table class="text-center">
                                                     <thead>
                                                         <tr>
+                                                            <th class="checkbox"><input type="checkbox" class="checkAll"></th>
                                                             <th class="product-thumbnail">product</th>
                                                             <th class="product-price">price</th>
                                                             <th class="product-quantity">Quantity</th>
@@ -41,6 +42,9 @@
                                                     <tbody>
                                                         <c:forEach items="${list}" var="dto" varStatus="i" >
                                                         	<tr>
+                                                        		<td class="checkbox">
+                                                        			<input type="checkbox" class="check" data-orderNum="${dto.orderNum}">
+                                                        		</td>
 	                                                            <td class="product-thumbnail orderNum" id="orderNum-${i.count}">
 	                                                               	<p class="orderNum">${dto.orderNum}</p>
 	                                                               	${dto.productDTO.productName}
@@ -50,14 +54,16 @@
 	                                                            </td>
 	                                                            <td class="product-price">${dto.productDTO.productPrice}</td>
 	                                                            <td class="product-quantity">
-	                                                                
-	                                                                <div class="cart-plus-minus f-left ">
-		                                                                <div class="dec qtybutton btnN"  id="btnN${i.count}">-</div>
-		                                                                    <input type="text"  value="${dto.productEa}"  name="qtybutton"  class="cart-plus-minus-box">
-		                                                                <div class="inc qtybutton btnP"  id="btnP${i.count}">+</div>
-	                                                                </div>
-	                                                                
-	                                                               
+	                                                                <c:if test ="${dto.paymentCheck == 0 }">
+		                                                                <div class="cart-plus-minus f-left ">
+			                                                                <div class="dec qtybutton btnN"  id="btnN${i.count}">-</div>
+			                                                                    <input type="text" value="${dto.productEa}"  name="qtybutton"  class="cart-plus-minus-box">
+			                                                                <div class="inc qtybutton btnP"  id="btnP${i.count}">+</div>
+		                                                                </div>
+	                                                                </c:if>
+	                                                               	<c:if test ="${dto.paymentCheck == 1 }">
+																		<input type="text" value="${dto.productEa}"  name="qtybutton"  class="cart-plus-minus-box" readonly>
+																	</c:if>
 	                                                            </td>
 	                                                            <td class="product-subtotal totalPrice" id="totalPrice-${i.count}" data-all-idx="${i.count}">${dto.totalPrice}</td>
 	                                                            <td class="product-remove buttons">
@@ -67,7 +73,7 @@
 																				<button type="button" class="btn btn-danger cartPayment" id="delete-${i.count}">PAYMENT</button>	
 																			</c:if>
 																			<c:if test ="${dto.paymentCheck == 1 }">
-																						<button type="button" class="btn btn-danger cartPaymentCancel" id="delete-${i.count}">PAYMENTCANCEL</button>	
+																				<button type="button" class="btn btn-danger cartPaymentCancel" id="delete-${i.count}">PAYMENTCANCEL</button>	
 																			</c:if>
 																	</c:if>
 	                                                            </td>
@@ -76,7 +82,9 @@
                                                         
                                                     </tbody>
                                                 </table>
+                                                
                                             </div>
+                                            <button class="btn btn-primary selectedDelete float-end">Delete Selected</button>
                                     </div>
                                 </div>
                                 <!-- shopping-cart end -->

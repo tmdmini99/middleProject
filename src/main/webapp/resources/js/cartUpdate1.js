@@ -54,7 +54,7 @@ $('.cartDelete').on("click", function(){
 
 $('.cartPayment').on("click",function(){
     
-    let ea = $(this).parent().prev().html();
+    let ea = $(this).parent().prev().prev().children().children(".cart-plus-minus-box").val();
     let orderNum = parseInt($(this).parent().prev().prev().prev().prev().children(".orderNum").html(), 10);
     let optionNum = parseInt($(this).parent().prev().prev().prev().prev().children(".optionNum").html(), 10);
     console.log(orderNum);
@@ -73,16 +73,53 @@ $('.cartPayment').on("click",function(){
 })
 
 $('.cartPaymentCancel').on("click",function(){
+    let ea = $(this).parent().prev().prev().children(".cart-plus-minus-box").val();
     let orderNum = parseInt($(this).parent().prev().prev().prev().prev().children(".orderNum").html(), 10);
+    let optionNum = parseInt($(this).parent().prev().prev().prev().prev().children(".optionNum").html(), 10);
     $.ajax({
         type:"POST",
         url : "./cartPaymentCancel",
         data:{
             orderNum : orderNum,
+            productEa : ea,
+            optionNum : optionNum
 
         }
         ,success : function(){
             location.href="/cart/cartList"
         }
     })
+})
+
+$(".checkAll").on("click", function(){
+    let check = $(this).is(":checked");
+    if(check){
+        $(".check").prop("checked", true);
+    }else{
+        $(".check").prop("checked", false);
+    }
+})
+// .is(":checked")
+// check.push($(".check").attr("data-orderNum"));
+$(".selectedDelete").on("click", function(){
+    let check = [];
+    $(".check").each(function(i, v){
+        if($(v).is(":checked")){
+            check.push($(v).attr("data-orderNum"));
+        }
+    })
+
+    console.log(check);
+    $.ajax({
+        type:"POST",
+        url : "./cartSelectedDelete",
+        traditional : true,
+        data:{
+            check : check
+        }
+        ,success : function(){
+            location.href="/cart/cartList"
+        }
+    })
+    
 })
