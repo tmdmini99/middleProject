@@ -64,7 +64,7 @@ public class MemberController {
 		System.out.println("Con pw :"+memberDTO.getPw());
 		System.out.println("Con em :"+memberDTO.getEmail());
 		String pw=memberService.setMemberPwChange(memberDTO);
-		
+		System.out.println("Con em :"+memberDTO.getEmail());
 		
 		
 		mv.addObject("name", pw);
