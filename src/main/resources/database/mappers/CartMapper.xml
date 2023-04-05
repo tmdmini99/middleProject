@@ -18,7 +18,16 @@
 		ON(PO.PRODUCTNUM = P.PRODUCTNUM)
 		LEFT OUTER JOIN PRODUCTOPTION "POP"
 		ON(PO.OPTIONNUM  = "POP".OPTIONNUM)
-		WHERE PO.ID = #{id}
+		WHERE PO.ID = #{id} AND BUYCHECK = 0
+		ORDER BY PO.ORDERNUM DESC
+	</select>
+	<select id="getCartPaymentList" parameterType="MemberDTO" resultMap="ProductCartList">
+		SELECT * FROM PRODUCTORDER PO
+		LEFT OUTER JOIN PRODUCT P
+		ON(PO.PRODUCTNUM = P.PRODUCTNUM)
+		LEFT OUTER JOIN PRODUCTOPTION "POP"
+		ON(PO.OPTIONNUM  = "POP".OPTIONNUM)
+		WHERE PO.ID = #{id} AND BUYCHECK = 1
 		ORDER BY PO.ORDERNUM DESC
 	</select>
 	
@@ -66,6 +75,13 @@
 	<update id="setCartPayment" parameterType="CartDTO">
 		UPDATE PRODUCTORDER SET BUYCHECK = 1 WHERE ORDERNUM = #{orderNum}
 	</update>
+	<select id="getOptionDetail" parameterType="CartDTO" resultType="ProductOptionDTO">
+		SELECT * FROM PRODUCTOPTION WHERE OPTIONNUM = #{optionNum}
+	</select>
+	<update id="setOptionUpdate" parameterType="CartDTO">
+		UPDATE PRODUCTOPTION SET PRODUCTSTOCK = #{productEa} WHERE OPTIONNUM = #{optionNum}
+	</update>
+	
 	<update id="setCartPaymentCancel" parameterType="CartDTO">
 		UPDATE PRODUCTORDER SET BUYCHECK = 0 WHERE ORDERNUM = #{orderNum}
 	</update>
