@@ -28,26 +28,26 @@ $("#selectForm1").on("change", function(){
   })
   
 });
-
-$("#depth0").on("change", "#depth1",function(){
-  let opNum = $(this).val();
-  let proNum = $("#option").attr("data-productnum");
-  let a = $(this);
-  console.log(opNum);
-  console.log(proNum);
+$("#depth0").on("change", "#depth1", function() {
+  const opNum = $(this).val();
+  const proNum = $("#option").attr("data-productnum");
+  const a = $(this);
   $.ajax({
-      url : "./optionList",
-      type : "POST",
-      data:{
-          productNum : proNum,
-          ref : opNum,
-          depth : 2
-      },
-      success : function(data) {
-          console.log("성공");
-          a.next().remove();
-          a.parent().append(data);
-      }
-  })
-  
+    url: "./optionList",
+    type: "POST",
+    data: {
+      productNum: proNum,
+      ref: opNum,
+      depth: 2
+    },
+    success: function(data) {
+      a.next().remove();
+      a.parent().append(data);
+    },
+    error: function(xhr, status, error) {
+      console.log(xhr.responseText);
+    }
+  });
 });
+
+

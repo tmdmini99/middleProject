@@ -256,9 +256,9 @@
                                             <div class="mega-menu-area clearfix">
                                                 <div class="mega-menu-link f-left">
                                                     <ul class="single-mega-item">
-                                                        <li class="menu-title">Smart Phone</li>
+                                                        <li class="menu-title">상품</li>
                                                         <li>
-                                                            <a href="#">All Mobile Phones</a>
+                                                            <a href="product/detail?productNum=1">Products Detail</a>
                                                         </li>
                                                         <li>
                                                             <a href="#">Smart phones</a>
@@ -335,7 +335,7 @@
                                                 </div>
                                             </div>
                                         </li>
-                                        <li class="mega-parent"><a href="#">Pages</a>
+                                        <li class="mega-parent"><a href="#">Qna</a>
                                             <div class="mega-menu-area mega-menu-area-2 clearfix">
                                                 <div class="mega-menu-link mega-menu-link-2  f-left">
                                                     <ul class="single-mega-item">
@@ -611,11 +611,12 @@
 
         <!-- START SLIDER AREA -->
         <div>
-            <img src="resources/js/img/main/main1.jpg">
+            
             <div class="container">
                 
                 <div class="row">
-                    <div class="col-lg-12">
+                    <img src="resources/js/img/main/main1.jpg">    
+                    <!-- <div class="col-lg-12">
                         <div class="slider-desc-3 text-center">
                             <div class="wow rotateInDownLeft" data-wow-duration="2s" data-wow-delay="0.5s">
                                 <h6 class="slider2-title-1"></h6>
@@ -628,7 +629,7 @@
                             </div>
                              
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -1784,7 +1785,7 @@
             <div class="footer-top">
                 <div class="container-fluid">
                     <div class="plr-185">
-                        <div class="footer-top-inner theme-bg">
+                        <div class="footer-top-inner gray-bg">
                             <div class="row">
                                 <div class="col-xl-4 col-lg-5 col-md-5">
                                     <div class="single-footer footer-about">
