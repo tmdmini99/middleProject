@@ -21,7 +21,7 @@
 
 		<body>
 			<div class="container-fluid">
-				<div class="col-lg-10">
+				<div class="col-lg-10 mx-auto">
 					<!-- Tab panes -->
 					<div class="tab-content">
 						<!-- shopping-cart start -->
@@ -48,7 +48,7 @@
 													</td>
 													<td class="product-thumbnail orderNum" id="orderNum-${i.count}">
 														<div class="pro-thumbnail-img">
-															<img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fshop1.phinf.naver.net%2F20230308_45%2F1678286952226XyteF_JPEG%2Fmain_3MR_61693_4.jpg&type=sc960_832">
+															<img src="https://shop-phinf.pstatic.net/20230317_262/1679040584256kQrbw_JPEG/80176479993578269_2030409830.JPG?type=m510">
 														</div>
 														<p class="orderNum">${dto.orderNum}</p>
 														${dto.productDTO.productName}
@@ -60,18 +60,18 @@
 													<td class="product-price">${dto.productDTO.productPrice}</td>
 													<td class="product-quantity">
 														<c:if test="${dto.buyCheck == 0 }">
-															<div class="cart-plus-minus f-left ">
+															<div class="cart-plus-minus mx-auto">
 																<div class="dec qtybutton btnN" id="btnN${i.count}">-
 																</div>
 																<input type="text" value="${dto.productEa}"
-																	name="qtybutton" class="cart-plus-minus-box">
+																	name="qtybutton" class="cart-plus-minus-box ea" readonly>
 																<div class="inc qtybutton btnP" id="btnP${i.count}">+
 																</div>
 															</div>
 														</c:if>
 														<c:if test="${dto.buyCheck == 1 }">
 															<input type="text" value="${dto.productEa}" name="qtybutton"
-																class="cart-plus-minus-box" readonly>
+																class="cart-plus-minus-box mx-auto" readonly>
 														</c:if>
 													</td>
 													<td class="product-subtotal totalPrice" id="totalPrice-${i.count}"
@@ -98,6 +98,8 @@
 									</table>
 
 								</div>
+								<button class="btn btn-primary selectPayment float-end mx-2">Payment Selected</button>
+								
 								<button class="btn btn-primary selectedDelete float-end">Delete Selected</button>
 							</div>
 						</div>

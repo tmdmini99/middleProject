@@ -188,6 +188,37 @@ public class CartController {
 		
 	}
 	
+	@PostMapping("cartSelectedPayment")
+	public ModelAndView setCartSelectedPayment(String check[], String ea[], String opNum[]) throws Exception{
+		
+		ModelAndView mv = new ModelAndView();
+		
+		for(int i = 0; i < check.length; i ++) {
+			CartDTO cartDTO = new CartDTO();
+			cartDTO.setOrderNum(Long.parseLong(check[i]));
+			cartDTO.setProductEa(Long.parseLong(ea[i]));
+			cartDTO.setOptionNum(Long.parseLong(opNum[i]));
+			cartService.setCartPayment(cartDTO);
+		}
+		mv.setViewName("redirect:./cartList");
+		return mv;
+	}
+	@PostMapping("cartSelectedPaymentCancel")
+	public ModelAndView setCartSelectedPaymentCancel(String check[], String ea[], String opNum[]) throws Exception{
+		
+		ModelAndView mv = new ModelAndView();
+		
+		for(int i = 0; i < check.length; i ++) {
+			CartDTO cartDTO = new CartDTO();
+			cartDTO.setOrderNum(Long.parseLong(check[i]));
+			cartDTO.setProductEa(Long.parseLong(ea[i]));
+			cartDTO.setOptionNum(Long.parseLong(opNum[i]));
+			cartService.setCartPaymentCancel(cartDTO);
+		}
+		mv.setViewName("redirect:./cartList");
+		return mv;
+	}
+	
 	@GetMapping("cartPaymentList")
 	public ModelAndView setCartPaymentList() throws Exception{
 		//member 연동해서 아이디에 따른 장바구니 가져오기

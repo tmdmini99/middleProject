@@ -22,7 +22,7 @@
 		<body>
 
 			<div class="container-fluid">
-				<div class="col-lg-10">
+				<div class="col-lg-10 mx-auto">
 					<!-- Tab panes -->
 					<div class="tab-content">
 						<!-- shopping-cart start -->
@@ -58,11 +58,11 @@
 													<td class="product-price">${dto.productDTO.productPrice}</td>
 													<td class="product-quantity">
 														<c:if test="${dto.buyCheck == 0 }">
-															<div class="cart-plus-minus f-left ">
+															<div class="cart-plus-minus f-left mx-auto">
 																<div class="dec qtybutton btnN" id="btnN${i.count}">-
 																</div>
 																<input type="text" value="${dto.productEa}"
-																	name="qtybutton" class="cart-plus-minus-box">
+																	name="qtybutton" class="cart-plus-minus-box mx-auto">
 																<div class="inc qtybutton btnP" id="btnP${i.count}">+
 																</div>
 															</div>
@@ -96,6 +96,7 @@
 									</table>
 
 								</div>
+								<button class="btn btn-primary selectPaymentCancel float-end mx-2">PaymentCancel Selected</button>
 								<button class="btn btn-primary selectedDelete float-end">Delete Selected</button>
 							</div>
 						</div>
