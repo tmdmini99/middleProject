@@ -26,8 +26,10 @@ $("#selectForm1").on("change", function(){
           a.parent().append(data);
       }
   })
-  
+
 });
+
+
 $("#depth0").on("change", "#depth1", function() {
   const opNum = $(this).val();
   const proNum = $("#option").attr("data-productnum");
@@ -48,6 +50,7 @@ $("#depth0").on("change", "#depth1", function() {
       console.log(xhr.responseText);
     }
   });
+  
 });
 
 

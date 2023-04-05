@@ -6,13 +6,13 @@ import com.home.middle.product.ProductDTO;
 
 public class CartDTO {
 	private Long orderNum;
-	
 	private String id;
 	private Long totalPrice;
 	private Long productEa;
 	private Date orderDate;
 	private Long buyCheck;
 	private Long optionNum;
+    
 	
 	public Long getOptionNum() {
 		return optionNum;

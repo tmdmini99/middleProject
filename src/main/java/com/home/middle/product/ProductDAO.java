@@ -22,7 +22,7 @@ public class ProductDAO {
 		return l;
 	}
 	
-	public List<ProductDTO> getProductList(ProductDTO productDTO)throws Exception{
+	public List<ProductOptionDTO> getProductList(ProductDTO productDTO)throws Exception{
 		return sqlSession.selectList(NAMESPACE+"getProductList",productDTO);
 	}
 	
@@ -56,8 +56,10 @@ public class ProductDAO {
 	 return ar; 
 	 }
 	
-	
-
+	//장바구니 
+	public int setProductOptionAdd(ProductDTO productDTO) throws Exception {
+		return sqlSession.update(NAMESPACE + "ssetProductOptionAdd", productDTO);
+	}
 	
 	public int setProductUpdate(ProductDTO productDTO) throws Exception {
 		return sqlSession.update(NAMESPACE + "setProductUpdate", productDTO);

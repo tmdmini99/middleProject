@@ -6,7 +6,11 @@
 
 	<select id="depth${list[0].depth}" class="form-select opt" name="categoryNum" >
 	<option value="0">${list[0].optionName} 선택</option>
-		<c:forEach items="${list}" var="op">
-			<option value="${op.optionNum}" data-productnum="${ProductOptionDTO.productNum}">${op.optionValue}</option>
-		</c:forEach>
-	</select>
+
+	<!-- 옵션 리스트를 반복문으로 출력 -->
+	<c:forEach items="${list}" var="op">
+		<option value="${op.optionNum}" data-productnum="${ProductOptionDTO.productNum}">${op.optionValue}</option>
+		<!-- 옵션 번호와 상품 번호를 data 속성으로 설정 -->
+	</c:forEach>
+
+	</select> <!-- select 태그 종료 -->
