@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.home.middle.cart.CartDTO;
 import com.home.middle.util.Pager;
 
 @Controller
@@ -24,22 +25,20 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 	
-	
-	
 	@RequestMapping(value="list" , method=RequestMethod.GET)
 	public ModelAndView getProductList(ProductDTO productDTO) throws Exception{
+	
 		ModelAndView mv = new ModelAndView();
-		
-		
-		List<ProductDTO> ar = productService.getProductList(productDTO);
+
+		List<ProductOptionDTO> ar = productService.getProductList(productDTO);
 	  
 		mv.setViewName("product/productList");
 		mv.addObject("list",ar);
 		//mv.addObject("pager", pager);
+
 		return mv;
 	}
 	
-
 	@RequestMapping(value="detail",method=RequestMethod.GET)
 	public ModelAndView getProductDetail(ProductDTO productDTO, Model model) throws Exception{
 		//파라미터 이름과 setter의 이름과 같아야함 
@@ -53,9 +52,22 @@ public class ProductController {
 		 mv.setViewName("/product/productDetail");
 		 mv.addObject("dto",productDTO);
 		
-	   return mv;
-		
+	   return mv;		
 	}
+	
+//	//상품 디테일 페이지에서 장바구니 데이터 인서트 
+//	@PostMapping("detail")
+//	public ModelAndView setProductOptionAdd(ProductDTO productDTO) throws Exception {
+//		ModelAndView mv = new ModelAndView();
+//		//int result =  productService.setProductOptionAdd();
+//		int ar =  productService.setProductOptionAdd(productDTO);
+//		
+//		mv.addObject("cart", ar);
+//		mv.setViewName("/product/productDetail");
+//		
+//		return mv;
+//	}
+	   
 	
 	@GetMapping("memberProductList")
 	   public ModelAndView getMemberProductList(Pager pager) throws Exception {
@@ -68,8 +80,9 @@ public class ProductController {
 	      
 	      return mv;
 	   }
-	////////////////////////상품 하위 옵션 구현 ///////////////////////////////////// 
 	
+//////////////////////////////////////////////////////////////상품 하위 옵션 구현//////////////////////////////////////////////////////	
+
 
 	//ajax의 post url "./optionList" 
 	@PostMapping("optionList")
@@ -80,9 +93,10 @@ public class ProductController {
 		
 		mv.addObject("list", ar);
 		mv.setViewName("/product/selectOption");
-		
+
 		return mv;
 	}		
+	
 	
 	@GetMapping("add")
 	public ModelAndView setProductAdd() throws Exception {
@@ -150,12 +164,14 @@ public class ProductController {
 			System.out.println(productDTO2.getProductNum());
 			int result = productService.setProductDelete(session, productDTO2) ;
 			
-		}
-		
+		}		
 		
 		mv.setViewName("redirect:./memberProductList");
 		
 		return mv;
 	}
+	
+	
+	
 	
 }

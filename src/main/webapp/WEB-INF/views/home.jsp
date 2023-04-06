@@ -43,41 +43,39 @@
             <!-- Body main wrapper start -->
             <div class="wrapper">
 
-                <!-- START HEADER AREA -->
-                <header class="header-area header-wrapper">
-                    <!-- header-top-bar -->
-                    <div class="header-top-bar plr-185">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6 d-none d-md-block">
-                                    <div class="call-us">
-                                        <p class="mb-0 roboto">0123456789</p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="top-link clearfix">
-                                        <ul class="link f-right">
-                                            <li>
-                                                <a href="my-account.html">
-                                                    <i class="zmdi zmdi-account"></i>
-                                                    My Account
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="wishlist.html">
-                                                    <i class="zmdi zmdi-favorite"></i>
-                                                    Wish List (0)
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="login.html">
-                                                    <i class="zmdi zmdi-lock"></i>
-                                                    Login
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
+        <!-- START HEADER AREA -->
+        <header class="header-area header-wrapper">
+            <!-- header-top-bar -->
+            <div class="header-top-bar plr-185">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 d-none d-md-block">
+                            <div class="call-us">
+                                <p class="mb-0 roboto">0123456789</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="top-link clearfix">
+                                <ul class="link f-right">
+                                    <li>
+                                        <a href="/member/memberDetail">
+                                            <i class="zmdi zmdi-account"></i>
+                                            My Account
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="wishlist.html">
+                                            <i class="zmdi zmdi-favorite"></i>
+                                            Wish List (0)
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/member/memberLogin">
+                                            <i class="zmdi zmdi-lock"></i>
+                                            Login
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -546,59 +544,148 @@
                                         <li>
                                             <a href="shop.html">Products</a>
                                         </li>
-                                        <li><a href="#">Pages</a>
-                                            <ul>
-                                                <li>
-                                                    <a href="shop.html">Shop</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-left-sidebar.html">Shop Left Sidebar</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-right-sidebar.html">Shop Right Sidebar</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-list.html">Shop List</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-list-right-sidebar.html">Shop List Right Sidebar</a>
-                                                </li>
-                                                <li>
-                                                    <a href="single-product.html">Single Product</a>
-                                                </li>
-                                                <li>
-                                                    <a href="single-product-left-sidebar.html">Single Product Left
-                                                        Sidebar</a>
-                                                </li>
-                                                <li>
-                                                    <a href="single-product-no-sidebar.html">Single Product No
-                                                        Sidebar</a>
-                                                </li>
-                                                <li>
-                                                    <a href="cart.html">Shopping Cart</a>
-                                                </li>
-                                                <li>
-                                                    <a href="wishlist.html">Wishlist</a>
-                                                </li>
-                                                <li>
-                                                    <a href="checkout.html">Checkout</a>
-                                                </li>
-                                                <li>
-                                                    <a href="order.html">Order</a>
-                                                </li>
-                                                <li>
-                                                    <a href="login.html">Login</a>
-                                                </li>
-                                                <li>
-                                                    <a href="my-account.html">My Account</a>
-                                                </li>
-                                                <li>
-                                                    <a href="about.html">About us</a>
-                                                </li>
-                                                <li>
-                                                    <a href="404.html">404</a>
-                                                </li>
-                                            </ul>
+                                        <li class="mega-parent"><a href="shop.html">Products</a>
+                                            <div class="mega-menu-area clearfix">
+                                                <div class="mega-menu-link f-left">
+                                                    <ul class="single-mega-item">
+                                                        <li class="menu-title">상품</li>
+                                                        <li>
+                                                            <a href="product/detail?productNum=1">Products Detail</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Smart phones</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Android Mobiles</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Windows Mobiles</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Refurbished Mobiles</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">All Mobile Accessories</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Cases & Covers</a>
+                                                        </li>
+                                                    </ul>
+                                                    <ul class="single-mega-item">
+                                                        <li class="menu-title">Note Book</li>
+                                                        <li>
+                                                            <a href="">All Note Books</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="">Smart notebooks</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="">Android Note Book</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="">Windows Note Books</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="">Refurbished Note Books</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="">Note Books Accessories</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="">Cases & Covers</a>
+                                                        </li>
+                                                    </ul>
+                                                    <ul class="single-mega-item">
+                                                        <li class="menu-title">Tablets</li>
+                                                        <li>
+                                                            <a href="">All Tablets</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="">Smart tablets</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="">Android Tablets</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="">Windows Tablets</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="">Refurbished Tablets</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="">Tablets Accessories</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="">Cases & Covers</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="mega-menu-photo f-left">
+                                                    <a href="#">
+                                                        <img src="resources/js/img/mega-menu/1.jpg" alt="mega menu image">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="mega-parent"><a href="#">Qna</a>
+                                            <div class="mega-menu-area mega-menu-area-2 clearfix">
+                                                <div class="mega-menu-link mega-menu-link-2  f-left">
+                                                    <ul class="single-mega-item">
+                                                        <li class="menu-title">page list</li>
+                                                        <li>
+                                                            <a href="shop.html">Shop</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="shop-left-sidebar.html">Shop Left Sidebar</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="shop-right-sidebar.html">Shop Right Sidebar</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="shop-list.html">Shop List</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="shop-list-right-sidebar.html">Shop List Right Sidebar</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="single-product.html">Single Product</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="single-product-left-sidebar.html">Single Product Left Sidebar</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="single-product-no-sidebar.html">Single Product No Sidebar</a>
+                                                        </li>
+                                                    </ul>
+                                                    <ul class="single-mega-item">
+                                                        <li class="menu-title">page list</li>
+                                                        <li>
+                                                            <a href="cart.html">Shopping Cart</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="wishlist.html">Wishlist</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="checkout.html">Checkout</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="order.html">Order</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="login.html">Login</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/member/memberDetail">My Account</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="about.html">About us</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="404.html">404</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
                                         </li>
                                         <li><a href="blog.html">Blog</a>
                                             <ul>
@@ -668,17 +755,203 @@
                 </div>
                 <!-- END SLIDER AREA -->
 
-                <!-- Start page content -->
-                <section id="page-content" class="page-wrapper section">
+        <!-- START MOBILE MENU AREA -->
+        <div class="mobile-menu-area d-block d-lg-none section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="mobile-menu">
+                            <nav id="dropdown">
+                                <ul>
+                                    <li><a href="index.html">Home</a>
+                                        <ul>
+                                            <li>
+                                                <a href="index.html">Home Version 1</a>
+                                            </li>
+                                            <li>
+                                                <a href="index-2.html">Home Version 2</a>
+                                            </li>
+                                            <li>
+                                                <a href="index-3.html">Home Version 3</a>
+                                            </li>
+                                            <li>
+                                                <a href="index-4.html">Home 4 Animated Text</a>
+                                            </li>
+                                            <li>
+                                                <a href="index-5.html">Home 5 Animated Text Ovlerlay</a>
+                                            </li>
+                                            <li>
+                                                <a href="index-6.html">Home 6 Background Video</a>
+                                            </li>
+                                            <li>
+                                                <a href="index-7.html">Home 7 BG-Video Ovlerlay</a>
+                                            </li>
+                                            <li>
+                                                <a href="index-8.html">Home 8 Boxed-1</a>
+                                            </li>
+                                            <li>
+                                                <a href="index-9.html">Home 9 Gradient</a>
+                                            </li>
+                                            <li>
+                                                <a href="index-10.html">Home 10 Boxed-2</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="shop.html">Products</a>
+                                    </li>
+                                    <li><a href="#">Pages</a>
+                                        <ul>
+                                            <li>
+                                                <a href="shop.html">Shop</a>
+                                            </li>
+                                            <li>
+                                                <a href="shop-left-sidebar.html">Shop Left Sidebar</a>
+                                            </li>
+                                            <li>
+                                                <a href="shop-right-sidebar.html">Shop Right Sidebar</a>
+                                            </li>
+                                            <li>
+                                                <a href="shop-list.html">Shop List</a>
+                                            </li>
+                                            <li>
+                                                <a href="shop-list-right-sidebar.html">Shop List Right Sidebar</a>
+                                            </li>
+                                            <li>
+                                                <a href="single-product.html">Single Product</a>
+                                            </li>
+                                            <li>
+                                                <a href="single-product-left-sidebar.html">Single Product Left Sidebar</a>
+                                            </li>
+                                            <li>
+                                                <a href="single-product-no-sidebar.html">Single Product No Sidebar</a>
+                                            </li>
+                                            <li>
+                                                <a href="cart.html">Shopping Cart</a>
+                                            </li>
+                                            <li>
+                                                <a href="wishlist.html">Wishlist</a>
+                                            </li>
+                                            <li>
+                                                <a href="checkout.html">Checkout</a>
+                                            </li>
+                                            <li>
+                                                <a href="order.html">Order</a>
+                                            </li>
+                                            <li>
+                                                <a href="login.html">Login</a>
+                                            </li>
+                                            <li>
+                                                <a href="/member/memberDetail">My Account</a>
+                                            </li>
+                                            <li>
+                                                <a href="about.html">About us</a>
+                                            </li>
+                                            <li>
+                                                <a href="404.html">404</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="blog.html">Blog</a>
+                                        <ul>
+                                            <li>
+                                                <a href="blog.html">Blog</a>
+                                            </li>
+                                            <li>
+                                                <a href="blog-left-sidebar.html">Blog Left Sidebar</a>
+                                            </li>
+                                            <li>
+                                                <a href="blog-right-sidebar.html">Blog Right Sidebar</a>
+                                            </li>
+                                            <li>
+                                                <a href="blog-2.html">Blog style 2</a>
+                                            </li>
+                                            <li>
+                                                <a href="blog-2-left-sidebar.html">Blog 2 Left Sidebar</a>
+                                            </li>
+                                            <li>
+                                                <a href="blog-2-right-sidebar.html">Blog 2 Right Sidebar</a>
+                                            </li>
+                                            <li>
+                                                <a href="single-blog.html">Blog Details</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="about.html">About Us</a>
+                                    </li>
+                                    <li>
+                                        <a href="contact.html">Contact</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END MOBILE MENU AREA -->
 
-                    <!-- FEATURED PRODUCT SECTION START -->
-                    <div class="featured-product-section mb-50">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="section-title text-center mb-50">
-                                        <h2 class="uppercase">Featured product</h2>
-                                        <h6>There are many variations of passages of brands available,</h6>
+        <!-- START SLIDER AREA -->
+        <div>
+            
+            <div class="container">
+                
+                <div class="row">
+                    <img src="resources/js/img/main/main1.jpg">    
+                    <!-- <div class="col-lg-12">
+                        <div class="slider-desc-3 text-center">
+                            <div class="wow rotateInDownLeft" data-wow-duration="2s" data-wow-delay="0.5s">
+                                <h6 class="slider2-title-1"></h6>
+                            </div>
+                            <div class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s">
+                                <h1 class="slider2-title-2"></h1>
+                            </div>
+                            <div class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.5s">
+                                <h2 class="slider2-title-3"></h2>
+                            </div>
+                             
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <!-- END SLIDER AREA -->
+
+        <!-- Start page content -->
+        <section id="page-content" class="page-wrapper section">
+
+            <!-- FEATURED PRODUCT SECTION START -->
+            <div class="featured-product-section mb-50">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="section-title text-center mb-50">
+                                <h2 class="uppercase">놓치면 후회하는 오늘의 특가 </h2>
+                                <h6>There are many variations of passages of brands available,</h6>
+                            </div>
+                            <div class="featured-product">
+                                <div class="active-featured-product slick-arrow-2">
+                                    <div class="product-item">
+                                        <div class="product-img">
+                                            <a href="single-product.html">
+                                                <img src="resources/js/img/product/1.jpg" alt=""/>
+                                            </a>
+                                        </div>
+                                        <div class="product-info">
+                                            <h6 class="product-title">
+                                                <a href="single-product.html">Product Name</a>
+                                            </h6>
+                                            <div class="pro-rating">
+                                                <a href="#"><i class="zmdi zmdi-star"></i></a>
+                                                <a href="#"><i class="zmdi zmdi-star"></i></a>
+                                                <a href="#"><i class="zmdi zmdi-star"></i></a>
+                                                <a href="#"><i class="zmdi zmdi-star-half"></i></a>
+                                                <a href="#"><i class="zmdi zmdi-star-outline"></i></a>
+                                            </div>
+                                            <h3 class="pro-price">$ 869.00</h3>
+                                    
+                                        </div>
                                     </div>
                                     <div class="featured-product">
                                         <div class="active-featured-product slick-arrow-2">
@@ -1803,6 +2076,199 @@
                                                 </li>
                                             </ul>
                                         </div> -->
+                                    </div>
+                                    <div class="blog-item">
+                                        <img src="resources/js/img/blog/2.jpg" alt="">
+                                        
+                                    </div>
+                                    <div class="blog-item">
+                                        <img src="resources/js/img/blog/3.jpg" alt="">
+                                 
+                                    </div>
+                                    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- BLOG SECTION END -->                
+        </section>
+        <!-- End page content -->
+
+        <!-- START FOOTER AREA -->
+        <footer id="footer" class="footer-area section">
+            <div class="footer-top">
+                <div class="container-fluid">
+                    <div class="plr-185">
+                        <div class="footer-top-inner gray-bg">
+                            <div class="row">
+                                <div class="col-xl-4 col-lg-5 col-md-5">
+                                    <div class="single-footer footer-about">
+                                        <div class="footer-logo">
+                                            <img src="resources/js/img/logo/logo.png" alt="">
+                                        </div>
+                                        <div class="footer-brief">
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the subas industry's standard dummy text ever since the 1500s,</p>
+                                            <p>When an unknown printer took a galley of type and If you are going to use a passage of Lorem Ipsum scrambled it to make.</p>
+                                        </div>
+                                        <ul class="footer-social">
+                                            <li>
+                                                <a class="facebook" href="" title="Facebook"><i class="zmdi zmdi-facebook"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="google-plus" href="" title="Google Plus"><i class="zmdi zmdi-google-plus"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="twitter" href="" title="Twitter"><i class="zmdi zmdi-twitter"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="rss" href="" title="RSS"><i class="zmdi zmdi-rss"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-xl-2 d-block d-xl-block d-lg-none d-md-none">
+                                    <div class="single-footer">
+                                        <h4 class="footer-title border-left">Shipping</h4>
+                                        <ul class="footer-menu">
+                                            <li>
+                                                <a href="#"><i class="zmdi zmdi-circle"></i><span>New Products</span></a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><i class="zmdi zmdi-circle"></i><span>Discount Products</span></a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><i class="zmdi zmdi-circle"></i><span>Best Sell Products</span></a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><i class="zmdi zmdi-circle"></i><span>Popular Products</span></a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><i class="zmdi zmdi-circle"></i><span>Manufactirers</span></a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><i class="zmdi zmdi-circle"></i><span>Suppliers</span></a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><i class="zmdi zmdi-circle"></i><span>Special Products</span></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-xl-2 col-lg-3 col-md-3">
+                                    <div class="single-footer">
+                                        <h4 class="footer-title border-left">my account</h4>
+                                        <ul class="footer-menu">
+                                            <li>
+                                                <a href="#"><i class="zmdi zmdi-circle"></i><span>My Account</span></a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><i class="zmdi zmdi-circle"></i><span>My Wishlist</span></a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><i class="zmdi zmdi-circle"></i><span>My Cart</span></a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><i class="zmdi zmdi-circle"></i><span>Sign In</span></a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><i class="zmdi zmdi-circle"></i><span>Registration</span></a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><i class="zmdi zmdi-circle"></i><span>Check out</span></a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><i class="zmdi zmdi-circle"></i><span>Oder Complete</span></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4">
+                                    <div class="single-footer">
+                                        <h4 class="footer-title border-left">Get in touch</h4>
+                                        <div class="footer-message">
+                                            <form action="#">
+                                                <input type="text" name="name" placeholder="Your name here...">
+                                                <input type="text" name="email" placeholder="Your email here...">
+                                                <textarea class="height-80" name="message" placeholder="Your messege here..."></textarea>
+                                                <button class="submit-btn-1 mt-20 btn-hover-1" type="submit">submit message</button> 
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom black-bg">
+                <div class="container-fluid">
+                    <div class="plr-185">
+                        <div class="copyright">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="copyright-text">
+                                        <p class="copy-text"> © 2022 <strong>Subas</strong> Made With <i class="zmdi zmdi-favorite" style="color: red;" aria-hidden="true"></i> By <a class="company-name" href="#">
+                                <strong> SubasTeam</strong></a>.</p>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul class="footer-payment text-end">
+                                        <li>
+                                            <a href="#"><img src="resources/js/img/payment/1.jpg" alt=""></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><img src="resources/js/img/payment/2.jpg" alt=""></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><img src="resources/js/img/payment/3.jpg" alt=""></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><img src="resources/js/img/payment/4.jpg" alt=""></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- END FOOTER AREA -->
+
+        <!-- START QUICKVIEW PRODUCT -->
+        <div id="quickview-wrapper">
+            <!-- Modal -->
+            <div class="modal fade" id="productModal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modal-product clearfix">
+                                <div class="product-images">
+                                    <div class="main-image images">
+                                        <img alt="" src="resources/js/img/product/quickview.jpg">
+                                    </div>
+                                </div><!-- .product-images -->
+                                
+                                <div class="product-info">
+                                    <h1>Aenean eu tristique</h1>
+                                    <div class="price-box-3">
+                                        <div class="s-price-box">
+                                            <span class="new-price">£160.00</span>
+                                            <span class="old-price">£190.00</span>
+                                        </div>
+                                    </div>
+                                    <a href="single-product-left-sidebar.html" class="see-all">See all features</a>
+                                    <div class="quick-add-to-cart">
+                                        <form method="post" class="cart">
+                                            <div class="numbers-row">
+                                                <input type="number" id="french-hens" value="3" min="1">
                                             </div>
                                             <div class="blog-item">
                                                 <img src="resources/js/img/blog/2.jpg" alt="">
