@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <html>
 <head>
 	<title>Home</title>
@@ -9,29 +10,7 @@
     <title>Subas || Home-3</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
-<script type="text/javascript" src="//code.jquery.com/jquery-3.6.0.min.js"></script>
-
- <link rel="shortcut icon" type="image/x-icon" href="/resources/js/img/icon/favicon.png">
-    <!-- All CSS Files -->
-
-    <!-- Nivo-slider css -->
-    <link rel="stylesheet" href="/resources/js/lib/css/nivo-slider.css">
-    <!-- This core.css file contents all plugings css file. -->
-    <link rel="stylesheet" href="/resources/js/css/core.css">
-    <!-- Theme shortcodes/elements style -->
-    <link rel="stylesheet" href="/resources/js/css/shortcode/shortcodes.css">
-    <!-- Theme main style -->
-    <link rel="stylesheet" href="/resources/js/style.css">
-    <!-- Responsive css -->
-    <link rel="stylesheet" href="/resources/js/css/responsive.css">
-    <!-- User style -->
-    <link rel="stylesheet" href="/resources/js/css/custom.css">
-    
-    <!-- Style customizer (Remove these two lines please) -->
-    <link rel="stylesheet" href="/resources/js/css/style-customizer.css">
-    <link href="#" data-style="styles" rel="stylesheet">
-    <script src="/resources/js/js/vendor/modernizr-3.11.2.min.js"></script>
+    <c:import url="./template/common_css.jsp"></c:import>
 </head>
 <body>
 			  <!--[if lt IE 8]>
@@ -2054,17 +2033,8 @@
         </div>
         <!--style-customizer end --> 
     
-    
+   <c:import url="./template/common_js.jsp"></c:import>
    
- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-  
-    <script src="/resources/js/js/vendor/jquery-migrate-3.3.2.min.js"></script>
-   
-    <!-- jquery.nivo.slider js -->
-    <script src="/resources/js/lib/js/jquery.nivo.slider.js"></script>
-    <!-- All js plugins included in this file. -->
-    <script src="/resources/js/js/plugins.js"></script>
-    <!-- Main js file that contents all jQuery plugins activation. -->
-    <script src="/resources/js/js/main.js"></script>
+
 </body>
 </html>
