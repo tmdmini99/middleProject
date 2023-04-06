@@ -7,7 +7,6 @@ import com.home.middle.product.ProductDTO;
 
 public class CartDTO {
 	private Long orderNum;
-	
 	private String id;
 	private Long totalPrice;
 	private Long productEa;
