@@ -33,7 +33,7 @@ public class CartController {
 		//임시 아이디 설정
 		MemberDTO memberDTO = new MemberDTO();
 		memberDTO.setId("TEST2");
-		
+	
 		List<CartDTO> ar = cartService.getCartList(memberDTO);
 		System.out.println(ar.size());
 		mv.addObject("list", ar);

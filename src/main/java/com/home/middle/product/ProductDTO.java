@@ -2,9 +2,6 @@ package com.home.middle.product;
 
 
 import java.util.List;
-import javax.servlet.http.HttpSession;
-
-import com.home.middle.member.MemberDTO;
 
 
 public class ProductDTO {
@@ -12,12 +9,35 @@ public class ProductDTO {
 	private Long r;
 	private Long productNum;
 	private String productName;
+	private Long productPrice;
 	private Long discount;
 	private Double discountPercent;
 	private Integer productSales;
 	private Long categoryNum;
+	private Long optionNum;
+	private String optionName;
 	private List<ProductOptionDTO> productOptionDTOs;
 	private List<ProductImgDTO> productImgDTOs;
+	
+	public Long getProductPrice() {
+		return productPrice;
+	}
+	public void setProductPrice(Long productPrice) {
+		this.productPrice = productPrice;
+	}
+	public Long getOptionNum() {
+		return optionNum;
+	}
+	public void setOptionNum(Long optionNum) {
+		this.optionNum = optionNum;
+	}
+	public String getOptionName() {
+		return optionName;
+	}
+	public void setOptionName(String optionName) {
+		this.optionName = optionName;
+	}
+	
 	
 	public String getId() {
 		return id;
