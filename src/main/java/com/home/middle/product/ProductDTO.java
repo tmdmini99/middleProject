@@ -16,9 +16,17 @@ public class ProductDTO {
 	private Double discountPercent;
 	private Integer productSales;
 	private Long categoryNum;
+	private Long optionNum;
 	private List<ProductOptionDTO> productOptionDTOs;
 	private List<ProductImgDTO> productImgDTOs;
 	
+	
+	public Long getOptionNum() {
+		return optionNum;
+	}
+	public void setOptionNum(Long optionNum) {
+		this.optionNum = optionNum;
+	}
 	public String getId() {
 		return id;
 	}

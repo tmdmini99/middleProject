@@ -55,18 +55,18 @@ public class ProductController {
 	   return mv;		
 	}
 	
-	//상품 디테일 페이지에서 장바구니 데이터 인서트 
-	@PostMapping("detail")
-	public ModelAndView setProductOptionAdd(ProductDTO productDTO) throws Exception {
-		ModelAndView mv = new ModelAndView();
-		//int result =  productService.setProductOptionAdd();
-		int ar =  productService.setProductOptionAdd(productDTO);
-		
-		mv.addObject("cart", ar);
-		mv.setViewName("/product/productDetail");
-		
-		return mv;
-	}
+//	//상품 디테일 페이지에서 장바구니 데이터 인서트 
+//	@PostMapping("detail")
+//	public ModelAndView setProductOptionAdd(ProductDTO productDTO) throws Exception {
+//		ModelAndView mv = new ModelAndView();
+//		//int result =  productService.setProductOptionAdd();
+//		int ar =  productService.setProductOptionAdd(productDTO);
+//		
+//		mv.addObject("cart", ar);
+//		mv.setViewName("/product/productDetail");
+//		
+//		return mv;
+//	}
 	   
 	
 	@GetMapping("memberProductList")

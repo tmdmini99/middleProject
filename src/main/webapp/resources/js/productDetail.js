@@ -54,3 +54,38 @@ $("#depth0").on("change", "#depth1", function() {
 });
 
 
+// 총합계 가격을 계산해줌
+// $("#btn").on("click", function(){
+//   let ea = $("#inputQuantity").val();
+//   let price = $("#depth2 option:selected").attr("data-productprice");
+//   console.log($("#depth2 option:selected").attr("data-productprice"));
+//   console.log(ea);
+//   console.log(ea*price);
+//   $.ajax({
+//       url : "../cart/cartAdd",
+//       type : "POST",
+//       data:{
+//           totalPrice : ea*price
+//       },
+//       success : function(data) {
+//           console.log("총 합계 보내기 성공");
+//           // 하위 옵션이 계속 생성되지 않도록 a.next().remove() 사용 
+//       }
+//   })
+
+// });
+
+
+$("#inputQuantity").on("change", function(){
+  let ea = $("#inputQuantity").val();
+  let price = $("#depth2 option:selected").attr("data-productprice");
+  let tp =ea*price
+  console.log($("#depth2 option:selected").attr("data-productprice"));
+  console.log(ea);
+  console.log(ea*price);
+
+  $("#totalPrice").val(tp);
+
+});
+
+
