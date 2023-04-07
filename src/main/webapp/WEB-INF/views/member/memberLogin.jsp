@@ -9,7 +9,7 @@
 <c:import url="../template/common_css.jsp"></c:import>
 
 </head>
-<body>
+<body> 
 
 	<%-- <c:import url="../template/header.jsp"></c:import> --%>
 
