@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.home.middle.email.MailSendController;
 import com.home.middle.email.MailSendService;
 
+
 @Controller
 @RequestMapping(value="/member/*")
 public class MemberController {
@@ -207,6 +208,16 @@ public class MemberController {
 			mv.addObject("url", "./memberPwcheck");
 		}
 		mv.setViewName("common/result");
+		return mv;
+	}
+	@GetMapping("memberAuto")
+	public ModelAndView setMemberAuto(HttpSession session) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		MemberDTO auto =(MemberDTO)session.getAttribute("member");
+		auto.setAutoStatus(1L);
+		int a = memberService.setMemberAuto(auto);
+		
+		mv.setViewName("redirect:./memberDetail");
 		return mv;
 	}
 }
