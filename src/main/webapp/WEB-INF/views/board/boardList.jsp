@@ -118,7 +118,7 @@
 			</div>		
 		</div>
 </div>
-
+<c:import url="../template/footer.jsp"></c:import>
 <script type="text/javascript" src="../resources/js/boardForm.js"></script>
 <c:import url="../template/common_js.jsp"></c:import>
 <script src="../resources/js/pageing.js"></script>

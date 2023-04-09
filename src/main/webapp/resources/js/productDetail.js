@@ -1,4 +1,4 @@
-
+document.getElementById("cartform").style.display = "none";
 ///AJAX를 이용한 상품 하위 옵션 구현
 
 
@@ -87,5 +87,10 @@ $("#inputQuantity").on("change", function(){
   $("#totalPrice").val(tp);
 
 });
+
+
+
+document.getElementById("cartform").style.display = "none";
+
 
 

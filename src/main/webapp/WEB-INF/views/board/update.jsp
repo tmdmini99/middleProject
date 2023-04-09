@@ -36,7 +36,7 @@
 			<button class="my btn btn-danger" type="submit">글쓰기</button>
 		</div>
 	</form>
-	
+	<c:import url="../template/footer.jsp"></c:import>
 	<script>
 		$("#contents").summernote();
 	</script>
