@@ -92,28 +92,28 @@
                                             <ul class="dropdwn">
                                               
                                                 <li>
-                                                    <a href="product/list?categoryNum=1">카레고리 1 컴퓨터 </a>
+                                                    <a href="/product/list?categoryNum=1">카레고리 1 컴퓨터 </a>
                                                 </li>
                                                 <li>
-                                                    <a href="product/list?categoryNum=2">카테고리 2 노트북</a>
+                                                    <a href="/product/list?categoryNum=2">카테고리 2 노트북</a>
                                                 </li>
                                                 <li>
-                                                    <a href="product/list?categoryNum=3">카테고리 3 모니터</a>
+                                                    <a href="/product/list?categoryNum=3">카테고리 3 모니터</a>
                                                 </li>
                                                 <li>
-                                                    <a href="product/list?categoryNum=4">카테고리 4 휴대폰</a>
+                                                    <a href="/product/list?categoryNum=4">카테고리 4 휴대폰</a>
                                                 </li>
                                                 <li>
-                                                    <a href="product/list?categoryNum=5">카테고리 5 TV </a>
+                                                    <a href="/product/list?categoryNum=5">카테고리 5 TV </a>
                                                 </li>
                                                 <li>
-                                                    <a href="product/list?categoryNum=6">카테고리 6 냉장고 </a>
+                                                    <a href="/product/list?categoryNum=6">카테고리 6 냉장고 </a>
                                                 </li>
                                                 <li>
-                                                    <a href="product/list?categoryNum=7">카테고리 7 에어컨</a>
+                                                    <a href="/product/list?categoryNum=7">카테고리 7 에어컨</a>
                                                 </li>
                                                 <li>
-                                                    <a href="product/list?categoryNum=8">카테고리 8 공기청정기</a>
+                                                    <a href="/product/list?categoryNum=8">카테고리 8 공기청정기</a>
                                                 </li>
                                        
                                             </ul>
@@ -250,7 +250,7 @@
                                                     <ul class="single-mega-item">
                                                         <li class="menu-title">상품</li>
                                                         <li>
-                                                            <a href="product/detail?productNum=1">Products Detail</a>
+                                                            <a href="/product/detail?productNum=1">Products Detail</a>
                                                         </li>
                                                         <li>
                                                             <a href="#">Smart phones</a>
@@ -322,7 +322,7 @@
                                                 </div>
                                                 <div class="mega-menu-photo f-left">
                                                     <a href="#">
-                                                        <img src="resources/js/img/mega-menu/1.jpg" alt="mega menu image">
+                                                        <img src="/resources/js/img/mega-menu/1.jpg" alt="mega menu image">
                                                     </a>
                                                 </div>
                                             </div>

@@ -26,7 +26,7 @@ public class ProductController {
 	private ProductService productService;
 	
 	@RequestMapping(value="list" , method=RequestMethod.GET)
-	public ModelAndView getProductList(ProductDTO productDTO) throws Exception{
+	public ModelAndView getProductList(ProductDTO productDTO ) throws Exception{
 	
 		ModelAndView mv = new ModelAndView();
 
