@@ -216,7 +216,7 @@
                                                     <c:forEach items="${dto.productImgDTOs}" var="productImgDTO">
                                                         <img class="card-img-top mb-5 mb-md-0"
                                                         src="../resources/upload/product/${productImgDTO.fileName}" />
-                                                     ㅇㅇㅇㅇ   ${productImgDTO.fileName}
+                                                     요기요기 오류나여   ${productImgDTO.fileName}
                                                      </c:forEach>
                                                     </div>
                                                     <div class="product-img">
@@ -256,7 +256,7 @@
                                                 </div>
                                             </div>
 
-                                            </c:forEach>   
+                                        </c:forEach>   
                                             <!-- product-item end -->
                                         </div>                                        
                                     </div>

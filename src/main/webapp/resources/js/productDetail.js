@@ -94,9 +94,22 @@ $("#depth0").on("change", "#depth1", function() {
    $("#totalPrice").val(tp);
 
  });
+ 
 
+ $("#qtybutton").on("click", function(){
+   let ea = $("#inputQuantity").val();
+   let price = $("#depth2 option:selected").attr("data-productprice");
+   let tp =ea*price
+   console.log($("#depth2 option:selected").attr("data-productprice"));
+   console.log(ea);
+  console.log(ea*price);
+
+   $("#totalPrice").val(tp);
+
+ });
 
  document.getElementById("cartform").style.display = "none";
+
 
 
 
