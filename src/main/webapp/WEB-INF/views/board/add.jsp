@@ -12,6 +12,7 @@
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 </head>
 <body>
+<c:import url="../template/header.jsp"></c:import>
    <div class="container fluid my-5">
    <div class= "row mb-4 ">
    
@@ -44,7 +45,7 @@
   		
   			<div class="col-12">
     		<label for="contents" class="form-label">상품번호</label>
-    		<input type="text" class="form-control" id="productNum" name="productNum" readonly value="${dto.productNum}">
+    		<input type="text" class="form-control" id="productNum" name="productNum" value="${dto.productNum}">
   		</div>
 
 		<!-- <div id="fileList" class="my-5">

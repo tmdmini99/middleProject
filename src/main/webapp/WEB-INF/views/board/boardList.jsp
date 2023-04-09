@@ -8,9 +8,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../template/common_css.jsp"></c:import>
+
 </head>
 <body>
-
+<c:import url="../template/header.jsp"></c:import>
 <div class="container-fluid">
 	<div class="row my-5">
 	${member.id}님 환영합니다

@@ -10,7 +10,7 @@
         </head>
 
         <body>
-
+		<c:import url="../template/header.jsp"></c:import>
             <h1>Detail Page</h1>
             <!-- Product section-->
 

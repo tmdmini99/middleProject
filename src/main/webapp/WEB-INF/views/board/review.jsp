@@ -11,7 +11,7 @@
 <c:import url="../template/common_css.jsp"></c:import>
 </head>
 <body>
-
+<c:import url="../template/header.jsp"></c:import>
 <div class="container-fluid">
 	<div class="row my-5">
 		<h1>${boardName} List</h1>

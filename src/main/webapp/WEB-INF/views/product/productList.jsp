@@ -155,23 +155,10 @@
         <!-- END MOBILE MENU AREA -->
 
         <!-- BREADCRUMBS SETCTION START -->
-        <div class="breadcrumbs-section plr-200 mb-80 section">
-            <div class="breadcrumbs overlay-bg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="breadcrumbs-inner">
-                                <h1 class="breadcrumbs-title">product grid view</h1>
-                                <ul class="breadcrumb-list">
-                                    <li><a href="index.html">Home</a></li>
-                                    <li>product grid view</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="breadcrumbs-section plr-200 mb-80 section" style="text-align: center;">
+            <img src="/resources/js/img/others/ad.png" alt=""/>
+         </div>
+
         <!-- BREADCRUMBS SETCTION END -->
 
         <!-- Start page content -->
@@ -222,7 +209,7 @@
                                         <div class="row">
                                             <c:forEach items="${list}" var="dto">
                                             <!-- product-item start -->
-                                            <div class="col-lg-4 col-md-6">
+                                            <div class="col-lg-4 col-md-6"  href="./detail?productNum=${dto.productNum}">
                                                 <div class="product-item">
 
                                                     <div class="product-img">
@@ -233,14 +220,14 @@
                                                      </c:forEach>
                                                     </div>
                                                     <div class="product-img">
-                                                        <a href="single-product.html">
+                                                        <a href="./detail?productNum=${dto.productNum}">
                                                             <img src="/resources/js/img/product/7.jpg" alt=""/>
                                                         </a>
                                                     </div>
                                                     
                                                     <div class="product-info">
                                                         <h6 class="product-title">
-                                                            <a href="single-product.html"> ${pageScope.dto.productName}</a>
+                                                            <a href="./detail?productNum=${dto.productNum}"> ${pageScope.dto.productName}</a>
                                                         </h6>
                                                         <div class="pro-rating">
                                                             <a href="#"><i class="zmdi zmdi-star"></i></a>

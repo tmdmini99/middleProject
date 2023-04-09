@@ -11,7 +11,7 @@
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 </head>
 <body>
-
+<c:import url="../template/header.jsp"></c:import>
 	<h1>Update page</h1>
 	<form action="./update" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="num" value="${dto.num}">
