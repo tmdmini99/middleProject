@@ -98,12 +98,60 @@ $('.cartPaymentCancel').on("click",function(){
     })
 })
 
+$('.check').each(function(i,v){
+    $(v).on('click', function(){
+        if($(this).is(":checked")){
+            let total = $(".order-total-price").html()*1;
+            
+            total = total + $(this).parent().next().next().next().next().html()*1;
+    
+            console.log($(this).parent().next().next().next().next());
+    
+            $(".order-total-price").html(total);
+            
+            let check;
+            
+            $('.check').each(function(i,v){
+                if($(v).is(":checked")){
+                    check = true;
+                }else{
+                    check = false;
+                    return check;
+                }
+
+            })
+
+            if(check){
+                $('.checkAll').prop('checked', true);
+            }
+        }else{
+            let total = $(".order-total-price").html()*1;
+            
+            total = total - $(this).parent().next().next().next().next().html()*1;
+           
+            $(".order-total-price").html(total);
+
+            $('.checkAll').prop('checked', false);
+        }
+    })
+})
+
 $(".checkAll").on("click", function(){
     let check = $(this).is(":checked");
+    let total = $(".order-total-price").html()*1;
     if(check){
-        $(".check").prop("checked", true);
+        $(".check").each(function(i,v){
+            $(v).prop("checked", true);
+            total = total + $(v).parent().next().next().next().next().html()*1;
+            $(".order-total-price").html(total);
+        })
     }else{
-        $(".check").prop("checked", false);
+        $(".check").each(function(i,v){
+            $(v).prop("checked", false);
+            total = total - $(v).parent().next().next().next().next().html()*1;
+            $(".order-total-price").html(total);
+        })
+        
     }
 })
 
@@ -134,16 +182,18 @@ $(".selectPayment").on("click", function(){
     let check = [];
     let ea = [];
     let opNum = [];
+    
     $(".check").each(function(i, v){
         if($(v).is(":checked")){
             check.push($(v).attr("data-orderNum"));
             ea.push($(v).parent().next().next().next().children().children(".cart-plus-minus-box").val());
             opNum.push($(v).parent().next().children(".optionNum").html());
+            
         }
     })
 
-    console.log(check);
-    console.log(ea);
+    const IMP = window.IMP; // 생략 가능
+    IMP.init("가맹점 식별코드"); // 예: imp00000000a
     $.ajax({
         type:"POST",
         url : "./cartSelectedPayment",
