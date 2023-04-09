@@ -76,7 +76,7 @@
                                 <div id="cartform" >
                                     <input type="text" class="form-control" id="id" name="id" value="${member.id}" readonly >
                                     <input type="text" class="form-control" id="productNum" name="productNum" value="${dto.productNum}" readonly>
-                                    <input type="text" class="form-control" id="totalPrice" name="totalPrice" value="0" readonly>
+                                    <input type="text" class="form-control" id="totalPrice" name="totalPrice" value="5000" readonly>
                                   
                                     
                                 </div>
