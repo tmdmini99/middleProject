@@ -7,6 +7,26 @@
             <meta charset="UTF-8">
             <title>상품 상세 페이지 </title>
             <c:import url="../template/common_css.jsp"></c:import>
+                 <style>
+		.row {
+			display: flex;
+			align-items: center;
+		}
+		
+		.pro-price {
+			border: none;
+			background: transparent;
+			font-size: 24px;
+			font-weight: bold;
+			color: #333;
+		}
+		
+		.row span {
+			margin-left: 5px;
+			font-size: 16px;
+			color: #999;
+		}
+	</style> 
         </head>
 
         <body>
@@ -256,10 +276,10 @@
                                                 <!-- single-product-price -->
                                                <!-- <div class="row"><input type="text" id="totalPrice" name="totalPrice" value="5000" class="pro-price"readonly>원</div> -->
 
-                                               <div class="row">
-                                                <input type="text" id="totalPrice" name="totalPrice" value="5000" class="pro-price" readonly>
-                                                <span>원</span>
-                                              </div>
+                                               
+                                              <input type="text" id="totalPrice" name="totalPrice" value="0" class="pro-price" readonly style="width:175px;">
+                                                원
+                                              
                                               
                                                 <!--  hr -->
                                                 <hr>
@@ -656,26 +676,7 @@
             </section>
             <!-- End page content -->
       
-        <style>
-		.row {
-			display: flex;
-			align-items: center;
-		}
-		
-		.pro-price {
-			border: none;
-			background: transparent;
-			font-size: 24px;
-			font-weight: bold;
-			color: #333;
-		}
-		
-		.row span {
-			margin-left: 5px;
-			font-size: 16px;
-			color: #999;
-		}
-	</style>
+ 
 	
 
             <script src="../resources/js/reviewTop5.js"></script>
