@@ -310,18 +310,14 @@
                                             <hr>
                                             <div class="single-product-tab reviews-tab">
                                                 <ul class="nav mb-20">
-                                                    <li><a class="active" href="#description" data-bs-toggle="tab">description</a></li>
-                                                    <li ><a href="#information" data-bs-toggle="tab">information</a></li>
-                                                    <li ><a href="#reviews" data-bs-toggle="tab">reviews</a></li>
+                                                    <li><a class="active" href="#description" data-bs-toggle="tab">Description</a></li>
+                                                    <li ><a href="#reviews" data-bs-toggle="tab">Reviews</a></li>
+                                                    <li ><a href="#information" data-bs-toggle="tab">Qna</a></li>
                                                 </ul>
                                                 <div class="tab-content">
                                                     <div role="tabpanel" class="tab-pane active show" id="description">
-                                                        <p>There are many variations of passages of Lorem Ipsum available, but the majo Rity have be suffered alteration in some form, by injected humou or randomis Rity have be suffered alteration in some form, by injected humou or randomis words which donot look even slightly believable. If you are going to use a passage Lorem Ipsum.</p>
-                                                        <p>rerum blanditiis dolore dignissimos expedita consequatur deleniti consectetur non exercitationem. rerum blanditiis dolore dignissimos expedita consequatur deleniti consectetur non exercitationem.</p>
-                                                    </div>
-                                                    <div role="tabpanel" class="tab-pane" id="information">
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, neque fugit inventore quo dignissimos est iure natus quis nam illo officiis,  deleniti consectetur non ,aspernatur.</p>
-                                                        <p>rerum blanditiis dolore dignissimos expedita consequatur deleniti consectetur non exercitationem.</p>
+                                                        <p>만족스러운 성능과 가성비로 수 년째 인기를 이어가고 있는 스테디셀러 게이밍 모니터이다. 대부분 게이밍 모니터가 갖고 있는 144Hz 주사율을 넘어 165Hz 고주사율을 실현했다. 1초에 165프레임의 이미지를 표현하므로 일반 모니터는 말할 것도 없고 144Hz 게이밍 모니터보다 화면 움직임이 한결 부드럽다. </p>
+                                                        <p>레이싱 게임에서는 배경이 자연스럽게 이동하며, MOBA나 RPG 등의 게임에서는 상하좌우 스크롤이 매끄럽게 이어진다. 특히 화면 갱신 속도가 높은 탓에 1인칭 슈팅 게임에서는 적의 움직임을 빠르게 알아챌 수 있다. 여기에 1ms(OD)에 불과한 응답속도를 구현함으로써 잔상을 최소화했다. 화면 속 사물이 선명하고 또렷하게 나타난다. 그래픽카드가 출력하는 프레임과 모니터의 재생빈도가 엇갈리며 발생하는 화면찢김 현상을 제거하기 위해 AMD 프리싱크 기술을 탑재했다.</p>
                                                     </div>
                                                     <div role="tabpanel" class="tab-pane" id="reviews">
                                                         <!-- reviews-tab-desc -->
@@ -329,7 +325,7 @@
                                                             <!-- single comments -->
                                                             <div class="media mt-30">
                                                                 <div class="media-left">
-                                                                    <a href="#"><img class="media-object" src="img/author/1.jpg" alt="#"></a>
+                                                                    <a href="#"><img class="media-object" src="/resources/js/img/author/1.jpg" alt="#"></a>
                                                                 </div>
                                                                 <div class="media-body">
                                                                     <div class="clearfix">
@@ -351,7 +347,7 @@
                                                             <!-- single comments -->
                                                             <div class="media mt-30">
                                                                 <div class="media-left">
-                                                                    <a href="#"><img class="media-object" src="img/author/2.jpg" alt="#"></a>
+                                                                    <a href="#"><img class="media-object" src="/resources/js/img/author/2.jpg" alt="#"></a>
                                                                 </div>
                                                                 <div class="media-body">
                                                                     <div class="clearfix">
@@ -371,6 +367,10 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                    </div>
+                                                    <div role="tabpanel" class="tab-pane" id="information">
+                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, neque fugit inventore quo dignissimos est iure natus quis nam illo officiis,  deleniti consectetur non ,aspernatur.</p>
+                                                        <p>rerum blanditiis dolore dignissimos expedita consequatur deleniti consectetur non exercitationem.</p>
                                                     </div>
                                                 </div>
                                             </div>
