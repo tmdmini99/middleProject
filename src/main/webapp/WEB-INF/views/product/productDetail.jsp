@@ -199,13 +199,31 @@
                                               
                                                 <!--  hr -->
                                                 <hr>
-                                                <div>
-                                                   <button class="btn btn-outline-dark flex-shrink-0" type="submit" id="btn">
-				                                        <i class="bi-cart-fill me-1"></i>
-				                                        Add to cart
-				                                   </button>
+                                                <div class="d-flex">
+                                                    <div>
+                                                        <button class="btn btn-outline-dark flex-shrink-0" type="submit" id="btn">
+                                                            <i class="bi-cart-fill me-1"></i>
+                                                            Add to cart
+                                                        </button>
+                                                    </div>
+                                                
+                                                    <div>
+                                                        <button class="btn btn-outline-dark flex-shrink-0" href="../../qna/add?productNum=${dto.productNum}">
+                                                            <i class="bi-cart-fill me-2"></i>
+                                                            상품 문의
+                                                        </button>
+                                                    </div>
+                                                
+                                                    <div>
+                                                        <button class="btn btn-outline-dark flex-shrink-0" href="../../review/add?productNum=${dto.productNum}">
+                                                            <i class="bi-cart-fill me-3"></i>
+                                                            상품 리뷰
+                                                        </button>
+                                                    </div>
                                                 </div>
-                                            
+                                                
+                                               
+                                                
                                             <c:set var="loop_flag" value="true" /> 
                                          
                                             </c:if>  
@@ -281,65 +299,82 @@
                                                             </div>
                                                       </c:forEach>
                                                    <!-- paging -->
-      <div class="row">
-            <nav aria-label="Page navigation example" class="">
-               <div class="offset-md-5 col-md-5"> 
-                <ul class="pagination orange mx-auto">
-                   <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous" data-board-page="1">
-                          <!--==page=1 -->
-                          
-                          <span aria-hidden="true">&laquo;</span>
-                        </a>
-                   </li>
-                   <li class="page-item ${pager.before ? 'disabled' : ''}">
-                        <a class="page-link" href="#" aria-label="Previous" data-board-page="${pager.startNum-1}">
-                          <span aria-hidden="true">&lsaquo;</span> <!--lsaquo는 꺽쇠 하나 laquo는 꺽쇠 두개  -->
-                        </a>
-                   </li>
-                   <c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
-                   <li class="page-item"><a class="page-link ${pager.page eq i ? 'active' : '' }" href="#" data-board-page="${i}">${i}</a></li>
-                   </c:forEach>
-                   <!-- &gt = <꺽쇠를 표현 &lt는 >꺽쇠를 표현 -->
-                   <li class="page-item ${pager.after eq false ? 'disabled' : ''}"> <!--  -->
-                        <a class="page-link " href="#"  aria-label="Next" data-board-page="${pager.lastNum+1}">
-                          <span aria-hidden="true">&rsaquo;</span>
-                        </a>
-                   </li>
-                   <li class="page-item "> <!--  -->
-                        <a class="page-link " href="#"  aria-label="Next" data-board-page="${pager.totalPage}">
-                          <span aria-hidden="true">&raquo;</span>
-                        </a>
-                   </li>
-                 </ul>
-                 </div>
-            </nav>
-      
-         </div>
-         <!-- 검색창 -->
-         <form class="row g-3" action="./detail" method="get" id="searchForm">
-            <input type="hidden" name="page" value="1" id="page">
-            <input type="hidden" name="productNum" value="${dto.productNum}" id="productNum">
-            <div class="col-auto">
-               <label for="kind" class="visually-hidden">Kind</label>
-               <select class="form-select" name="kind" id="kind" aria-label="Default select example">
-                  
-                  <option value="contents" ${pager.kind eq 'contents' ? 'selected' : '' }>상품이름</option>
-                  <option value="id" ${pager.kind eq 'id' ? 'selected' : '' }>상품이름</option>
-               </select>
-            </div>
-            <div class="col-auto">
-               <label for="Search" class="visually-hidden">Search</label>
-               <input type="text" class="form-control" name="search" id="search" placeholder="검색어 입력" value="${pager.search}">
-            </div>
-            <div class="col-auto">
-               <button type="submit" class="btn btn-warning mb-3">검색</button>
-            </div>
-         </form>
+                                                    <div class="row">
+                                                            <nav aria-label="Page navigation example" class="">
+                                                            <div class="offset-md-5 col-md-5"> 
+                                                                <ul class="pagination orange mx-auto">
+                                                                <li class="page-item">
+                                                                        <a class="page-link" href="#" aria-label="Previous" data-board-page="1">
+                                                                        <!--==page=1 -->
+                                                                        
+                                                                        <span aria-hidden="true">&laquo;</span>
+                                                                        </a>
+                                                                </li>
+                                                                <li class="page-item ${pager.before ? 'disabled' : ''}">
+                                                                        <a class="page-link" href="#" aria-label="Previous" data-board-page="${pager.startNum-1}">
+                                                                        <span aria-hidden="true">&lsaquo;</span> <!--lsaquo는 꺽쇠 하나 laquo는 꺽쇠 두개  -->
+                                                                        </a>
+                                                                </li>
+                                                                <c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
+                                                                <li class="page-item"><a class="page-link ${pager.page eq i ? 'active' : '' }" href="#" data-board-page="${i}">${i}</a></li>
+                                                                </c:forEach>
+                                                                <!-- &gt = <꺽쇠를 표현 &lt는 >꺽쇠를 표현 -->
+                                                                <li class="page-item ${pager.after eq false ? 'disabled' : ''}"> <!--  -->
+                                                                        <a class="page-link " href="#"  aria-label="Next" data-board-page="${pager.lastNum+1}">
+                                                                        <span aria-hidden="true">&rsaquo;</span>
+                                                                        </a>
+                                                                </li>
+                                                                <li class="page-item "> <!--  -->
+                                                                        <a class="page-link " href="#"  aria-label="Next" data-board-page="${pager.totalPage}">
+                                                                        <span aria-hidden="true">&raquo;</span>
+                                                                        </a>
+                                                                </li>
+                                                                </ul>
+                                                                </div>
+                                                            </nav>
+                                                    
+                                                        </div>
+                                                        <!-- 검색창 -->
+                                                        <form class="row g-3" action="./detail" method="get" id="searchForm">
+                                                            <input type="hidden" name="page" value="1" id="page">
+                                                            <input type="hidden" name="productNum" value="${dto.productNum}" id="productNum">
+                                                            <div class="col-auto">
+                                                            <label for="kind" class="visually-hidden">Kind</label>
+                                                            <select class="form-select" name="kind" id="kind" aria-label="Default select example">
+                                                                
+                                                                <option value="contents" ${pager.kind eq 'contents' ? 'selected' : '' }>상품이름</option>
+                                                                <option value="id" ${pager.kind eq 'id' ? 'selected' : '' }>상품이름</option>
+                                                            </select>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                            <label for="Search" class="visually-hidden">Search</label>
+                                                            <input type="text" class="form-control" name="search" id="search" placeholder="검색어 입력" value="${pager.search}">
+                                                            </div>
+                                                            <div class="col-auto">
+                                                            <button type="submit" class="btn btn-warning mb-3">검색</button>
+                                                            </div>
+                                                        </form>
                                                     </div>
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@        QNA        @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
                                                     <div role="tabpanel" class="tab-pane" id="information">
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, neque fugit inventore quo dignissimos est iure natus quis nam illo officiis,  deleniti consectetur non ,aspernatur.</p>
-                                                        <p>rerum blanditiis dolore dignissimos expedita consequatur deleniti consectetur non exercitationem.</p>
+                                                        <c:forEach items="${list2}" var="dto2" varStatus="index1">
+                                                        <div class="card mb-15">
+                                                            <div class="card-header" role="tab" id="heading${dto2.num}">
+                                                                <h4 class="panel-title">
+                                                                    <a role="button" data-bs-toggle="collapse" data-bs-parent="#accordion" href="#collapse${dto2.num}" aria-expanded="false" aria-controls="collapse${dto2.num}" class="collapsed">
+                                                                     [문의] ${dto2.title} ${dto2.num}
+                                                                    </a>
+                                                                </h4>
+                                                            </div>
+                                                            <div id="collapse${dto2.num}" class="collapse" data-bs-parent="#accordion" aria-labelledby="heading${dto2.num}" style="">
+                                                                <div class="card-body">
+                                                                    <p> 작성자 : ${dto2.id}</p>
+                                                                    <p>${dto2.contents}</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        </c:forEach>
                                                     </div>
                                                 </div>
                                             </div>
@@ -347,7 +382,6 @@
                                             <hr>
                                         </div>
                                     </div>
-                                    
                                 </div>
                                 </div>
                                 <!-- single-product-area end -->
@@ -631,8 +665,8 @@
                     </div>
                 </div>
                 <!-- SHOP SECTION END -->             
-     <!-- 리뷰 창 들어가는 곳  -->
-            <div class="container-fluid my-5" id="reviewList"> </div>
+            <!-- 리뷰 창 들어가는 곳  -->
+            <!-- <div class="container-fluid my-5" id="reviewList"> </div>
             <div id="qnaList"> </div>
 
             <div class="row">
@@ -640,7 +674,7 @@
                 <a href="../../review/add?productNum=${dto.productNum}" class="btn btn-primary">리뷰작성</a>
                 <a href="./add" class="btn btn-primary">상품추가</a>
 
-            </div>
+            </div> -->
           <c:import url="../template/footer.jsp"></c:import>
             </section>
             <!-- End page content -->

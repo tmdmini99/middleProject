@@ -39,7 +39,7 @@ public class QnaController {
 	List<BbsDTO> ar = qnaService.getBoardList(pager);
 
 	mv.addObject("pager",pager);
-	mv.addObject("list",ar);
+	mv.addObject("list2",ar);
 	mv.setViewName("product/detail");
 		
 	return mv;			

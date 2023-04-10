@@ -59,10 +59,17 @@ public class ProductController {
 		
 		 mv.setViewName("/product/productDetail");
 		 mv.addObject("dto",productDTO);
+		// review 리스트 
 		 List<BbsDTO> ar = reviewService.getBoardList(pager);
-			
-			mv.addObject("pager",pager);
-			mv.addObject("list1",ar);
+		 //qna 리스트
+		 List<BbsDTO> ar2 = qnaService.getBoardList(pager);		
+		 // review 리스트 
+		 mv.addObject("pager",pager);
+		 mv.addObject("list1",ar);
+		 
+		 // qna 리스트 
+		 mv.addObject("pager",pager);
+		 mv.addObject("list2",ar2);
 			
 	   return mv;		
 	}
@@ -93,7 +100,7 @@ public class ProductController {
 	      return mv;
 	   }
 	
-//////////////////////////////////////////////////////////////상품 하위 옵션 구현//////////////////////////////////////////////////////	
+//////////////////////////////////////////////////////////////상품 하위 옵션 구현//////////////////////////////////////////////////////////////////////	
 
 
 	//ajax의 post url "./optionList" 
