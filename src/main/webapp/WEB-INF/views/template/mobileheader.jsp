@@ -59,10 +59,10 @@
                                         
                                         </ul>
                                     </li>
-                                    <li><a href="/qna/list">Qna</a>
+                                    <li><a href="/qna/listdetail">Qna</a>
                                     </li>
                                     <li>
-                                        <a href="/review/list">Review</a>
+                                        <a href="/review/listdetail">Review</a>
                                     </li>
                                  <!--    <li>
                                         <a href="contact.html">Contact</a>

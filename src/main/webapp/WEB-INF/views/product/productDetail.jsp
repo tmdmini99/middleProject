@@ -7,166 +7,82 @@
             <meta charset="UTF-8">
             <title>상품 상세 페이지 </title>
             <c:import url="../template/common_css.jsp"></c:import>
-                 <style>
-		.row {
-			display: flex;
-			align-items: center;
-		}
-		
-		.pro-price {
-			border: none;
-			background: transparent;
-			font-size: 24px;
-			font-weight: bold;
-			color: #333;
-		}
-		
-		.row span {
-			margin-left: 5px;
-			font-size: 16px;
-			color: #999;
-		}
-	</style> 
+		    <style>
+				.row {
+					display: flex;
+					align-items: center;
+				}
+				
+				.pro-price {
+					border: none;
+					background: transparent;
+					font-size: 24px;
+					font-weight: bold;
+					color: #333;
+				}
+				
+				.row span {
+					margin-left: 5px;
+					font-size: 16px;
+					color: #999;
+				}
+
+                /* ...a bunch of other CSS... */
+                /* Now do one of the following options */
+                /* GREATER SPECIFICITY - SMALL increase, 0 0 2 3 */
+
+                ul.pagination > li > a:focus,
+                ul.pagination > li > a:hover,
+                ul.pagination > li > span:focus,
+                ul.pagination > li > span:hover {
+                    background-color: orange;
+                    color: white;
+                }
+
+                                .pagination > li > a
+                {
+                    background-color: white;
+                    color: orange;
+                }
+
+                .pagination > li > a:focus,
+                .pagination > li > a:hover,
+                .pagination > li > span:focus,
+                .pagination > li > span:hover
+                {
+                    color: orange;
+                    background-color: #eee;
+                    border-color: #ddd;
+                }
+
+                .pagination > .active
+                {
+                    color: white;
+                    background-color: orange;
+                    border: solid 1px orange;
+                }
+
+                .pagination > .active > a:hover
+                {
+                    background-color: orange;
+                    border: solid 1px orange;
+                }
+
+                .pagination .page-item.active .page-link {
+                    background-color: orange;
+                    border-color: orange;
+                }
+                .pagination a.active {
+                background-color: orange;
+                color: white;
+                border: solid 1px orange;
+                }
+            </style> 
         </head>
 
         <body>
 		<c:import url="../template/header.jsp"></c:import>
-         <!-- START MOBILE MENU AREA -->
-        <div class="mobile-menu-area d-block d-lg-none section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="mobile-menu">
-                            <nav id="dropdown">
-                                <ul>
-                                    <li><a href="index.html">Home</a>
-                                        <ul>
-                                            <li>
-                                                <a href="index.html">Home Version 1</a>
-                                            </li>
-                                            <li>
-                                                <a href="index-2.html">Home Version 2</a>
-                                            </li>
-                                            <li>
-                                                <a href="index-3.html">Home Version 3</a>
-                                            </li>
-                                            <li>
-                                                <a href="index-4.html">Home 4 Animated Text</a>
-                                            </li>
-                                            <li>
-                                                <a href="index-5.html">Home 5 Animated Text Ovlerlay</a>
-                                            </li>
-                                            <li>
-                                                <a href="index-6.html">Home 6 Background Video</a>
-                                            </li>
-                                            <li>
-                                                <a href="index-7.html">Home 7 BG-Video Ovlerlay</a>
-                                            </li>
-                                            <li>
-                                                <a href="index-8.html">Home 8 Boxed-1</a>
-                                            </li>
-                                            <li>
-                                                <a href="index-9.html">Home 9 Gradient</a>
-                                            </li>
-                                            <li>
-                                                <a href="index-10.html">Home 10 Boxed-2</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="shop.html">Products</a>
-                                    </li>
-                                    <li><a href="#">Pages</a>
-                                        <ul>
-                                            <li>
-                                                <a href="shop.html">Shop</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-left-sidebar.html">Shop Left Sidebar</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-right-sidebar.html">Shop Right Sidebar</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-list.html">Shop List</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-list-right-sidebar.html">Shop List Right Sidebar</a>
-                                            </li>
-                                            <li>
-                                                <a href="single-product.html">Single Product</a>
-                                            </li>
-                                            <li>
-                                                <a href="single-product-left-sidebar.html">Single Product Left Sidebar</a>
-                                            </li>
-                                            <li>
-                                                <a href="single-product-no-sidebar.html">Single Product No Sidebar</a>
-                                            </li>
-                                            <li>
-                                                <a href="cart.html">Shopping Cart</a>
-                                            </li>
-                                            <li>
-                                                <a href="wishlist.html">Wishlist</a>
-                                            </li>
-                                            <li>
-                                                <a href="checkout.html">Checkout</a>
-                                            </li>
-                                            <li>
-                                                <a href="order.html">Order</a>
-                                            </li>
-                                            <li>
-                                                <a href="login.html">Login</a>
-                                            </li>
-                                            <li>
-                                                <a href="my-account.html">My Account</a>
-                                            </li>
-                                            <li>
-                                                <a href="about.html">About us</a>
-                                            </li>
-                                            <li>
-                                                <a href="404.html">404</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="blog.html">Blog</a>
-                                        <ul>
-                                            <li>
-                                                <a href="blog.html">Blog</a>
-                                            </li>
-                                            <li>
-                                                <a href="blog-left-sidebar.html">Blog Left Sidebar</a>
-                                            </li>
-                                            <li>
-                                                <a href="blog-right-sidebar.html">Blog Right Sidebar</a>
-                                            </li>
-                                            <li>
-                                                <a href="blog-2.html">Blog style 2</a>
-                                            </li>
-                                            <li>
-                                                <a href="blog-2-left-sidebar.html">Blog 2 Left Sidebar</a>
-                                            </li>
-                                            <li>
-                                                <a href="blog-2-right-sidebar.html">Blog 2 Right Sidebar</a>
-                                            </li>
-                                            <li>
-                                                <a href="single-blog.html">Blog Details</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="about.html">About Us</a>
-                                    </li>
-                                    <li>
-                                        <a href="contact.html">Contact</a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- END MOBILE MENU AREA -->
+        <c:import url="../template/mobileheader.jsp"></c:import>
             <!-- BREADCRUMBS SETCTION START -->
             <div class="breadcrumbs-section plr-200 mb-80 section text-center">
                 <img src="/resources/js/img/others/ad.png" alt="" class="mx-auto">
@@ -249,7 +165,7 @@
                                                         <p class="color-title f-left">구매수량</p>
                                                         <div class="cart-plus-minus f-left" id="qtybutton">
                                                             <!-- <input type="text" value="02" id="inputQuantity" name="productEa" name="qtybutton" class="cart-plus-minus-box"> -->
-                                                            <input class="cart-plus-minus-box" id="inputQuantity" name="productEa" type="num" value="0"
+                                                            <input class="cart-plus-minus-box" id="inputQuantity" name="productatya" type="num" value="0"
                                                             style="max-width: 3rem" />
                                                         </div>   
                                                     </div>
@@ -321,52 +237,105 @@
                                                     </div>
                                                     <div role="tabpanel" class="tab-pane" id="reviews">
                                                         <!-- reviews-tab-desc -->
-                                                        <div class="reviews-tab-desc">
-                                                            <!-- single comments -->
-                                                            <div class="media mt-30">
-                                                                <div class="media-left">
-                                                                    <a href="#"><img class="media-object" src="/resources/js/img/author/1.jpg" alt="#"></a>
-                                                                </div>
-                                                                <div class="media-body">
-                                                                    <div class="clearfix">
-                                                                        <div class="name-commenter pull-left">
-                                                                            <h6 class="media-heading"><a href="#">Gerald Barnes</a></h6>
-                                                                            <p class="mb-10">27 Jun, 2022 at 2:30pm</p>
-                                                                        </div>
-                                                                        <div class="pull-right">
-                                                                            <ul class="reply-delate">
-                                                                                <li><a href="#">Reply</a></li>
-                                                                                <li>/</li>
-                                                                                <li><a href="#">Delate</a></li>
-                                                                            </ul>
-                                                                        </div>
+                                                      
+                                                        <c:forEach items="${list1}" var="dto1" varStatus="index1">
+                                                            <div class="reviews-tab-desc">
+                                                                <!-- single comments -->
+                                                                 <div class="media mt-30">
+                                                                    <c:choose>
+                                                                        <c:when test="${index1.index%2 eq 1}">
+                                                                    <div class="media-left">
+                                                                        <a href="#"><img class="media-object" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTA3MDlfMjI5%2FMDAxNjI1ODExOTExNDI3.gvYo9qbHCJYYHCvdQYJCvLgbAUtV4VYB-jymATd8vxMg.3fH0kLPgTQbbmIqS568PscVkz9ijXFEeAyW7ouvpO6kg.PNG.jangduk2011%2F4087E937-A915-4645-8E5B-B5F363875BD9.png&type=sc960_832" height="80" width="80" alt="#"></a>
                                                                     </div>
-                                                                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer accumsan egestas .</p>
-                                                                </div>
-                                                            </div>
-                                                            <!-- single comments -->
-                                                            <div class="media mt-30">
-                                                                <div class="media-left">
-                                                                    <a href="#"><img class="media-object" src="/resources/js/img/author/2.jpg" alt="#"></a>
-                                                                </div>
-                                                                <div class="media-body">
-                                                                    <div class="clearfix">
-                                                                        <div class="name-commenter pull-left">
-                                                                            <h6 class="media-heading"><a href="#">Gerald Barnes</a></h6>
-                                                                            <p class="mb-10">27 Jun, 2022 at 2:30pm</p>
-                                                                        </div>
-                                                                        <div class="pull-right">
-                                                                            <ul class="reply-delate">
-                                                                                <li><a href="#">Reply</a></li>
-                                                                                <li>/</li>
-                                                                                <li><a href="#">Delate</a></li>
-                                                                            </ul>
-                                                                        </div>
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    <div class="media-left">
+                                                                        <a href="#"><img class="media-object" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxOTEyMjVfNjMg%2FMDAxNTc3MjcwMjc0OTEy.LTtu4ufCy-VO4L7MLOOnOuvRKtqB6r2De9Gvh4z7Vq4g.nYN3uaB6teH3PrGhdeb_XLVD75-MHkurbjUGfsxSk9kg.JPEG.dms7568%2FIMG_2318.jpg&type=sc960_832" height="80" width="80" alt="#"></a>
                                                                     </div>
-                                                                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer accumsan egestas .</p>
-                                                                </div>
+                                                                </c:otherwise>
+                                                                </c:choose>
+                                                                    <div class="media-body">
+                                                                        <div class="clearfix">
+                                                                            <div class="name-commenter pull-left">
+                                                                                <h6 class="media-heading"><a href="#">${dto1.id} ${dto1.num}</a></h6>
+                                                                                <p class="mb-10">
+                                                                           </p>
+                                                                            </div>
+                                                                            <div class="pull-right">
+                                                                                <ul class="reply-delate">
+                                                                                    <li><a href="#"></a></li>
+                                                                                    <li>
+                                                                                        <a class="btn btn-outline-warning"  href ="/review/update?num=${dto1.num}">update</a>
+                                                                                    </li>
+                                                                                    <li><form action="/review/delete" id="frmde"><a href="#">
+                                                                                        <input type="hidden" name="num" value="${dto1.num}">
+                                                                                        <button id="delete" type="button" class="btn btn-outline-warning">DELETE</button>
+                                                                                        </a></form></li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                        <p class="mb-0">${dto1.contents}</p>
+                                                                    </div>
+                                                                </div> 
+                                                                
                                                             </div>
-                                                        </div>
+                                                      </c:forEach>
+                                                   <!-- paging -->
+      <div class="row">
+            <nav aria-label="Page navigation example" class="">
+               <div class="offset-md-5 col-md-5"> 
+                <ul class="pagination orange mx-auto">
+                   <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous" data-board-page="1">
+                          <!--==page=1 -->
+                          
+                          <span aria-hidden="true">&laquo;</span>
+                        </a>
+                   </li>
+                   <li class="page-item ${pager.before ? 'disabled' : ''}">
+                        <a class="page-link" href="#" aria-label="Previous" data-board-page="${pager.startNum-1}">
+                          <span aria-hidden="true">&lsaquo;</span> <!--lsaquo는 꺽쇠 하나 laquo는 꺽쇠 두개  -->
+                        </a>
+                   </li>
+                   <c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
+                   <li class="page-item"><a class="page-link ${pager.page eq i ? 'active' : '' }" href="#" data-board-page="${i}">${i}</a></li>
+                   </c:forEach>
+                   <!-- &gt = <꺽쇠를 표현 &lt는 >꺽쇠를 표현 -->
+                   <li class="page-item ${pager.after eq false ? 'disabled' : ''}"> <!--  -->
+                        <a class="page-link " href="#"  aria-label="Next" data-board-page="${pager.lastNum+1}">
+                          <span aria-hidden="true">&rsaquo;</span>
+                        </a>
+                   </li>
+                   <li class="page-item "> <!--  -->
+                        <a class="page-link " href="#"  aria-label="Next" data-board-page="${pager.totalPage}">
+                          <span aria-hidden="true">&raquo;</span>
+                        </a>
+                   </li>
+                 </ul>
+                 </div>
+            </nav>
+      
+         </div>
+         <!-- 검색창 -->
+         <form class="row g-3" action="./detail" method="get" id="searchForm">
+            <input type="hidden" name="page" value="1" id="page">
+            <input type="hidden" name="productNum" value="${dto.productNum}" id="productNum">
+            <div class="col-auto">
+               <label for="kind" class="visually-hidden">Kind</label>
+               <select class="form-select" name="kind" id="kind" aria-label="Default select example">
+                  
+                  <option value="contents" ${pager.kind eq 'contents' ? 'selected' : '' }>상품이름</option>
+                  <option value="id" ${pager.kind eq 'id' ? 'selected' : '' }>상품이름</option>
+               </select>
+            </div>
+            <div class="col-auto">
+               <label for="Search" class="visually-hidden">Search</label>
+               <input type="text" class="form-control" name="search" id="search" placeholder="검색어 입력" value="${pager.search}">
+            </div>
+            <div class="col-auto">
+               <button type="submit" class="btn btn-warning mb-3">검색</button>
+            </div>
+         </form>
                                                     </div>
                                                     <div role="tabpanel" class="tab-pane" id="information">
                                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, neque fugit inventore quo dignissimos est iure natus quis nam illo officiis,  deleniti consectetur non ,aspernatur.</p>
@@ -550,7 +519,7 @@
                                         <ul>
                                             <li class="closed"><a href="#">Brand One</a>
                                                 <ul>
-                                                    <li><a href="#">Mobile</a></li>ent
+                                                    <li><a href="#">Mobile</a></li>
                                                     <li><a href="#">Tab</a></li>
                                                     <li><a href="#">Watch</a></li>
                                                     <li><a href="#">Head Phone</a></li>
@@ -678,7 +647,7 @@
       
  
 	
-
+			<script src="../resources/js/pageing.js"></script>
             <script src="../resources/js/reviewTop5.js"></script>
             <script src="../resources/js/qnaTop5.js"></script>
             <script src="../resources/js/productDetail.js"></script>

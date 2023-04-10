@@ -35,8 +35,8 @@
 					<td>${dto.id}</td>
 					<td>${dto.regDate}</td>
 					<td>${dto.productNum} ${product.list.productNum}</td>
+					 <c:if test="${member.id eq dto.id or member.roleDTO.roleNum < 3 }">
 					<td>
-				   <c:if test="${member.id eq dto.id or member.roleDTO.roleNum < 3 }">
 					<form action="./delete" id="frmde">
 						 <input type="hidden" name="num" value="${dto.num}">
 						 <button id="delete" type="button" class="btn btn-info">DELETE</button>

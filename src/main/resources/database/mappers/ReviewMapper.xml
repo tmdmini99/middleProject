@@ -17,7 +17,7 @@
   	</sql>
   
 	<select id="getTotalCount" resultType="Long">
-  		SELECT COUNT (NUM) FROM REVIEW
+  		SELECT COUNT(NUM) FROM REVIEW
   		
   	</select>
     
@@ -62,7 +62,7 @@
    </delete>
     
      <update id="setBoardUpdate" parameterType="BbsDTO">
-  		UPDATE REVIEW SET TITLE=#{title}, CONTENTS=#{contents} WHERE NUM=#{num}
+  		UPDATE REVIEW SET CONTENTS=#{contents} WHERE NUM=#{num}
   	</update>
      <select id="getBoardDetail" parameterType="BbsDTO" resultMap="getBoardDetailResult"> 
    		SELECT Q.*, QF.*

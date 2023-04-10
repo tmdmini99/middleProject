@@ -32,8 +32,21 @@ public class QnaController {
 		return "qna";
 	}
 	
-	@RequestMapping(value="list", method = RequestMethod.GET)
+	@GetMapping("list")
 	public ModelAndView getBoardList(Pager pager)throws Exception {
+	ModelAndView mv = new ModelAndView();
+
+	List<BbsDTO> ar = qnaService.getBoardList(pager);
+
+	mv.addObject("pager",pager);
+	mv.addObject("list",ar);
+	mv.setViewName("product/detail");
+		
+	return mv;			
+	}
+	
+	@GetMapping("listdetail")
+	public ModelAndView getBoardListdetail(Pager pager)throws Exception {
 	ModelAndView mv = new ModelAndView();
 
 	List<BbsDTO> ar = qnaService.getBoardList(pager);
@@ -65,7 +78,7 @@ public class QnaController {
 	}
 	
 	mv.addObject("result", result);
-	mv.addObject("url", "./list");
+	mv.addObject("url", "./listdetail");
 	mv.setViewName("common/result");
 	return mv;
 	}	
@@ -84,7 +97,7 @@ public class QnaController {
 		}
 
 		mv.addObject("result", message);
-		mv.addObject("url", "./list");
+		mv.addObject("url", "./listdetail");
 
 		return mv;
 	}
@@ -105,7 +118,7 @@ public class QnaController {
 		
 		mv.setViewName("common/result");
 		mv.addObject("result", "수정 성공");
-		mv.addObject("url", "./list");
+		mv.addObject("url", "./listdetail");
 		
 		return mv;
 	}

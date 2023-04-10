@@ -16,7 +16,7 @@ $("#selectForm1").on("change", function(){
   console.log(proNum);
   
 
-  $.ajax({
+ $.ajax({
       url : "./optionList",
       type : "POST",
       data:{

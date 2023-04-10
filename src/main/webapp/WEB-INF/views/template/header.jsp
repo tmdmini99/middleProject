@@ -327,9 +327,9 @@
                                                 </div>
                                             </div>
                                         </li>
-                                        <li class="mega-parent"><a href="/qna/list">Qna</a>
+                                        <li class="mega-parent"><a href="/qna/listdetail">Qna</a>
                                         </li>
-                                        <li><a a href="/review/list">Review</a>
+                                        <li><a a href="/review/listdetail">Review</a>
                                         </li>
                                         <li>
                                             <a href="about.html">About us</a>

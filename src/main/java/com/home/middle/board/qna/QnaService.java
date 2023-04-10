@@ -32,6 +32,15 @@ public class QnaService implements BbsService{
 		return qnaDAO.getBoardList(pager);
 	}
 	
+	
+	public List<BbsDTO> getBoardListdetail(Pager pager) throws Exception {
+		pager.makeNum(qnaDAO.getTotalCount(pager));
+		pager.makeRow();
+		
+		return qnaDAO.getBoardList(pager);
+	}
+	
+	
 	@Override
 	public int setBoardAdd(BbsDTO bbsDTO, MultipartFile[] multipartFiles , HttpSession session) throws Exception {
 		// TODO Auto-generated method stub

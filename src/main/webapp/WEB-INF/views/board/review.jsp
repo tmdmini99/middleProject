@@ -23,16 +23,16 @@
 				<tr>
 					<th>NUM</th><th>CONTENTS</th><th>TITLE</th><th>ID</th><th>DATE</th><th>삭제</th><th>수정</th>
 				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${list}" var="dto">
+			</thead><c:forEach items="${list}" var="dto">
 				<tr>
 					<td>${dto.num}</td>
 					<td>${dto.contents}</td>
 					<td>${dto.id}</td>
 					<td>${dto.regDate}</td>
 					<td>${dto.productNum}</td>
-					<td> <form action="./delete" id="frmde">
+					<td> 
+					 <c:if test="${member.id eq dto.id or member.roleDTO.roleNum < 3 }">
+					<form action="./delete" id="frmde">
 					 <input type="hidden" name="num" value="${dto.num}">
 					 <button id="delete" type="button" class="btn btn-info">DELETE</button>
 					</form>
@@ -40,8 +40,11 @@
 					<td>
 					 <a class="btn btn-info"  href ="./update?num=${dto.num}">update</a>
 					</td>
+					</c:if>
 				</tr>
 				</c:forEach>
+			<tbody>
+				
 			</tbody>
 		
 		</table>
