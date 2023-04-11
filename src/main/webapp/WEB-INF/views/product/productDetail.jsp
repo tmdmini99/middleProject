@@ -56,7 +56,14 @@
                                                 </c:forEach>
                                             </select>
                                         </div>
-
+                                        <div class="row">
+											<div class="col-md-8">
+												<input type="text" value="5000" class="mx-auto my-auto"/>
+	                                        </div>
+	                                        <div class="col-md-4 my-auto">
+	                                        	<span class="col-md-2 float-left">원</span>
+	                                        </div>
+                                        </div>
                                         <c:set var="loop_flag" value="true" />
                                     </c:if>
                                 </c:forEach>

@@ -115,6 +115,7 @@
                                                         </table>
                                                     </div>
                                                 </div>								
+								<button onclick="test()">결제하기</button>
 								<button class="btn btn-primary selectPayment float-end mx-2">Payment Selected</button>
 								
 								<button class="btn btn-primary selectedDelete float-end">Delete Selected</button>
@@ -126,9 +127,10 @@
 
 			</div>
 			
+			<script src="https://cdn.iamport.kr/v1/iamport.js"></script>
 			<script src="/resources/js/cartUpdate1.js"></script>
 			<c:import url="../template/cart_common_js.jsp"></c:import>
-			<script src="https://cdn.iamport.kr/v1/iamport.js"></script>
+			
 		</body>
 
 		</html>
