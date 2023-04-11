@@ -22,7 +22,7 @@ public class ProductDAO {
 		return l;
 	}
 	
-	public List<ProductOptionDTO> getProductList(ProductDTO productDTO)throws Exception{
+	public List<ProductOptionDTO> getProductList(ProductDTO productDTO )throws Exception{
 		return sqlSession.selectList(NAMESPACE+"getProductList",productDTO);
 	}
 	
