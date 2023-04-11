@@ -14,7 +14,7 @@
 <c:import url="../template/header.jsp"></c:import>
 
 	
-	<div class="row mx-auto" style="max-width: 3000px;">
+	<div class="row mx-auto" style="max-width: 30000px;">
 	<div class="row my-5-auto">
 	${member.id}님 환영합니다
 		<h1>${boardName} List</h1>
