@@ -18,9 +18,14 @@
   	</select>
   	
   	
-  	<select id="getProductList" resultType="ProductDTO" parameterType="ProductDTO">
-  	SELECT PRODUCTNUM , PRODUCTNAME , DISCOUNT , DISCOUNTPERCENT FROM PRODUCT
+  	<select id="getProductList" resultType="ProductDTO" parameterType="Pager">
+  
+  	
+	
+	SELECT PRODUCTNUM , PRODUCTNAME , DISCOUNT , DISCOUNTPERCENT FROM PRODUCT
   	WHERE CATEGORYNUM = #{categoryNum}
+  	
+  	
   	
   	</select>
 
@@ -33,9 +38,7 @@
 	ON FI.PRODUCTNUM  = P.PRODUCTNUM 
 	WHERE P.PRODUCTNUM = #{productNum}
    </select> 
- 	
- 	
- 	
+
  	
  <!--type=""에는 최종리턴타입  -->
    <resultMap type="ProductDTO" id="productDetailResult">
