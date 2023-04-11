@@ -58,10 +58,19 @@ public class QnaReplyController {
 	
 	
 	//글쓰기 
+//	@GetMapping("add")
+//	public ModelAndView SetBoardAdd(ProductDTO productDTO) throws Exception{
+//	ModelAndView mv = new ModelAndView();
+//	mv.addObject("dto",productDTO);
+//	mv.setViewName("board/add");
+//	return mv;
+//	}
+//	
+	
 	@GetMapping("add")
-	public ModelAndView SetBoardAdd(ProductDTO productDTO) throws Exception{
+	public ModelAndView SetBoardAdd(QnaReplyDTO qnaReplyDTO) throws Exception{
 	ModelAndView mv = new ModelAndView();
-	mv.addObject("dto",productDTO);
+	mv.addObject("dto",qnaReplyDTO);
 	mv.setViewName("board/add");
 	return mv;
 	}
