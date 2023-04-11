@@ -165,7 +165,7 @@
                                                         <p class="color-title f-left">구매수량</p>
                                                         <div class="cart-plus-minus f-left" id="qtybutton">
                                                             <!-- <input type="text" value="02" id="inputQuantity" name="productEa" name="qtybutton" class="cart-plus-minus-box"> -->
-                                                            <input class="cart-plus-minus-box" id="inputQuantity" name="productatya" type="num" value="0"
+                                                            <input class="cart-plus-minus-box" id="inputQuantity" name="productEa" type="num" value="0"
                                                             style="max-width: 3rem" />
                                                         </div>   
                                                     </div>
@@ -199,7 +199,7 @@
                                               
                                                 <!--  hr -->
                                                 <hr>
-                                                <div class="d-flex">
+                                                
                                                     <div>
                                                         <button class="btn btn-outline-dark flex-shrink-0" type="submit" id="btn">
                                                             <i class="bi-cart-fill me-1"></i>
@@ -207,20 +207,8 @@
                                                         </button>
                                                     </div>
                                                 
-                                                    <div>
-                                                        <button class="btn btn-outline-dark flex-shrink-0" href="../../qna/add?productNum=${dto.productNum}">
-                                                            <i class="bi-cart-fill me-2"></i>
-                                                            상품 문의
-                                                        </button>
-                                                    </div>
-                                                
-                                                    <div>
-                                                        <button class="btn btn-outline-dark flex-shrink-0" href="../../review/add?productNum=${dto.productNum}">
-                                                            <i class="bi-cart-fill me-3"></i>
-                                                            상품 리뷰
-                                                        </button>
-                                                    </div>
-                                                </div>
+                                                 
+                                            
                                                 
                                                
                                                 

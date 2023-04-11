@@ -12,14 +12,16 @@
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
-<div class="container-fluid">
-	<div class="row my-5">
+
+	
+	<div class="row mx-auto" style="max-width: 3000px;">
+	<div class="row my-5-auto">
 	${member.id}님 환영합니다
 		<h1>${boardName} List</h1>
 	</div>
-
-	<div class="row">
-		<table class="table table-hover">
+	
+	  <div class="container">
+		<table class="table table-striped">
 			<thead>
 				<tr>
 					 <th>NUM</th><th>CONTENTS</th><th>TITLE</th><th>ID</th><th>DATE</th><th>상품번호</th><c:if test="${member.id eq dto.id or member.roleDTO.roleNum < 3}"><th>삭제</th><th>수정</th> </c:if>
@@ -52,6 +54,7 @@
 		
 		</table>
 	</div>
+</div>	
 			<!-- paging -->
 		<div class="row">
 			<nav aria-label="Page navigation example">
@@ -117,7 +120,7 @@
 				<a href="./add" class="btn btn-primary">글작성</a>
 			</div>		
 		</div>
-</div>
+
 <c:import url="../template/footer.jsp"></c:import>
 <script type="text/javascript" src="../resources/js/boardForm.js"></script>
 <c:import url="../template/common_js.jsp"></c:import>
