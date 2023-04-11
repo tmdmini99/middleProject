@@ -200,12 +200,27 @@
                                                 <!--  hr -->
                                                 <hr>
                                                 
-                                                    <div>
+                                                    
                                                         <button class="btn btn-outline-dark flex-shrink-0" type="submit" id="btn">
                                                             <i class="bi-cart-fill me-1"></i>
                                                             Add to cart
                                                         </button>
-                                                    </div>
+
+                                                        <button class="btn btn-outline-dark flex-shrink-0" type="button">
+                                                            <a href="../../qna/add?productNum=${dto.productNum}">
+                                                              <i class="bi-cart-fill me-1"></i>
+                                                              리뷰 작성
+                                                            </a>
+                                                        </button>
+                                                        
+                                                        <button class="btn btn-outline-dark flex-shrink-0" type="button">
+                                                            <a href="../../review/add?productNum=${dto.productNum}">
+                                                              <i class="bi-cart-fill me-1"></i>
+                                                              QNA 작성
+                                                            </a>
+                                                        </button>
+                                                          
+                                                    
                                                 
                                                  
                                             
@@ -351,16 +366,39 @@
                                                             <div class="card-header" role="tab" id="heading${dto2.num}">
                                                                 <h4 class="panel-title">
                                                                     <a role="button" data-bs-toggle="collapse" data-bs-parent="#accordion" href="#collapse${dto2.num}" aria-expanded="false" aria-controls="collapse${dto2.num}" class="collapsed">
-                                                                     [문의] ${dto2.title} ${dto2.num}
+                                                                     
+                                                                    <div class="row">
+                                                                       
+                                                                     <div class="col-md-6 float-left">
+                                                                        [문의] ${dto2.title} ${dto2.num} </div> 
+                                                                     <c:forEach items="${list3}" var="dto3" varStatus="index1">  
+                                                                    <c:if test="${dto3.num eq dto2.num}">
+                                                                     <div class="col-md-6 d-flex justify-content-end"><li><i class="zmdi zmdi-check zmdi-hc-lg"></i></li></div>
+                                                                    </c:if>
+                                                                     </c:forEach>
+                                                                    </div>
+                                                                    
                                                                     </a>
                                                                 </h4>
                                                             </div>
                                                             <div id="collapse${dto2.num}" class="collapse" data-bs-parent="#accordion" aria-labelledby="heading${dto2.num}" style="">
                                                                 <div class="card-body">
-                                                                    <p> 작성자 : ${dto2.id}</p>
-                                                                    <p>${dto2.contents}</p>
+                                                                 <li><i class="zmdi zmdi-comment-outline zmdi-hc-2x mdc-text-amber"></i>   질문    </li>  
+                                                                  <p> 작성자 : ${dto2.id}</p>
+                                                                  <p>${dto2.contents}</p>
                                                                 </div>
+                                                                <div class="card-body">
+                                                                <c:forEach items="${list3}" var="dto3" varStatus="index1">
+                                                                  <c:if test="${dto3.num eq dto2.num}">
+                                                                 
+                                                                        <li><i class="zmdi zmdi-comment-alt-text zmdi-hc-2x mdc-text-amber"></i>   답변    </li>
+                                                                      <p >${dto3.title} </p> <p >${dto3.contents}</p>  <p >${dto3.regDate}</p> 
+                                                                    
+                                                                  </c:if>
+                                                                </c:forEach>    
                                                             </div>
+                                                              </div>
+                                                              
                                                         </div>
                                                         </c:forEach>
                                                     </div>

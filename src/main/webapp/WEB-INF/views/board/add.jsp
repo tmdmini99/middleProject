@@ -28,12 +28,25 @@
     		<input type="text" class="form-control" id="id" name="id" placeholder="id" value="${member.id}">
   		</div>
   		
-  		<c:if test="${boardName eq qna}">
+  		<c:if test="${boardName eq 'qna'}">
   		<div class="col-12">
     		<label for="contents" class="form-label">제목</label>
     		<input type="text" class="form-control" id="title" name="title" placeholder="제목">
   		</div> 
   		</c:if>
+  		
+  		<c:if test="${boardName eq 'QnaReply'}">
+  		<div class="col-12">
+    		<label for="contents" class="form-label">제목</label>
+    		<input type="text" class="form-control" id="title" name="title" placeholder="제목">
+  		</div> 
+  		<div class="col-12">
+    		<label for="contents" class="form-label">원글번호</label>
+    		<input type="text" class="form-control" id="num" name="num" placeholder="원글 번호" value="1">
+  		</div> 
+  		</c:if>
+  		
+  		
      	<div class="col-12">
     		<label for="contents" class="form-label">내용</label>
     		<input type="text" class="form-control" id="contents" name="contents" placeholder="상세내용">
