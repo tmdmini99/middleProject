@@ -192,6 +192,8 @@ $('#btnFinish').click(function(){
         console.log(optionValue0);
         console.log(optionValue1);
         console.log(optionValue2);
+        console.log(countList);
+        console.log(countList2);
         $.ajax({
             url : "/product/productOptionAdd",
             type : "POST",
