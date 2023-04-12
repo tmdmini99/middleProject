@@ -214,11 +214,11 @@ public class ProductController {
 	}
 	
 	@PostMapping("productOptionAdd")
-	public ModelAndView productOptionAdd(String[] optionValue0, String[] optionValue1, String[] optionValue2, String[] optionName, int[] countList, int[] countList2, String[] price, String[] stock) throws Exception{
+	public ModelAndView productOptionAdd(String[] optionValue0, String[] optionValue1, String[] optionValue2, String[] optionName, int[] countList, int[] countList2, String[] price, String[] stock, String productNum) throws Exception{
 		
 		ModelAndView mv = new ModelAndView();
 		
-		productService.productOptionAdd(optionValue0,optionValue1,optionValue2,optionName, countList, countList2, price, stock);
+		productService.productOptionAdd(optionValue0,optionValue1,optionValue2,optionName, countList, countList2, price, stock, productNum);
 		
 		mv.setViewName("/test/testjson");
 		
@@ -250,13 +250,13 @@ public class ProductController {
 		return mv;
 	}
 	@PostMapping("productOptionUpdate")
-	public ModelAndView setproductOptionUpdate(ProductOptionDTO productOptionDTO, String[] optionValue0, String[] optionValue1, String[] optionValue2, String[] optionName, int[] countList, int[] countList2, String[] price, String[] stock) throws Exception{
+	public ModelAndView setproductOptionUpdate(ProductOptionDTO productOptionDTO, String[] optionValue0, String[] optionValue1, String[] optionValue2, String[] optionName, int[] countList, int[] countList2, String[] price, String[] stock, String productNum) throws Exception{
 		
 		ModelAndView mv = new ModelAndView();
 		
 		productService.setProductOptionDelete(productOptionDTO);
 		
-		productService.productOptionAdd(optionValue0,optionValue1,optionValue2,optionName, countList, countList2, price, stock);
+		productService.productOptionAdd(optionValue0,optionValue1,optionValue2,optionName, countList, countList2, price, stock, productNum);
 		
 		mv.setViewName("/test/testjson");
 		

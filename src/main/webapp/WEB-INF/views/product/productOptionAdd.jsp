@@ -6,13 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<c:import url="../template/common_css.jsp"></c:import>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+<script type="text/javascript" src="//code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 
 	<form action="./productOptionAdd" method="post" id="frm">
 	    <input type="hidden" name="json1" id="json1">
-	    <input type="hidden" name="productNum" value="${dto.productNum}">
+	    <input type="hidden" class="productNumC" name="productNum" value="${dto.productNum}">
 	    <div class="opi">
 	        <button type="button" class="oi">옵션 네임</button>
 	        <div class="op1">
@@ -29,6 +30,6 @@
 	</form>
 
 <script src="/resources/js/optionAdd.js"></script>
-<c:import url="../template/common_js.jsp"></c:import>
+<c:import url="../template/cart_common_js.jsp"></c:import>
 </body>
 </html>
