@@ -27,12 +27,12 @@
         
 
         <!-- BREADCRUMBS SETCTION START -->
-        <div class="breadcrumbs-section plr-200 mb-80 section">
+       
          <!-- BREADCRUMBS SETCTION START -->
             <div class="breadcrumbs-section plr-200 mb-80 section text-center">
                 <img src="/resources/js/img/others/ad.png" alt="" class="mx-auto">
             </div>
-        </div>
+  
         <!-- BREADCRUMBS SETCTION END -->
 
         <!-- Start page content -->

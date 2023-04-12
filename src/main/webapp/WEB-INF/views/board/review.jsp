@@ -23,7 +23,10 @@
 		<table class="table table-hover">
 			<thead>
 				<tr>
-					<th>NUM</th><th>CONTENTS</th><th>ID</th><th>DATE</th><th>PNUM</th><th>삭제</th><th>수정</th>
+					<th>NUM</th><th>CONTENTS</th><th>ID</th><th>DATE</th><th>PNUM</th>
+					<c:if test="${member.id eq list[0].id or member.roleDTO.roleNum < 3 }">
+					<th>삭제</th><th>수정</th>
+					</c:if>
 				</tr>
 			</thead><c:forEach items="${list}" var="dto">
 				<tr>
@@ -32,8 +35,8 @@
 					<td>${dto.id}</td>
 					<td>${dto.regDate}</td>
 					<td>${dto.productNum}</td>
-					<td> 
 					 <c:if test="${member.id eq dto.id or member.roleDTO.roleNum < 3 }">
+					 <td> 
 					<form action="./delete" id="frmde">
 					 <input type="hidden" name="num" value="${dto.num}">
 					 <button id="delete" type="button" class="btn btn-warning">DELETE</button>
@@ -45,10 +48,6 @@
 					</c:if>
 				</tr>
 				</c:forEach>
-			<tbody>
-				
-			</tbody>
-		
 		</table>
 	</div>
 			<!-- paging -->

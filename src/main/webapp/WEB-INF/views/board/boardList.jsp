@@ -23,12 +23,27 @@
 		<table class="table table-hover">
 			<thead>
 				<tr>
-					<th>NUM</th><th>CONTENTS</th><th>TITLE</th><th>TITLE</th><th>ID</th><th>DATE</th><th>삭제</th><th>수정</th>
+					<th>NUM</th><th>CONTENTS</th><th>TITLE</th><th>TITLE</th><th>ID</th><th>DATE</th>
+					 
+					 <c:if test="${member.id eq list[0].id or member.roleDTO.roleNum < 3 }">
+					<th>삭제</th><th>수정</th>
+					</c:if>
+				    <th>댓글</th>
+					
 				</tr>
 			</thead><c:forEach items="${list}" var="dto">
+			 
 				<tr>
+					
 					<td>${dto.num}</td>
-					<td>${dto.contents}</td>
+					<td width="650px">
+					<h5 style="font-weight: bold; "> [문의 내용] </h5> <p style="font-weight: bold; text-align: initial; background-color: #FFE794;"> ${dto.contents}</p>  
+						<c:forEach items="${list1}" var="dto1"> 
+						<br></br>
+					   <h5 style="font-weight: bold; text-align: right; "> [답변 내용] </h5>
+					   <p style="font-weight: bold; text-align: initial; background-color: #FFF0D0;">${dto1.contents}</p>
+					    </c:forEach>
+					 </td>
 					<td>${dto.title}</td>
 					<td>${dto.id}</td>
 					<td>${dto.regDate}</td>
@@ -44,7 +59,21 @@
 					 <a class="btn btn-warning"  href ="./update?num=${dto.num}">UPDATE</a>
 					</td>
 					</c:if>
+		         <c:if test="${member.roleDTO.roleNum < 3 }">
+		         <div>
+		            <td width="86px" >
+					  <a href="/qnaReply/add?productNum=${dto.num}" class="btn btn-warning" >댓글</a>
+					</td>
+					</div>
+					
+					</c:if>
+				<%-- 	<c:if test="${member.roleDTO.roleNum < 2 }">
+					<div class="col-auto justify-content-end">
+					 <a href="/qnaReply/add" class="btn btn-warning">글작성</a>
+					</div>  
+					</c:if> --%>
 				</tr>
+				
 				</c:forEach>
 			<tbody>
 				
