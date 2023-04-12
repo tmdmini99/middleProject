@@ -250,9 +250,9 @@
                                         </li>
                                         <li><a a href="/review/listdetail">Review</a>
                                         </li>
-                                        <li>
+                                        <!-- <li>
                                             <a href="about.html">About us</a>
-                                        </li>
+                                        </li> -->
                                         <li>
                                             <a href="/contact">Contact</a>
                                         </li>
