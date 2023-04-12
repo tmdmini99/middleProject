@@ -48,8 +48,7 @@
 	   <id column="PRODUCTNUM" property="productNum" />
 	   <!-- 그외 나머지 -->
 	   <result column="PRODUCTNAME" property="productName" />
-	   <result column="DISCOUNT" property="discount" />
-	   <result column="DISCOUNTPERCENT" property="discountPercent" />
+	   
 	   <result column="PRODUCTSALES" property="productSales" />
 	   <result column="CATEGORYNUM" property="categoryNum" />
 	   
