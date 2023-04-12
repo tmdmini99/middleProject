@@ -210,18 +210,21 @@ public class ProductController {
 	public ModelAndView setProductOptionAdd(ProductDTO productDTO, HttpSession session)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
-		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
-		String id = productService.getProductId(productDTO);
-		if(memberDTO != null) {
-			if(memberDTO.getId().equals(id)){			
-				mv.addObject("dto", productDTO);
-				mv.setViewName("product/productOptionAdd");
-			}else {
-				mv.setViewName("redirect:/");
-			}
-		}else {
-			mv.setViewName("redirect:/");
-		}
+//		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
+//		String id = productService.getProductId(productDTO);
+//		if(memberDTO != null) {
+//			if(memberDTO.getId().equals(id)){			
+//				mv.addObject("dto", productDTO);
+//				mv.setViewName("product/productOptionAdd");
+//			}else {
+//				mv.setViewName("redirect:/");
+//			}
+//		}else {
+//			mv.setViewName("redirect:/");
+//		}
+		mv.addObject("dto", productDTO);
+		mv.setViewName("product/productOptionAdd");
+		
 		return mv;
 	}
 	
