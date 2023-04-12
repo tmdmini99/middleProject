@@ -12,6 +12,7 @@
 
 	<form action="./productOptionAdd" method="post" id="frm">
 	    <input type="hidden" name="json1" id="json1">
+	    <input type="hidden" name="productNum" value="${dto.productNum}">
 	    <div class="opi">
 	        <button type="button" class="oi">옵션 네임</button>
 	        <div class="op1">
