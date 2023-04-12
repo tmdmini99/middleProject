@@ -19,10 +19,9 @@
   	
   	
   	<select id="getProductList" resultType="ProductDTO" parameterType="Pager">
-  
-  	
+
 	
-	SELECT PRODUCTNUM , PRODUCTNAME , DISCOUNT , DISCOUNTPERCENT FROM PRODUCT
+	SELECT PRODUCTNUM , PRODUCTNAME FROM PRODUCT
   	WHERE CATEGORYNUM = #{categoryNum}
   	
   	
@@ -94,8 +93,8 @@
 		<selectKey keyProperty="productNum" resultType="Long" order="BEFORE">
 			SELECT PRODUCT_SEQ.NEXTVAL FROM DUAL
 		</selectKey>
-		INSERT INTO PRODUCT 
-		VALUES (#{productNum}, #{productName}, #{discount},#{discountPercent} , #{productSales}, #{categoryNum},#{id})
+		INSERT INTO PRODUCT (PRODUCTNUM , PRODUCTNAME, PRODUCTSALES, ID, CATEGORYNUM)
+		VALUES (#{productNum}, #{productName},#{productSales},#{id}, #{categoryNum})
 	</insert>
 	
 	<insert id="setProductFileAdd" parameterType="ProductImgDTO">
@@ -125,7 +124,7 @@
 	
 	<update id="setProductUpdate" parameterType="ProductDTO">
 		UPDATE PRODUCT 
-		SET PRODUCTNAME = #{productName}, DISCOUNT = #{discount}, DISCOUNTPERCENT = #{discountPercent}, PRODUCTSALES = #{productSales}, CATEGORYNUM = #{categoryNum}
+		SET PRODUCTNAME = #{productName}, PRODUCTSALES = #{productSales}, CATEGORYNUM = #{categoryNum}
 		WHERE PRODUCTNUM = #{productNum}
 	</update>	
 	
