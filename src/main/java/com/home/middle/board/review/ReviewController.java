@@ -115,7 +115,7 @@ public class ReviewController {
 				if(productDTO.getProductNum() !=null) {
 					mv.setViewName("common/result");
 
-					System.out.println("DDD");
+					
 					int result = reviewService.setBoardDelete(bbsDTO, session);
 
 					
@@ -127,7 +127,7 @@ public class ReviewController {
 					mv.addObject("url", "../product/detail?productNum="+productDTO.getProductNum());
 					}else {
 					mv.setViewName("common/result");
-					System.out.println("DDD");
+					
 					
 					int result = reviewService.setBoardDelete(bbsDTO, session);
 
