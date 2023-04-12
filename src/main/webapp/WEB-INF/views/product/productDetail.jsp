@@ -228,6 +228,7 @@
                                                                 <i class="bi-cart-fill me-1"></i>
                                                                 Add to cart
                                                             </button>
+                                                            <a href="./productOptionAdd?productNum=${dto.productNum}" class="btn btn-outline-dark flex-shrink-0">옵션 추가</a>
                                                             <a href="../../qna/add?productNum=${dto.productNum}">
                                                                 <button class="btn btn-outline-dark flex-shrink-0"
                                                                     type="button">

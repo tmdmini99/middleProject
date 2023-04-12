@@ -23,6 +23,7 @@ import com.home.middle.board.qna.QnaService;
 import com.home.middle.board.review.ReviewService;
 import com.home.middle.util.Pager;
 
+
 @Controller
 @RequestMapping("/product/*")
 public class ProductController {
@@ -205,15 +206,13 @@ public class ProductController {
 	}
 	
 	@GetMapping("productOptionAdd")
-	public ModelAndView setProductAddOption() throws Exception{
-		
+	public ModelAndView setProductOptionAdd(ProductDTO productDTO)throws Exception{
 		ModelAndView mv = new ModelAndView();
-	
-		mv.setViewName("/product/productOptionAdd");
-		
+		mv.addObject("dto", productDTO);
+		mv.setViewName("product/productOptionAdd");
 		return mv;
-		
 	}
+	
 	@PostMapping("productOptionAdd")
 	public ModelAndView productOptionAdd(String[] optionValue0, String[] optionValue1, String[] optionValue2, String[] optionName, int[] countList, int[] countList2, String[] price, String[] stock) throws Exception{
 		
