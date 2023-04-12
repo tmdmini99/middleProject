@@ -18,15 +18,41 @@
   	</select>
   	
   	
-  	<select id="getProductList" resultType="ProductDTO" parameterType="Pager">
+  	<select id="getProductList" resultMap="productList11" parameterType="Pager">
 
 	
-	SELECT PRODUCTNUM , PRODUCTNAME FROM PRODUCT
+	SELECT * FROM PRODUCT
+	LEFT JOIN 
+	PRODUCTFILES
+	USING(PRODUCTNUM)
   	WHERE CATEGORYNUM = #{categoryNum}
   	
-  	
-  	
+ 
   	</select>
+  	
+  	<resultMap type="ProductDTO" id="productList11">
+   
+	   <!--Primary Key  -->
+	   <id column="PRODUCTNUM" property="productNum" />
+	   <!-- 그외 나머지 -->
+	   <result column="PRODUCTNAME" property="productName" />
+	   <result column="PRODUCTSALES" property="productSales" />
+	   <result column="CATEGORYNUM" property="categoryNum" />
+	   
+ 	 
+ 	 
+ 	   <collection property="productImgDTOs" javaType="List" ofType="ProductImgDTO" >
+ 	    <id  column="FILENUM"  property="fileNum" />
+        <result  column="NUM" property="num"/>
+    	<result  column="FILENAME" property="fileName"/>
+    	<result  column="ORINAME" property="oriName"/>
+ 	   </collection>
+ 	   
+ 	    <!-- 1:1 관계일 때 -->
+    	<!--<association property="" javaType="">-->
+   </resultMap>
+  	
+  	
 	<select id="getProductOptionList" parameterType="ProductOptionDTO" resultType="ProductOptionDTO">
 		SELECT * FROM PRODUCTOPTION WHERE PRODUCTNUM = #{productNum} AND DEPTH = #{depth} ORDER BY OPTIONNUM ASC
 	</select>
