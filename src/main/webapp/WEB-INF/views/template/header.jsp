@@ -11,7 +11,7 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 d-none d-md-block">
                             <div class="call-us">
-                                <p class="mb-0 roboto">0123456789</p>
+                                <p class="mb-0 roboto"></p>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6">
