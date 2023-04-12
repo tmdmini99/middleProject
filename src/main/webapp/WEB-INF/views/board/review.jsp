@@ -9,12 +9,14 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../template/common_css.jsp"></c:import>
-</head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;800;900&display=swap');
+</style>
 <body>
 <c:import url="../template/header.jsp"></c:import>
-<div class="container-fluid">
+<div class="container-fluid col-md-9">
 	<div class="row my-5">
-		<h1>${boardName} List</h1>
+		<h1 style="font-family: 'Lexend', sans-serif">${boardName} List</h1>
 	</div>
 
 	<div class="row">
@@ -34,11 +36,11 @@
 					 <c:if test="${member.id eq dto.id or member.roleDTO.roleNum < 3 }">
 					<form action="./delete" id="frmde">
 					 <input type="hidden" name="num" value="${dto.num}">
-					 <button id="delete" type="button" class="btn btn-info">DELETE</button>
+					 <button id="delete" type="button" class="btn btn-warning">DELETE</button>
 					</form>
 					</td>
 					<td>
-					 <a class="btn btn-info"  href ="./update?num=${dto.num}">update</a>
+					 <a class="btn btn-warning"  href ="./update?num=${dto.num}">UPDATE</a>
 					</td>
 					</c:if>
 				</tr>
@@ -106,11 +108,11 @@
 				  <input type="text" class="form-control" value="${pager.search}" name="search" id="search" placeholder="검색어를 입력하세요">
 				</div>
 				<div class="col-auto">
-				  <button type="submit" class="btn btn-primary mb-3">검색</button>
+				  <button type="submit" class="btn btn-warning mb-3">검색</button>
 				</div>
 			</form>
 					<div class="row">
-						<a href="./add" class="btn btn-primary">글작성</a>
+						<a href="./add" class="btn btn-warning">글작성</a>
 					 </div>
 			     <div>    
              </div>

@@ -323,7 +323,7 @@ public class CartController {
 		if(session.getAttribute("member")!=null) {
 			memberDTO = (MemberDTO)session.getAttribute("member");
 			cartService.setPayment(cartDTOs, memberDTO);
-			//mv.setViewName("/cart/cartPaymentList");
+			mv.setViewName("/cart/cartPaymentList");
 		}else {
 			mv.setViewName("redirect:../");
 		}
