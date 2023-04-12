@@ -89,7 +89,9 @@ public class ProductDAO {
 		return sqlSession.selectOne(NAMESPACE + "productOptionNum");
 	}
 	
-	
+	public String getProductId(ProductDTO productDTO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE + "getProductId", productDTO);
+	}
 	
 	
 }

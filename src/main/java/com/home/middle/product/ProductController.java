@@ -21,6 +21,7 @@ import com.home.middle.board.qna.QnaReplyDTO;
 import com.home.middle.board.qna.QnaReplyService;
 import com.home.middle.board.qna.QnaService;
 import com.home.middle.board.review.ReviewService;
+import com.home.middle.member.MemberDTO;
 import com.home.middle.util.Pager;
 
 
@@ -206,10 +207,21 @@ public class ProductController {
 	}
 	
 	@GetMapping("productOptionAdd")
-	public ModelAndView setProductOptionAdd(ProductDTO productDTO)throws Exception{
+	public ModelAndView setProductOptionAdd(ProductDTO productDTO, HttpSession session)throws Exception{
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("dto", productDTO);
-		mv.setViewName("product/productOptionAdd");
+		
+		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
+		String id = productService.getProductId(productDTO);
+		if(memberDTO != null) {
+			if(memberDTO.getId().equals(id)){			
+				mv.addObject("dto", productDTO);
+				mv.setViewName("product/productOptionAdd");
+			}else {
+				mv.setViewName("redirect:/");
+			}
+		}else {
+			mv.setViewName("redirect:/");
+		}
 		return mv;
 	}
 	
