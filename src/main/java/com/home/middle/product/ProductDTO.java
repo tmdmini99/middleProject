@@ -102,15 +102,5 @@ public class ProductDTO {
 	public void setProductImgDTOs(List<ProductImgDTO> productImgDTOs) {
 		this.productImgDTOs = productImgDTOs;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 }
