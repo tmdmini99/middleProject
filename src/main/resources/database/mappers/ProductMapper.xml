@@ -28,7 +28,9 @@
   	
   	
   	</select>
-
+	<select id="getProductOptionList" parameterType="ProductOptionDTO" resultType="ProductOptionDTO">
+		SELECT * FROM PRODUCTOPTION WHERE PRODUCTNUM = #{productNum} AND DEPTH = #{depth} ORDER BY OPTIONNUM ASC
+	</select>
  	<select id="getProductDetail" parameterType="ProductDTO" resultMap="productDetailResult">
 
 	SELECT P.*, PO.* ,FI.* FROM PRODUCT P
@@ -137,4 +139,7 @@
 	<delete id="setProductDelete" parameterType="ProductDTO">
 		DELETE PRODUCT WHERE PRODUCTNUM = #{productNum}
 	</delete>
+	<delete id="setProductOptionDelete" parameterType="ProductOptionDTO">
+ 		DELETE PRODUCTOPTION WHERE PRODUCTNUM = #{productNum}
+ 	</delete>
 	</mapper>  
