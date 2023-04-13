@@ -140,6 +140,10 @@
                                     <li class="active"><a href="#"><i class="zmdi zmdi-chevron-right"></i></a></li>
                                 </ul>
                                 <!-- shop-pagination end -->
+                                <c:if test="${member.roleDTO.roleNum<3}">
+                                <a href="add" class="btn">상품 추가</a>
+                                </c:if>
+                                
                             </div>
                         </div>
                         <div class="col-lg-3 order-lg-1 order-2">
