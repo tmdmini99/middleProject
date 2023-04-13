@@ -69,8 +69,10 @@ public class CartController {
 			MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
 			
 			List<CartDTO> ar = cartService.getCartList(memberDTO);
+			List<CartDTO> ar2 = cartService.getCartOptionName(memberDTO);
 			
 			mv.addObject("list", ar);
+			mv.addObject("list2", ar2);
 			mv.setViewName("/cart/cartList");
 		}else {
 			mv.setViewName("redirect:../");
@@ -273,8 +275,9 @@ public class CartController {
 		if(session.getAttribute("member")!=null) {
 			memberDTO = (MemberDTO)session.getAttribute("member");
 			List<CartDTO> ar = cartService.getCartPaymentList(memberDTO);
-			
+			List<CartDTO> ar2 = cartService.getCartOptionName(memberDTO);
 			mv.addObject("list", ar);
+			mv.addObject("list2", ar2);
 			mv.setViewName("/cart/cartPaymentList");
 		}else {
 			mv.setViewName("redirect:../");
