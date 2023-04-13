@@ -13,7 +13,8 @@
 	</select>
  	  <sql id="ProductCondition">
       <where>
-         <if test="kind == 'productName'">
+      	CATEGORYNUM = #{categoryNum}
+         <if test="id == 'id'">
             PRODUCTNAME LIKE '%' || #{search} || '%'
          </if>
       </where>
@@ -28,15 +29,19 @@
  	</insert>
   	
   	<select id="getProductList" resultMap="productList11" parameterType="Pager">
-
-	
-	SELECT * FROM PRODUCT
-	LEFT JOIN 
-	PRODUCTFILES
-	USING(PRODUCTNUM)
-  	WHERE CATEGORYNUM = #{categoryNum}
-  	
- 
+SELECT * FROM 
+		(
+			SELECT ROWNUM R, N.* FROM
+			(
+			(SELECT * FROM PRODUCT
+					LEFT JOIN 
+					PRODUCTFILES
+					USING(PRODUCTNUM)
+				<include refid="ProductCondition"></include>
+			 ORDER BY PRODUCTNUM DESC) 
+			)
+		N)
+		WHERE R BETWEEN #{startRow} AND #{lastRow} 
   	</select>
   	
   	<resultMap type="ProductDTO" id="productList11">

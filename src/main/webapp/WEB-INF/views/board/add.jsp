@@ -25,7 +25,7 @@
 	<form class = "row g-3 ms-auto" action="./add" method="post" enctype="multipart/form-data" >
  		<div class="col-12">
     		<label for="title" class="form-label">아이디</label>
-    		<input type="text" class="form-control" id="id" name="id" placeholder="id" value="${member.id}">
+    		<input type="text" class="form-control" id="id" name="id" placeholder="id" value="${member.id}" readonly>
   		</div>
   		
   		<c:if test="${boardName eq 'qna'}">
