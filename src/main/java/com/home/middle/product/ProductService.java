@@ -239,18 +239,18 @@ public class ProductService {
 //		System.out.println(stock1);
 //		System.out.println(stock11);
 //		return 1;
-		System.out.println("optionValue0");
-		for(int i = 0; i < optionValue0.length; i ++) {
-			System.out.println(optionValue0[i]);
-		}
-		System.out.println("optionValue1");
-		for(int i = 0; i < optionValue1.length; i ++) {
-			System.out.println(optionValue1[i]);
-		}
-		System.out.println("optionValue2");
-		for(int i = 0; i < optionValue2.length; i ++) {
-			System.out.println(optionValue2[i]);
-		}
+//		System.out.println("optionValue0");
+//		for(int i = 0; i < optionValue0.length; i ++) {
+//			System.out.println(optionValue0[i]);
+//		}
+//		System.out.println("optionValue1");
+//		for(int i = 0; i < optionValue1.length; i ++) {
+//			System.out.println(optionValue1[i]);
+//		}
+//		System.out.println("optionValue2");
+//		for(int i = 0; i < optionValue2.length; i ++) {
+//			System.out.println(optionValue2[i]);
+//		}
 		for (int i = 0; i < optionValue1.length; i++) {
 			String str = optionValue1[i];		
 			StringTokenizer st1 = new StringTokenizer(str, ",");
@@ -272,7 +272,7 @@ public class ProductService {
 			optionValue11.add((ArrayList<String>) optionValue112);
 			countidx += countList2[i];
 		}
-		System.out.println(optionValue11);
+		
 		for (int i = 0; i < optionValue2.length; i++) {
 			String str = optionValue2[i];
 			String str2 = price[i];
@@ -296,7 +296,7 @@ public class ProductService {
 			price1.add(pstr2);
 			stock1.add(pstr3);
 		}
-		System.out.println(optionValue222);
+		
 		countidx = 0;
 		count = 0;
 		for (int i = 0; i < countList2.length; i++) {
