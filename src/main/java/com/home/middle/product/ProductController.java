@@ -41,11 +41,11 @@ public class ProductController {
 	
 	
 	@GetMapping("list")
-	public ModelAndView getProductList(ProductDTO productDTO,Pager pager ) throws Exception{
+	public ModelAndView getProductList(Pager pager) throws Exception{
 	
 		ModelAndView mv = new ModelAndView();
-
-		List<ProductOptionDTO> ar = productService.getProductList(productDTO,pager);
+		pager.setPerPage(10L);
+		List<ProductOptionDTO> ar = productService.getProductList(pager);
 		
 		mv.setViewName("product/productList");
 	
