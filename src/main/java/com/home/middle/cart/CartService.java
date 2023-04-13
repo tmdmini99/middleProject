@@ -60,7 +60,8 @@ public class CartService {
 		Long a = cartDAO.getPaymentNum();
 		productPaymentDTO.setPaymentNum(a);
 		productPaymentDTO.setPaymentName(Long.toString(a));
-		
+		System.out.println(productPaymentDTO.getPaymentName());
+		cartDAO.setPaymentInsert(productPaymentDTO);
 		for(CartDTO cartDTO : cartDTOs) {
 			cartDTO.setId(memeberDTO.getId());
 			cartDTO.setPaymentCheck(1L);

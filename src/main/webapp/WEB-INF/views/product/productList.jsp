@@ -83,21 +83,12 @@
                                             <!-- product-item start -->
                                             <div class="col-lg-4 col-md-6">
                                                 <div class="product-item">
-													<c:choose>
-													<c:when test="${not empty dto.productImgDTOs[0].fileName}">
+													
                                                     <div class="product-img">
                                                         <img class="card-img-top mb-5 mb-md-0"
-                                                        src="../resources/upload/product/${dto.productImgDTOs[0].fileName}"  height="270" width="300"/>
+                                                        src="/resources/productImg/${pageScope.dto.productName}.webp"  height="270" width="300"/>
                                                     </div>
-                                                    </c:when>
-                                                    <c:otherwise>
-                                                    <div class="product-img">
-                                                        <a href="./detail?productNum=${dto.productNum}">
-                                                            <img src="/resources/js/img/product/7.jpg" alt=""/>
-                                                        </a>
-                                                    </div>
-                                                    </c:otherwise>
-                                                    </c:choose>
+                                                    
                                                     <div class="product-info">
                                                         <h6 class="product-title">
                                                             <a href="./detail?productNum=${dto.productNum}"> ${pageScope.dto.productName}</a>

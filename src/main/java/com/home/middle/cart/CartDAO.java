@@ -72,7 +72,7 @@ public class CartDAO {
 	}
 	
 	public int setPaymentInsert(ProductPaymentDTO productPaymentDTO) throws Exception{
-		return sqlSession.selectOne(NAMESPACE + "setPaymentInsert", productPaymentDTO);
+		return sqlSession.insert(NAMESPACE + "setPaymentInsert", productPaymentDTO);
 	}
 	
 	public int setCartUpdate(CartDTO cartDTO) throws Exception{
