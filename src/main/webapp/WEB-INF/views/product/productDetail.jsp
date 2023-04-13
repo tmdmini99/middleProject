@@ -230,7 +230,7 @@
                                                                
                                                             </button>
                                                             
-                                                            
+                                                            <c:if test="${not empty member.id and dto.id eq member.id}">
                                                             <c:choose>
                                                             	<c:when test="${not empty dto.productOptionDTOs[0].optionNum}">
                                                             		<a href="./productOptionUpdate?productNum=${dto.productNum}" class="btn btn-outline-dark flex-shrink-0">옵션 수정</a>
@@ -239,7 +239,7 @@
                                                             		<a href="./productOptionAdd?productNum=${dto.productNum}" class="btn btn-outline-dark flex-shrink-0">옵션 추가</a>
                                                             	</c:otherwise>
                                                             </c:choose>
-                                                            
+                                                            </c:if>
                                                             <a href="../../qna/add?productNum=${dto.productNum}">
                                                                 <button class="btn btn-outline-dark flex-shrink-0"
                                                                     type="button">
