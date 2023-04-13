@@ -480,15 +480,14 @@
                                                                                     <c:forEach items="${list3}"
                                                                                         var="dto3" varStatus="index1">
                                                                                        
-                                                                                            test="${dto3.num eq dto2.num}">
+                                                                                          <c:if test="${dto3.num eq dto2.num}">
                                                                                             <div
                                                                                                 class="col-md-6 d-flex justify-content-end">
 
-                                                                                                <i
-                                                                                                    class="zmdi zmdi-check zmdi-hc-lg"></i>
+                                                                                                <i class="zmdi zmdi-check zmdi-hc-lg"></i>
 
                                                                                             </div>
-                                                                                       
+                                                                                           </c:if>
                                                                                     </c:forEach>
                                                                                 </div>
 
