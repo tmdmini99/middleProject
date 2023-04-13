@@ -48,8 +48,8 @@
 					<td>${dto.id}</td>
 					<td>${dto.regDate}</td>
 					<td>${dto.productNum}</td>
+					<c:if test="${member.id eq dto.id or member.roleDTO.roleNum < 3 }">
 					<td> 
-					 <c:if test="${member.id eq dto.id or member.roleDTO.roleNum < 3 }">
 					<form action="./delete" id="frmde">
 					 <input type="hidden" name="num" value="${dto.num}">
 					 <button id="delete" type="button" class="btn btn-warning">DELETE</button>
@@ -60,11 +60,11 @@
 					</td>
 					</c:if>
 		         <c:if test="${member.roleDTO.roleNum < 3 }">
-		         <div>
+		         
 		            <td width="86px" >
 					  <a href="/qnaReply/add?productNum=${dto.num}" class="btn btn-warning" >댓글</a>
 					</td>
-					</div>
+					
 					
 					</c:if>
 				<%-- 	<c:if test="${member.roleDTO.roleNum < 2 }">
@@ -80,6 +80,7 @@
 			</tbody>
 		
 		</table>
+	</div>
 	</div>
 			<!-- paging -->
 		<div class="row">
