@@ -107,7 +107,7 @@ public class CartController {
     	cartDTO.setProductDTO(productDTO);
 		int result = cartService.setCartAdd(cartDTO);
 	
-		mv.addObject("result", result);
+		
 		mv.setViewName("redirect:./cartList");
 		
 		return mv;

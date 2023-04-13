@@ -159,7 +159,11 @@ public class ProductService {
 		List<ArrayList<String>> stock1 = new ArrayList<ArrayList<String>>();
 		List<ArrayList<ArrayList<String>>> stock11 = new ArrayList<ArrayList<ArrayList<String>>>();
 		
-		
+		System.out.println(optionValue0.length);
+		System.out.println(optionValue1.length);
+		System.out.println(optionValue2.length);
+		System.out.println(countList.length);
+		System.out.println(countList2.length);
 //				for (int i = 0; i < optionValue1.length; i++) {
 //					String str = optionValue1[i];		
 //					StringTokenizer st1 = new StringTokenizer(str, ",");
@@ -235,8 +239,18 @@ public class ProductService {
 //		System.out.println(stock1);
 //		System.out.println(stock11);
 //		return 1;
-
-		
+		System.out.println("optionValue0");
+		for(int i = 0; i < optionValue0.length; i ++) {
+			System.out.println(optionValue0[i]);
+		}
+		System.out.println("optionValue1");
+		for(int i = 0; i < optionValue1.length; i ++) {
+			System.out.println(optionValue1[i]);
+		}
+		System.out.println("optionValue2");
+		for(int i = 0; i < optionValue2.length; i ++) {
+			System.out.println(optionValue2[i]);
+		}
 		for (int i = 0; i < optionValue1.length; i++) {
 			String str = optionValue1[i];		
 			StringTokenizer st1 = new StringTokenizer(str, ",");
@@ -244,9 +258,10 @@ public class ProductService {
 				optionValue111.add(st1.nextToken());
 			}
 		}
+		
 		int countidx = 0;
 		int count = 0;
-			
+		System.out.println(optionValue111);
 		for(int i = 0; i < countList2.length; i ++) {		
 			List<String> optionValue112 = new ArrayList<String>();
 			count = countidx + countList2[i];
@@ -257,6 +272,7 @@ public class ProductService {
 			optionValue11.add((ArrayList<String>) optionValue112);
 			countidx += countList2[i];
 		}
+		System.out.println(optionValue11);
 		for (int i = 0; i < optionValue2.length; i++) {
 			String str = optionValue2[i];
 			String str2 = price[i];
@@ -280,7 +296,7 @@ public class ProductService {
 			price1.add(pstr2);
 			stock1.add(pstr3);
 		}
-
+		System.out.println(optionValue222);
 		countidx = 0;
 		count = 0;
 		for (int i = 0; i < countList2.length; i++) {
@@ -299,7 +315,7 @@ public class ProductService {
 			price11.add((ArrayList<ArrayList<String>>) price12);
 			stock11.add((ArrayList<ArrayList<String>>) stock12);
 		}
-
+		System.out.println(optionValue22);
 		for (int i = 0; i < optionValue0.length; i++) {
 			long tempStock2 = 0;
 			long tempPrice2 = 0;
@@ -389,7 +405,7 @@ public class ProductService {
 																											// 적용해줄것
 						productOptionDTO.setProductStock(Long.parseLong(stock11.get(i).get(j).get(k)));// 배열로 값 넘어온거
 																											// 적용해줄것
-						productOptionDTO.setRef(optionNum1.get(j).get(i));
+						productOptionDTO.setRef(optionNum1.get(i).get(j));
 
 						productDAO.productOptionAdd0(productOptionDTO);
 					}

@@ -103,11 +103,11 @@
                                         <div class="col-lg-5">
                                             <div class="imgs-zoom-area">
                                                 <div>
-                                                    <c:forEach items="${dto.productImgDTOs}" var="productImgDTO">
+                                                    
                                                         <img id="zoom_03"
-                                                            src="../resources/upload/product/${productImgDTO.fileName}"
+                                                            src="/resources/productImg/${dto.productName}.webp"
                                                             height="270" width="450" />
-                                                    </c:forEach>
+                                                    
                                                 </div>
                                             </div>
                                         </div>
