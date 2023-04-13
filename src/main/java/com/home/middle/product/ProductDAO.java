@@ -24,8 +24,8 @@ public class ProductDAO {
 	public List<ProductOptionDTO> getProductOptionList(ProductOptionDTO productOptionDTO) throws Exception{
 		return sqlSession.selectList(NAMESPACE + "getProductOptionList", productOptionDTO);
 	}
-	public List<ProductOptionDTO> getProductList(ProductDTO productDTO )throws Exception{
-		return sqlSession.selectList(NAMESPACE+"getProductList",productDTO);
+	public List<ProductOptionDTO> getProductList(Pager pager)throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getProductList",pager);
 	}
 	public int setProductOptionDelete(ProductOptionDTO productOptionDTO) throws Exception{
 		return sqlSession.delete(NAMESPACE + "setProductOptionDelete", productOptionDTO);
