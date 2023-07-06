@@ -14,7 +14,7 @@
 
 <p align="center">
   <br>
-<!--   <img src="src/main/resources/static/images/" width="500" height="200"> -->
+    <img src="img/logo/logo.png" alt="main logo">
   <br>
 </p>
 
