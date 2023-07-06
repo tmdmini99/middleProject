@@ -50,7 +50,7 @@
 
 |**Category**|**Detail**|
 |:--:|:--:|
-|**FrontEnd**| `HTML5`, `JavaScript`, `JQuery`, `CSS`|
+|**FrontEnd**| `HTML5`, `JavaScript`, `JQuery`, `CSS`, `BootStrap`|
 |**BackEnd**| `Java(JDK 1.8)`, `Servlet`, `Spring`, `Mybatis` |
 |**OS**| `Windows 10`, `Windows 11` |
 |**Libray & API**| `??` |
