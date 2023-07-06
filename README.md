@@ -14,7 +14,7 @@
 
 <p align="center">
   <br>
-    <img src="img/logo/logo.png" alt="main logo">
+    <img src="/resources/js/img/logo/logo.png" alt="main logo">
   <br>
 </p>
 
