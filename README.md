@@ -81,7 +81,7 @@
 <img src="src/main/webapp/resources/imgs/Untitled.png">
 
 #### 2-1 회원가입
-<img src="src/main/webapp/resources/imgs/.png">
+<img src="src/main/webapp/resources/imgs/Join.png">
 
 
 ## 배포
