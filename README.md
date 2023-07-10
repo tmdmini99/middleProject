@@ -82,9 +82,38 @@
 
 #### 2-1 회원가입
 <img src="src/main/webapp/resources/imgs/Join.png">
+-id 중복 검사, pw확인 이메일 인증, 이름과 주소 휴대폰 번호가 들어가야지만 회원가입 가능
+<img src="src/main/webapp/resources/imgs/Duplication.png">
+-중복 검사를 하지 않고 넘어 갈 경우 중복 검사를 하라고 표시
+<img src="src/main/webapp/resources/imgs/DuplicationFail.png">
+-id가 중복 될 경우 ID가 중복된다고 표시
+<img src="src/main/webapp/resources/imgs/DuplicationSuccess.png">
+-id가 중복되지 않으면 사용 가능이라 나옴
+
+#### 2-2 PW
+<img src="src/main/webapp/resources/imgs/PwCount.png">
+-비밀번호 글자 수 설정
+<img src="src/main/webapp/resources/imgs/PwFail.png">
+-비밀번호 재확인시 비밀번호가 일치하지 않으면 일치 하지 않는다 표시
+<img src="src/main/webapp/resources/imgs/PwSuccess.png">
+-일치할 경우 일차한다 표시
+
+#### 2-3 Address
+<img src="src/main/webapp/resources/imgs/Address.png">
+-카카오 주소 API를 사용하여 주소창 표시
+<img src="src/main/webapp/resources/imgs/AddressDetail.png">
+-주소 api를 사용하여 주소 입력시 상세 주소 입력창 표시
+
+#### 2-4 Email
+<img src="src/main/webapp/resources/imgs/Email.png">
+-emial인증 로직 구현
+<img src="src/main/webapp/resources/imgs/EmailSend.png">
+-인증번호 전송 완료 시 전송 완료 메세지 전송
+<img src="src/main/webapp/resources/imgs/EmailFail.png">
+-인번호 불 일치 시 인증번호 확인
+<img src="src/main/webapp/resources/imgs/EmailSuccess.png">
+-인증 번호 일치시 더이상 인증번호를 바꾸지 못하게 disabled를 설정
 
 
-## 배포
-**미정**
 
-## ISSUE
+
