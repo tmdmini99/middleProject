@@ -53,14 +53,16 @@
 |**FrontEnd**| `HTML5`, `JavaScript`, `JQuery`, `CSS`, `BootStrap`|
 |**BackEnd**| `Java(JDK 1.8)`, `Servlet`, `Spring`, `Mybatis` |
 |**OS**| `Windows 10`, `Windows 11` |
-|**Libray & API**| `??` |
+|**Libray & API**| `KAKAO LOGIN API, EMAIL API` |
 |**IDE**| `STS3`, `VisualStudio Code`, `DBeaver` |
-|**Server**| `??` |
+|**Server**| `TOMCART 9.0.71` |
 |**Document**| `Google Drive`, `ERDCloud`, `Notion` |
 |**CI**| `Github` |
 |**DB**| `Docker`, `Oracle` |
 
 ## 기능구현
+### 1 MEMBER
+#### 1-1 로그인
 
 ## 배포
 **미정**
