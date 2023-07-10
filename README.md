@@ -65,9 +65,9 @@
 #### 1-1 로그인
 <img src="src/main/webapp/resources/imgs/MiddleLogin.png">
 - 로그인 성공 시 로그인 성공이라는 문구가 출력된후 메인 홈페이지로 돌아감
-<img src="src/main/resources/imgs/LoginSuccess.png">
--성공
 <img src="src/main/webapp/resources/imgs/LoginSuccess.png">
+-성공
+<img src="src/main/webapp/resources/imgs/LoginFail.png">
 -실패
 #### 1-2 ID 찾기
 <img src="src/main/webapp/resources/imgs/IdFind.png">
