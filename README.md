@@ -63,23 +63,23 @@
 ## 기능구현
 ### 1 MEMBER
 #### 1-1 로그인
-<img src="src/main/resources/webapp/imgs/MiddleLogin.png">
+<img src="src/main/webapp/resources/imgs/MiddleLogin.png">
 - 로그인 성공 시 로그인 성공이라는 문구가 출력된후 메인 홈페이지로 돌아감
 <img src="src/main/resources/webapp/imgs/LoginSuccess.png">
 -성공
-<img src="src/main/resources/webapp/imgs/LoginSuccess.png">
+<img src="src/main/webapp/resources/imgs/LoginSuccess.png">
 -실패
 #### 1-2 ID 찾기
-<img src="src/main/resources/webapp/imgs/IdFind.png">
+<img src="src/main/webapp/resources/imgs/IdFind.png">
 -D찾기를 클릭 시 email을 입력 → 이메일이 일치하는 아이디가 있으면 아이디 리스트 전부 출력
 #### 1-3 임시 비밀번호 생성
-<img src="src/main/resources/webapp/imgs/TemporaryPw.png">
+<img src="src/main/webapp/resources/imgs/TemporaryPw.png">
 -ID와 이메일 입력 시  db에서 id 와 이메일을 비 교하여 있을경우 비밀번호 변경 후 
 -비밀번호 출력
-<img src="src/main/resources/webapp/imgs/Untitled.png">
+<img src="src/main/webapp/resources/imgs/Untitled.png">
 
 #### 2-1 회원가입
-<img src="src/main/resources/webapp/imgs/.png">
+<img src="src/main/webapp/resources/imgs/.png">
 
 
 ## 배포
